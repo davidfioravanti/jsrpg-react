@@ -1,0 +1,248 @@
+@font-face {
+    font-family: "alagardmedium";
+    src: url("alagard-webfont.woff2") format("woff2"),
+         url("alagard-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* #landingPageWrapper, ::-webkit-scrollbar, ::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+    filter: hue-rotate(195deg);
+    color: pink !important;
+} */
+
+body {
+    overflow: hidden !important;
+}
+footer {
+    position: fixed;
+    height: auto;
+    padding-top: 5px;
+    bottom: 0;
+    width: 100%;
+    background: rgb(29, 28, 28);
+    font-size: 13px;
+    border-top: 2px dashed green;
+}
+
+iframe {
+    box-shadow: 0px 0px 40px 5px rgba(24, 129, 14, 0.281);;
+    border-radius: 15px;
+    border: 1.5px rgb(134, 255, 104) dashed;
+    user-select: none;
+    animation: iframe 2s infinite ease-in-out;
+    /* filter: hue-rotate(290deg); */
+}
+@keyframes iframe {
+    0% {box-shadow: 0px 0px 40px 5px rgba(24, 129, 14, 0.281);; }
+    50% {box-shadow: 0px 0px 15px 5px rgba(24, 129, 14, 0.418);;}
+    100% {box-shadow: 0px 0px 40px 5px rgba(24, 129, 14, 0.281);;}
+}
+
+input[type="checkbox"] {
+    background: red !important;
+}
+
+#bodyDiv {
+    position: relative;
+}
+#console {
+    display: none;
+}
+
+#devButton {
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    bottom: 5px;
+}
+
+/* #devTools {
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    transition: all .5s ease-in-out;
+} */
+
+#gameScreen {
+    margin-top: 23px;
+}
+#headerDiv {
+    transition: all .5s ease-in-out;
+    border: 2px dashed green;
+    padding-top: 20px;
+    height: 320px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 50px rgba(0, 128, 0, 0.253);
+}
+
+#pageHeader {
+    font-size: 12vw;
+}
+#pageSubheader {
+    font-size: 4vw;
+    position: relative;
+    top: -20px;
+}
+
+#playButton {
+    width: 100%;
+    border-top: none;
+    font-size: 20px;
+    border-width: 2px !important;
+    border-color: green !important;
+}
+
+#usernameDiv {
+    position: fixed;
+    top: 200px;
+    margin-bottom: -15px;
+}
+
+.bg-light {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.customColorRange {
+    width: 340px;
+}
+
+.darkText {
+    color: rgb(48, 197, 48) !important;
+}
+
+.embeddedVideo {
+    overflow: scroll;
+    width: 100%;
+    border: 2px green dashed;
+}
+
+.form-control {
+    text-align: center;
+    font-family: "alagardmedium";
+    font-size: 25px !important;
+    background: rgba(0, 128, 0, 0.144);
+    border: none;
+    border-radius: 0;
+    border-bottom: none !important;
+    animation: input 2s infinite ease;
+}
+    .form-control:focus {
+        background: rgba(0, 128, 0, 0.144);
+        border: none;
+        border-radius: 0;
+        border-bottom: none !important;
+        box-shadow: none !important;
+        outline: none;
+    }
+
+.hellbat1 {
+    transition: all .5s ease-in-out;
+    font-size: 3px;
+    animation: hellbat1 1s infinite ease-in-out;
+}
+    @keyframes hellbat1 {
+        0% {opacity: 1;}
+        50% {opacity: 0;}
+        100% {opacity: 1}
+    }
+
+.hellbat2 {
+    transition: all .5s ease-in-out;
+    font-size: 3px;
+    position: relative;
+    top: -295px;
+    opacity: 1;
+    animation: hellbat2 1s infinite ease-in-out;
+}
+    @keyframes hellbat2 {
+        0% {opacity: 0;}
+        50% {opacity: 1;}
+        100% {opacity: 0}
+    }
+
+.hellbatDiv {
+    position: relative;
+    height: 50px;
+    top: -40px;
+}
+
+.navbar-brand {
+    width: 50px;
+}
+.nav-link {
+    font-size: 20px;
+}
+
+
+
+@media only screen and (max-width: 580px) {
+    #devTools {
+        position: absolute;
+        bottom: 0px;
+        left: -10px;
+        transition: all .5s ease-in-out;
+    }
+    
+}
+@media only screen and (min-width: 501px) {
+    #headerDiv {
+        height: 420px;
+    }
+}
+@media only screen and (min-width: 670px) {
+    #headerDiv {
+        height: 470px;
+    }
+}
+@media only screen and (min-width: 880px) {
+    #headerDiv {
+        height: 500px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .hellbat1, .hellbat2 {
+        transition: all .5s ease-in-out;
+        font-size: 2.5px;
+    }
+    .hellbat2 {
+        transition: all .5s ease-in-out;
+        top: -225px;
+    }
+}
+
+@media only screen and (min-width: 1060px) {
+    #pageHeader {
+        font-size: 110px;
+    }
+    #pageSubheader {
+        font-size: 40px;
+    }
+}
+
+#pageIcon {
+    width: 100%;
+    border: 1px dashed green;
+    border-radius: 8px;
+}
+
+#gameFooter {
+    position: fixed;
+    bottom: 0;
+    font-size: 15px !important;
+    height: 40px;
+    width: 100%;
+    border: 1px dashed green;
+    padding-top:10px;
+}
+body {
+    height: 100% !important;
+}
+#exitButton {
+    margin-right: 20px;
+}
+#gameScreenWrapper {
+    height: 100%;
+}

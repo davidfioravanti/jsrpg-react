@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ascii Art Converter</title>
+    <link rel="stylesheet" href="assets/css/asciiGen.css" />
+</head>
+<body>
+    <input type="file" name="picture" />
+    <canvas id="preview" style="display: none;"></canvas>
+    <pre id="ascii"></pre>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="assets/javascript/asciiGen.js"></script>
+    <script>
+        $("#copyButton").on("click", function() {
+            let copyText = $("#ascii").html();
+            copyText.select();
+            document.execCommand("copy");
+        })
+    </script>
+</body>
+</html>

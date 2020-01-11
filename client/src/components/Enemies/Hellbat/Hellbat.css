@@ -1,0 +1,31 @@
+.hellbatDiv {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    transform: scale(1);
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.hellbatFrame1 {
+    animation: hellbatFrame1 2s infinite ease-in-out;
+    position: relative;
+    user-select: none;
+}
+    @keyframes hellbatFrame1 {
+        0% {opacity: 1}
+        50% {opacity: 0}
+        100% {opacity: 1}
+    }
+
+.hellbatFrame2 {
+    animation: hellbatFrame2 2s infinite ease-in-out;
+    position: relative;
+    top: -220px;
+    user-select: none;
+}
+    @keyframes hellbatFrame2 {
+        0% {opacity: 0}
+        50% {opacity: 1}
+        100% {opacity: 0}
+    }

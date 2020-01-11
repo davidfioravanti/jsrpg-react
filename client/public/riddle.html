@@ -1,0 +1,89 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- CUSTOM CSS-OVERRIDE -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/riddle.css">
+    <title>RPG</title>
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-database.js"></script>
+</head>
+
+<body>
+    <div id="bodyWrapper">
+    <div id="wrapper">
+        <div id="box1" class="box"></div>
+        <div id="box1Zone" class="boxZone"></div>
+        <div id="box2" class="box"></div>
+        <div id="box2Zone" class="boxZone"></div>
+        <div id="box3" class="box"></div>
+        <div id="box3Zone" class="boxZone"></div>
+        <div id="box4" class="box"></div>
+        <div id="box4Zone" class="boxZone"></div>
+        <h1 class="draggable letter a floating" value="a">A</h1>
+        <h1 class="draggable letter b floating">B</h1>
+        <h1 class="draggable letter c floating">C</h1>
+        <h1 class="draggable letter d floating">D</h1>
+        <h1 class="draggable letter e floating">E</h1>
+        <h1 class="draggable letter f floating">F</h1>
+        <h1 class="draggable letter g floating">G</h1>
+        <h1 class="draggable letter h floating">H</h1>
+        <h1 class="draggable letter i floating">I</h1>
+        <h1 class="draggable letter j floating">J</h1>
+        <h1 class="draggable letter k floating">K</h1>
+        <h1 class="draggable letter l floating">L</h1>
+        <h1 class="draggable letter m floating">M</h1>
+        <h1 class="draggable letter n floating">N</h1>
+        <h1 class="draggable letter o floating">O</h1>
+        <h1 class="draggable letter p floating">P</h1>
+        <h1 class="draggable letter q floating">Q</h1>
+        <h1 class="draggable letter r floating">R</h1>
+        <h1 class="draggable letter s floating">S</h1>
+        <h1 class="draggable letter t floating">T</h1>
+        <h1 class="draggable letter u floating">U</h1>
+        <h1 class="draggable letter v floating">V</h1>
+        <h1 class="draggable letter w floating">W</h1>
+        <h1 class="draggable letter x floating">X</h1>
+        <h1 class="draggable letter y floating">Y</h1>
+        <h1 class="draggable letter z floating">Z</h1>
+        
+    </div>
+    <div id="continueScreen" class="container text-center">
+        <button id="continueButton" class="btn btn-success" type="button">CONTINUE!</button>
+    </div>
+    <div id="ui" class="container text-center">
+        <button id="checkSolution" class="btn btn-success" style="margin-left: -20px" type="button">GUESS THE RIDDLE</button>
+    </div>
+
+    <div id="riddle" class="container text-center">
+        <h3></h3>
+    </div>
+    </div>
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- <script src="assets/javascript/draggable.js"></script> -->
+    <!-- MOMENT -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <!-- JAVASCRIPT LINK -->
+    <script src="assets/javascript/riddle.js"></script>
+
+    <!-- BOOTSTRAP DEPENDENCIES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+.skull {
+    opacity: 0;
+    transition: all .5s ease-in-out;
+    animation: skull 2s infinite ease-in-out;
+}
+.skullFrame1 {
+    user-select: none;
+    display: block;
+    position: absolute;
+    font-size: 1.6px;
+    top: 50px;
+    left: 150px;
+    animation: skullFrame1 1.5s infinite ease-in-out;
+}
+.skullFrame2 {
+    user-select: none;
+    display: block;
+    position: absolute;
+    font-size: 1.6px;
+    top: 90px;
+    left: 155px;
+    animation: skullFrame2 1.5s infinite ease-in-out;
+}
+.skullFrame3 {
+    user-select: none;
+    display: none;
+    position: absolute;
+    font-size: 1.6px;
+    top: 90px;
+    left: 150px;
+}
+.skullAttack1 {
+    animation: skullFrame1Attack .3s infinite ease-in-out;
+}
+.skullFrame4 {
+    user-select: none;
+    display: none;
+    position: absolute;
+    font-size: 1.6px;
+    top: 90px;
+    left: 105px;
+    transform: rotate(5deg);
+}
+.skullAttack2 {
+    animation: skullFrame2Attack .3s infinite ease-in-out;
+}
+@keyframes skull {
+    0% {
+        filter: drop-shadow(0px 0px 20px rgb(38, 255, 0));
+        transform: rotate(0deg);
+    }
+    50% {
+        filter: drop-shadow(0px 0px 20px rgba(38, 255, 0, 0.719));
+        transform: rotate(5deg);
+    }
+    100% {filter: drop-shadow(0px 0px 20px rgb(38, 255, 0));
+        transform: rotate(0deg);}
+}
+@keyframes skullFrame1 {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes skullFrame2 {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes skullFrame1Attack {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes skullFrame2Attack {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.skullAttack {
+    animation: skullAttack 2s infinite ease-in-out;
+}
+@keyframes skullAttack {
+    0% {
+        filter: drop-shadow(0px 0px 20px rgb(38, 255, 0));
+        transform: rotate(inherit);
+    }
+    25% {
+        filter: drop-shadow(0px 0px 20px rgba(38, 255, 0, 0.719));
+        transform: rotate(30deg);
+    }
+    75% {filter: drop-shadow(0px 0px 20px rgb(38, 255, 0));
+        transform: rotate(-30deg);}
+    100% {filter: drop-shadow(0px 0px 20px rgb(38, 255, 0));
+        transform: rotate(inherit);}
+}

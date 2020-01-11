@@ -1,0 +1,45 @@
+
+
+.skullFrame1 {
+    user-select: none;
+    position: absolute;
+    bottom: 10px;
+    left: 130px;
+    /* mix-blend-mode: multiply; */
+    font-size: .9px;
+    color: rgb(82, 170, 42) !important;
+    transition: all .5s ease-in-out;
+    animation: skullGlow 2s infinite ease-in-out;
+}
+@keyframes skullGlow {
+    0% {filter: drop-shadow(0px 0px 20px rgb(34, 90, 23));}
+    50% {filter: drop-shadow(0px 0px 20px rgb(38, 255, 18));}
+    100% {filter: drop-shadow(0px 0px 20px rgb(34, 90, 23));}
+}
+
+.graveFrame1 {
+    color: rgb(66, 150, 27) !important;
+    z-index: -1000;
+    font-size: 1.98px;
+}
+
+.flowerFrame1 {
+    font-size: .8px;
+    color: rgb(42, 87, 21) !important;
+}
+
+#clickToContinue {
+    display: none;
+    animation: flash 2s infinite ease-in-out;
+}
+
+@keyframes flash {
+    0%{color: rgb(84, 255, 32);}
+    50%{color: rgba(84, 255, 32, 0.116);}
+    100%{color: rgb(84, 255, 32);}
+}
+#notFoundSkull {
+    transform: scale(.3) !important;
+    margin-top: -250px;
+    overflow: visible !important;
+}

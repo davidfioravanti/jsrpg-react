@@ -1,0 +1,221 @@
+@font-face {
+    font-family: 'barazhadbold';
+    src: url('barazhad_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.modal-content {
+    background-color: rgba(29, 29, 29, 0.972) !important;
+    
+}
+#optionsDiv {
+    position: fixed;
+    bottom: 10px;
+
+}
+#optionsButton {
+    font-size: 10px !important;
+}
+
+.buttonGlow {
+    animation: buttonGlow 2s infinite ease-in-out !important;
+}
+@keyframes buttonGlow {
+    0% {filter: drop-shadow(0px 0px 10px rgb(38, 212, 38))}
+    50% {filter: drop-shadow(0px 0px 10px rgba(38, 212, 38, 0.486))}
+    100% {filter: drop-shadow(0px 0px 10px rgb(38, 212, 38))}
+}
+.eyeball {
+    opacity: 0;
+    user-select: none;
+    position: fixed;
+    overflow: hidden;
+    transform: rotate(0deg);
+    transition: all .5s ease;
+    filter: drop-shadow(0px 0px 20px rgb(38, 255, 0));
+    animation: eyeball 1.5s infinite ease-in-out;
+}
+.eyeballAttack {
+    user-select: none;
+    animation: eyeballAttack 3s ease-in-out;
+}
+.eyeballFrame1 {
+    position: fixed;
+    left: 110px;
+    user-select: none;
+    animation: eyeball1Anim 2s infinite ease-in-out;
+}
+.eyeballFrame2  {
+    position: fixed;
+    left: 110px;
+    user-select: none;
+    animation: eyeball2Anim 2s infinite ease-in-out;
+}
+.form-control {
+    text-align: center;
+    background: none !important;
+    border: 1.5px rgb(71, 255, 47) dashed;
+    outline: none !important;
+    box-shadow: none !important;
+    font-size: 35px !important;
+}
+.form-control:focus {
+    text-align: center;
+    background: none !important;
+    border: 1.5px rgb(71, 255, 47) dashed;
+    outline: none !important;
+}
+.form-control::placeholder {
+text-align: center;
+}
+.runes {
+    display: none;
+    font-family: 'barazhadbold';
+    font-size: 200px !important;
+}
+#acceptStats {
+    display: none;
+}
+#charCreate {
+    display: none;
+    margin-top: 30px;
+}
+#strMessage {
+    font-size: 15px !important;
+    animation: attrMessage 2s ease-in;
+}
+#dexMessage {
+    font-size: 15px !important;
+    animation: attrMessage 2s ease-in;
+}
+#conMessage {
+    font-size: 15px !important;
+    animation: attrMessage 2s ease-in;
+}
+#intMessage {
+    font-size: 15px !important;
+    animation: attrMessage 2s ease-in;
+}
+
+#wisMessage {
+    font-size: 15px !important;
+    animation: attrMessage 2s ease-in;
+}
+#chaMessage {
+    font-size: 15px !important;
+    animation: attrMessage 2s ease-in;
+}
+@keyframes attrMessage {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+#gameTitle {
+    font-size: 60px;
+    animation: titleGlow 2s infinite ease-in-out;
+}
+@keyframes titleGlow {
+    0% {filter: drop-shadow(0px 0px 20px rgb(85, 255, 85))}
+    50% {filter: drop-shadow(0px 0px 20px rgb(29, 131, 29))}
+    100% {filter: drop-shadow(0px 0px 20px rgb(85, 255, 85))}
+}
+#gameTitleSub {
+    font-size: 30px;
+    margin-top: -20px;
+}
+#login {
+    margin-top: 130px;
+}
+#playButton {
+    display: none;
+    font-size: 25px;
+}
+#rune1 {
+    position: fixed;
+    animation: floatingRune1 15s infinite ease;
+    left: 50px;
+    color: rgba(172, 255, 47, 0.568) !important;
+    filter: drop-shadow(0px 0px 20px rgb(28, 255, 28));
+    transition: all .5s ease-in-out;
+}
+@keyframes floatingRune1 {
+    0% {
+        transform: rotate(0deg);
+        left: 50px;
+        filter: drop-shadow(0px 0px 20px rgb(28, 255, 28));
+        font-size: 100px;
+    }
+    25% {
+        filter: drop-shadow(0px 0px 4px rgb(43, 192, 43))
+    }
+    50% {
+        transform: rotate(50deg);
+        left: 30px;
+        filter: drop-shadow(0px 0px 10px rgb(9, 128, 9));
+        font-size: 150px;
+    }
+    100% {
+        transform: rotate(0deg);
+        left: 50px;
+        filter: drop-shadow(0px 0px 20px rgb(28, 255, 28));
+        font-size: 100px;
+    }
+}
+#rune2 {
+    position: fixed;
+    animation: floatingRune2 20s infinite ease;
+    right: 50px;
+    top: 0px;
+    color: rgba(172, 255, 47, 0.568) !important;
+    filter: drop-shadow(0px 0px 20px rgb(28, 255, 28));
+    transition: all .5s ease-in-out;
+    font-size: 100px;
+}
+@keyframes floatingRune2 {
+    0% {
+        transform: rotate(0deg);
+        right: 50px;
+        top: 0px;
+        filter: drop-shadow(0px 0px 20px rgb(28, 255, 28));
+        font-size: 100px;
+    }
+    25% {
+        filter: drop-shadow(0px 0px 4px rgb(43, 192, 43))
+    }
+    50% {
+        transform: rotate(180deg);
+        right: 30px;
+        top: 30px;
+        filter: drop-shadow(0px 0px 10px rgb(9, 128, 9));
+        font-size: 150px;
+    }
+    100% {
+        transform: rotate(0deg);
+        right: 50px;
+        top: 0px;
+        filter: drop-shadow(0px 0px 20px rgb(28, 255, 28));
+        font-size: 100px;
+    }
+}
+#usernameForm {
+    position: relative;
+    top: 220px;
+}
+
+#skipIntroDescr {
+    position:absolute;
+}
+#skipIntroOn {
+    position: absolute;
+    top: -18px;
+    left: 430px;
+}
+#skipIntroOff {
+    position: absolute;
+    top: -18px;
+    left: 248px;
+}
+.tinyText {
+    font-size: 12px;
+}
