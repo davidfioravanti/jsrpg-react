@@ -8,8 +8,6 @@ class PatchNotes extends React.Component {
         <Navigation />
         <div className="container text-center">
           <h1>PATCH-NOTES:</h1>
-
-          <hr />
           <h3>V1.2-alpha (01/09/2020):</h3>
           <div className="sectionBg">
             <u>Added autoplay functionality to the following screens:</u>
@@ -77,10 +75,8 @@ class PatchNotes extends React.Component {
           </p>
           <p>
             &nbsp;&nbsp;&nbsp;&nbsp;{" "}
-            <b>
               This release is meant to be a proof-of-concept/tech demo
               presentation, NOT a major release.
-            </b>
           </p>
           <p align="center">
             ------------------------------------------------------------
@@ -88,16 +84,14 @@ class PatchNotes extends React.Component {
           <h3>New Features:</h3>
           <p>
             &nbsp;&nbsp;&nbsp;&nbsp;{" "}
-            <b>
               <u>
                 You can now enable AUTOPLAY in the options menu! The "computer"
                 AI can:
               </u>
-            </b>
-            <br />
+            <br /><br />
             <ul className="text-left">
               <li>
-                <b>Navigate the overworld, just as YOU would!</b>
+                <u>Navigate the overworld, just as YOU would!</u>
               </li>
               &nbsp;&nbsp;&nbsp;&nbsp; Instead of the player pressing the
               movement keys to get around, the AI will fixate on a particular
@@ -109,7 +103,7 @@ class PatchNotes extends React.Component {
               destination, the computer will trigger other encounters if it
               moves over them along it's path!
               <li>
-                <b>Choose actions in combat!</b>
+                <u>Choose actions in combat!</u>
               </li>
               &nbsp;&nbsp;&nbsp;&nbsp; Upon entering a combat encounter, the RNG
               turn decider will determine who goes first (the computer or the
@@ -120,11 +114,11 @@ class PatchNotes extends React.Component {
               when new gameplay options become available (e.g using items,
               spells, etc...)!
               <li>
-                <b>Interact with non-combat encounters!</b>
+                <u>Interact with non-combat encounters!</u>
               </li>
               &nbsp;&nbsp;&nbsp;&nbsp; Depending on the encounter, the AI will
               determine the optimal choice out of all actions. It will then
-              proceed through the encounter attempting to finish it.{" "}
+              proceed through the encounter attempting to finish it.
               <u>
                 It will ONLY choose to abandon an encounter if there is no
                 chance of a positive outcome, assuming that there is an option
@@ -132,15 +126,13 @@ class PatchNotes extends React.Component {
               </u>
               .
             </ul>
-            &nbsp;&nbsp;&nbsp;&nbsp;{" "}
-            <b>
+            &nbsp;&nbsp;&nbsp;&nbsp;
               <u>Added a new combat encounter!</u>
-            </b>
             <br />
             <br />
             <ul className="text-left">
               <li>
-                <b>BEWARE THE PUMPKING!</b>
+                <u>BEWARE THE PUMPKING!</u>
               </li>
               &nbsp;&nbsp;&nbsp;&nbsp; Most farmers in nearby towns have been
               dealing with a deadly famine for seasons without end. However,

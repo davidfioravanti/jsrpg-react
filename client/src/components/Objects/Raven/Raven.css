@@ -1,0 +1,13 @@
+.ravenDiv {
+    position: relative;
+    transform: scale(1.5);
+    top: -300px;
+    left: -130px;
+    height: 10px;
+}
+
+.ravenFrame1 {
+    color: rgb(15, 98, 0) !important;
+    filter: blur(1.5px);
+    user-select: none;
+}

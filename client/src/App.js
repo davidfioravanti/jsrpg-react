@@ -19,7 +19,7 @@ class App extends React.Component {
         <Hellbat/>
         </div>
         <br></br>
-        <button id="playButton" className="btn btn-success" onClick={function() {window.location.href = "/game"}} type="button">CLICK HERE TO PLAY NOW FOR FREE!</button>
+        <button id="playButton" className="btn btn-success" onClick={function() {window.location.href = "/game.html"}} type="button">CLICK HERE TO PLAY NOW FOR FREE!</button>
         <br/><br/>
         <div id="bodyDiv">
             <h5 className="darkText">Do you love turn based RPG's like Final Fantasy and Fallout?

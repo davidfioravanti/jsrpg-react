@@ -39,6 +39,7 @@
     100%{color: rgb(84, 255, 32);}
 }
 #notFoundSkull {
+    user-select: none;
     transform: scale(.3) !important;
     margin-top: -250px;
     overflow: visible !important;

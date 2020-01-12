@@ -158,6 +158,7 @@ pre {
     #header404 {
       font-size: 150px !important;
       margin-bottom: -40px;
+      animation: statusCode 2s infinite ease-in-out;
     }
 
     .ascii {
@@ -178,3 +179,14 @@ pre {
       font-size: 9px !important;
     }
   }
+    @keyframes statusCode {
+      0% {
+        filter: drop-shadow(10px 0px 10px green);
+      }
+      50% {
+        filter: drop-shadow(10px 0px 5px green);
+      }
+      100% {
+        filter: drop-shadow(10px 0px 10px green);
+      }
+    }
