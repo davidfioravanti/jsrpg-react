@@ -21,7 +21,7 @@
 .hellbatFrame2 {
     animation: hellbatFrame2 2s infinite ease-in-out;
     position: relative;
-    top: -220px;
+    top: -230px;
     user-select: none;
 }
     @keyframes hellbatFrame2 {
