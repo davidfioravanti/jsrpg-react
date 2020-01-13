@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 class Navigation extends React.Component {
     render() {
         return (
@@ -16,7 +16,7 @@ class Navigation extends React.Component {
                                 <Link className="nav-link" to="/">HOME</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/game.html">PLAY</a>
+                                <a className="nav-link" href="assets/html/game.html">PLAY</a>
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -29,11 +29,11 @@ class Navigation extends React.Component {
                                     <Link className="dropdown-item text-center" to="/soundtrack">THE SOUNDTRACK</Link>
                                     <div className="dropdown-divider"></div>
                                     <h5 className="text-center dropdownHeader"><u>OTHER PROJECTS:</u></h5>
-                                    <a className="dropdown-item text-center" href="https://github.com/gainstrive/Javascript-RPG">ON GITHUB</a>
+                                    <a className="dropdown-item text-center" target="_blank" rel="noopener noreferrer" href="https://github.com/gainstrive/">ON GITHUB</a>
                                 </div>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" target="_blank" href="https://github.com/gainstrive/Javascript-RPG">GITHUB</a>
+                                <a className="nav-link" target="_blank" rel="noopener noreferrer" href="https://github.com/gainstrive/jsrpg-react">GITHUB</a>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/patch-notes">PATCH-NOTES</Link>
