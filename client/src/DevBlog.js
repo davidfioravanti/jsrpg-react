@@ -10,7 +10,7 @@ class DevBlog extends React.Component {
                 <Navigation />
                 <div className="container text-center">
                     <h1>DEV-BLOG:</h1>
-                    <p></p>
+                    
                 </div>
                 <Footer />
             </div>
