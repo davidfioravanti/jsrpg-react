@@ -18,6 +18,20 @@ class Navigation extends React.Component {
                             <li className="nav-item">
                                 <a className="nav-link" href="/game.html">PLAY</a>
                             </li>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <u className="dropdownLink">MORE</u>
+                                </a>
+                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <h5 className="text-center dropdownHeader"><u>ABOUT JSRPG:</u></h5>
+                                    <a className="dropdown-item text-center" href="/design">THE DESIGN</a>
+                                    <a className="dropdown-item text-center" href="/code">THE CODE</a>
+                                    <Link className="dropdown-item text-center" to="/soundtrack">THE SOUNDTRACK</Link>
+                                    <div className="dropdown-divider"></div>
+                                    <h5 className="text-center dropdownHeader"><u>OTHER PROJECTS:</u></h5>
+                                    <a className="dropdown-item text-center" href="https://github.com/gainstrive/Javascript-RPG">ON GITHUB</a>
+                                </div>
+                            </li>
                             <li className="nav-item">
                                 <a className="nav-link" target="_blank" href="https://github.com/gainstrive/Javascript-RPG">GITHUB</a>
                             </li>
@@ -25,7 +39,7 @@ class Navigation extends React.Component {
                                 <Link className="nav-link" to="/patch-notes">PATCH-NOTES</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/dev-blog">DEV-BLOG</Link>
+                                <Link className="nav-link" to="/devblog">DEV-BLOG</Link>
                             </li>
                         </ul>
                     </div>

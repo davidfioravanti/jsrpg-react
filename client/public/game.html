@@ -47,6 +47,9 @@
         </div>
     </div>
     </div>
+    <div id="gameMessageDiv" class="container-fluid text-center">
+        <h1 id="gameMessage"></h1>
+    </div>
     <div id="gameFooter" class="text-right">
             <button id="devButton" class="btn btn-success float-left" type="button">!</button>
         <a id="exitButton" href="/">EXIT GAME</a>
@@ -66,6 +69,24 @@
             $("#console").css("-webkit-filter", "hue-rotate(" + rangeVal + "deg)");
             $("body").css("-webkit-filter", "hue-rotate(" + rangeVal + "deg)");
         })
+        $(window).on('resize', checkDimensions = function(){
+            var win = $(this); //this = window
+            if (win.height() < 820 || win.width() < 535) {
+                $("#gamePageWrapper").fadeOut();
+                if (win.height() < 820) {
+                    $("#gameMessage").text("GAME WINDOW TOO SHORT, INCREASE HEIGHT!");
+                }
+                else if (win.width() < 535) {
+                    $("#gameMessage").text("GAME WINDOW TOO NARROW, INCREASE WIDTH!");
+                }
+                $("#gameMessageDiv").fadeIn();
+            }
+            else {
+                $("#gamePageWrapper").fadeIn();
+                $("#gameMessageDiv").fadeOut();
+            }
+        });
+        checkDimensions();
     </script>
     <script src="assets/javascript/game.js"></script>
     <!-- BOOTSTRAP DEPENDENCIES -->

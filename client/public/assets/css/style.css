@@ -429,3 +429,10 @@ pre {
     display: none;
     font-size: 50px;
 }
+
+#gameMessageDiv {
+    position: fixed;
+    margin: auto auto;
+    top: 30%;
+    display: none;
+}

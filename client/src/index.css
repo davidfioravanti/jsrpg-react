@@ -97,11 +97,17 @@ pre {
   }
 
   .bg-light {
-    background: rgb(36, 36, 36) !important;
+    background: rgb(29, 28, 28) !important;
   }
   .nav-link {
+    transition: all .2s ease-in-out;
     color: rgb(92, 177, 71) !important;
     font-size: 20px !important;
+    border-radius: 8px;
+  }
+  .nav-link:hover {
+    color: rgb(51, 255, 0) !important;
+    background: rgba(4, 116, 0, 0.479) !important;
   }
   .navbar-brand {
     color: rgb(89, 255, 47) !important;
@@ -190,3 +196,47 @@ pre {
         filter: drop-shadow(10px 0px 10px green);
       }
     }
+
+    .dropdownLink {
+      color: rgb(92, 177, 71);
+  }
+  .dropdown-menu {
+    border: none !important;
+    background: rgba(36, 36, 36, 0.911) !important;
+  }
+  .dropdown-item {
+    transition: all .2s ease-in-out;
+    color: rgb(128, 255, 96) !important;
+  }
+    .dropdown-item:hover {
+      background: rgba(4, 116, 0, 0.479) !important;
+    }
+    .dropdown-divider {
+      border-top: none !important;
+    }
+
+  @media (min-width: 993px) {
+    .dropdown-menu {
+      border: 1.5px dashed rgb(104, 200, 80) !important;
+      box-shadow: 0px 0px 20px rgb(17, 148, 0);
+    }
+    .dropdown-divider {
+      border-top: 1px dashed rgb(51, 255, 0) !important;
+    }
+    
+  }
+
+  .navbar-toggler {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+
+audio::-webkit-media-controls-panel {
+  background-color: rgb(92, 177, 71) !important;
+}
+
+audio::-webkit-media-controls-play-button {
+  color: red !important;
+}
+

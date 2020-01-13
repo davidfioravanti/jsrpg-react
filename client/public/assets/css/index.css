@@ -234,7 +234,7 @@ input[type="checkbox"] {
     font-size: 15px !important;
     height: 40px;
     width: 100%;
-    border: 1px dashed green;
+    border-top: 1px dashed green;
     padding-top:10px;
 }
 body {

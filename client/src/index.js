@@ -6,6 +6,8 @@ import App from './App'
 import Game from './Game'
 import PatchNotes from './PatchNotes'
 import NotFound from "./NotFound"
+import Soundtrack from "./Soundtrack"
+import DevBlog from "./DevBlog"
 const routing = (
   <Router>
     <div>
@@ -13,6 +15,8 @@ const routing = (
         <Route exact path="/" component={App} />
         <Route path="/game" component={Game} />
         <Route path="/patch-notes" component={PatchNotes} />
+        <Route path="/soundtrack" component={Soundtrack} />
+        <Route path="/devblog" component={DevBlog} />
         <Route component={NotFound} />
       </Switch>
     </div>
