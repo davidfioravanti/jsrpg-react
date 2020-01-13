@@ -141,7 +141,7 @@ pre {
     width: 100%;
   }
 
-  #notFoundSkull {
+  #deathSkull {
     margin-bottom: -250px;
     opacity: 1;
     transition: .5s all ease-in-out;
