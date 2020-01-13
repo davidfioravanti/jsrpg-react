@@ -146,8 +146,8 @@ class PatchNotes extends React.Component {
             </ul>
           </p>
         </div>
+        </div>
         <Footer />
-      </div>
       </div>
     );
   }
