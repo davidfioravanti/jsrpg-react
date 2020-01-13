@@ -1,7 +1,5 @@
 import React from 'react'
 import Navigation from "./components/Main/Navigation/Navigation"
-import DeathScreen from "./components/Screens/DeathScreen/DeathScreen"
-import Raven from "./components/Objects/Raven/Raven"
 import Footer from "./components/Main/Footer/Footer"
 
 class Soundtrack extends React.Component {
