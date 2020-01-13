@@ -34,7 +34,7 @@ const consoleDiv = $("#consoleDiv");
 $("#dungeonDoor").on("click", function () {
     // const srcArray = ["hellbat.html", "beartrap.html", "well.html", "riddle.html", "shop.html"];
     // let randomSrc = srcArray[Math.floor(Math.random() * srcArray.length)];
-    window.location.href = "traverse.html";
+    window.location.href = "../html/traverse.html";
 })
 
 // ========================================================
@@ -42,7 +42,7 @@ $("#dungeonDoor").on("click", function () {
 // ========================================================
 
 // PLAY ENCOUNTER MUSIC...
-var pumpkingSound = new Audio("assets/audio/pumpking.wav");
+var pumpkingSound = new Audio("../audio/pumpking.wav");
 pumpkingSound.volume = 0;
 pumpkingSound.play();
 // Fade in music to musicVolume level...
@@ -58,7 +58,7 @@ pumpkingSound.onended = function () {
 }
 
 $("button").on("mouseover", function () {
-    var selectSound = new Audio("assets/audio/select.wav");
+    var selectSound = new Audio("../audio/select.wav");
     selectSound.volume = sfxVolume;
     selectSound.play();
 })
@@ -140,7 +140,7 @@ setTimeout(() => {
 }, preDefTimeout * .8);
 setTimeout(() => {
     $(".pumpkinDiv").css("opacity", "1");
-    var pumpkingCrySound = new Audio("assets/audio/pumpkingCry.wav");
+    var pumpkingCrySound = new Audio("../audio/pumpkingCry.wav");
     pumpkingCrySound.volume = sfxVolume;
     pumpkingCrySound.play();
 }, preDefTimeout * 1.5);
@@ -154,7 +154,7 @@ setTimeout(() => {
 // ==========================================================================
 
 $("#attackButton").on("click", playerAttack = function () {
-    var selectSound = new Audio("assets/audio/click.wav");
+    var selectSound = new Audio("../audio/click.wav");
     selectSound.volume = sfxVolume;
     selectSound.play();
     console.log("=======================");
@@ -198,12 +198,12 @@ let modifier = 0;
                 $("#damageNumber").text("WHIFF!");
             }
             $("#damageNumber").fadeIn();
-            var hitSound = new Audio("assets/audio/hit.wav");
+            var hitSound = new Audio("../audio/hit.wav");
             hitSound.volume = sfxVolume;
             hitSound.play();
         }, preDefTimeout * 1.5);
         setTimeout(() => {
-            var pumpkingCrySound = new Audio("assets/audio/pumpkingCry2.wav");
+            var pumpkingCrySound = new Audio("../audio/pumpkingCry2.wav");
             pumpkingCrySound.volume = sfxVolume * .5;
             pumpkingCrySound.play();
         }, preDefTimeout * 1.8);
@@ -267,7 +267,7 @@ function enemyAttack() {
         $(".handLeft").addClass("handLeftAttack");
         $(".handRight").addClass("handRightAttack");
         $(".hypnotizeDiv").fadeIn();
-        var swipeSound = new Audio("assets/audio/swipe.wav");
+        var swipeSound = new Audio("../audio/swipe.wav");
         swipeSound.volume = sfxVolume;
         swipeSound.play();
         let statusText1 = $("<p class='consoleText'>").html(randomEnemyAtKResp);
@@ -359,7 +359,7 @@ $("#defendButton").on("click", playerDefend = function () {
             $(".skull").addClass("skullAttack");
             $("#shield").addClass("shieldSpin");
             $(".shieldDiv").css("opacity", "1");
-            var swipeSound = new Audio("assets/audio/swipe.wav");
+            var swipeSound = new Audio("../audio/swipe.wav");
             swipeSound.volume = sfxVolume;
             swipeSound.play();
             let statusText1 = $("<p class='consoleText'>").html(randomEnemyAtKResp);
@@ -481,7 +481,7 @@ function enemyHealthCheck() {
     currentEnemyHp = localStorage.getItem("currentEnemyHp");
     currentEnemy = localStorage.getItem("currentEnemy");
     if (currentEnemyHp <= 0) {
-        var slaySound = new Audio("assets/audio/slay.wav");
+        var slaySound = new Audio("../audio/slay.wav");
         slaySound.volume = sfxVolume;
         slaySound.play();
         rewardGold();
@@ -504,7 +504,7 @@ function enemyHealthCheck() {
         $("#dungeonDoor").fadeIn(2000);
         setTimeout(() => {
             if (autoplayEnabled === "true") {
-                window.location.href = "traverse.html";
+                window.location.href = "../html/traverse.html";
             }
         }, 3500);
         localStorage.removeItem("turnNum");
@@ -534,13 +534,13 @@ function updateStats() {
 
 function playerDeath() {
     localStorage.setItem("deathBy", "The PUMPK1NG");
-    var slaySound = new Audio("assets/audio/slay.wav");
+    var slaySound = new Audio("../audio/slay.wav");
     slaySound.volume = sfxVolume;
     slaySound.play();
     $("#wrapper").addClass("shake");
     $("#wrapper").fadeOut(2000);
     setTimeout(() => {
-        window.location.href = "deathScreen.html";
+        window.location.href = "../html/deathScreen.html";
     }, 3000);
 }
 

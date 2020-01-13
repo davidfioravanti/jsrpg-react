@@ -16,7 +16,7 @@ if (sfxVolume === null) {
     localStorage.setItem("sfxVolume", sfxVolume);
 }
 console.log("SFX Vol: " + sfxVolume);
-var combatSound = new Audio("assets/audio/combat2.wav");
+var combatSound = new Audio("../audio/combat2.wav");
 combatSound.volume = 0;
 combatSound.play();
 $(combatSound).animate({
@@ -172,12 +172,12 @@ function startTutorial() {
 =========================================== */
 
 $("button").on("mouseover", function () {
-    var selectSound = new Audio("assets/audio/select.wav");
+    var selectSound = new Audio("../audio/select.wav");
     selectSound.volume = sfxVolume;
     selectSound.play();
 })
 $("#attackButton").on("click", playerAttack = function () {
-    var selectSound = new Audio("assets/audio/click.wav");
+    var selectSound = new Audio("../audio/click.wav");
     selectSound.volume = sfxVolume;
     selectSound.play();
     console.log("=======================");
@@ -224,12 +224,12 @@ $("#attackButton").on("click", playerAttack = function () {
         setTimeout(() => {
             $("#damageNumber").text(damageTotal + " DMG");
             $("#damageNumber").fadeIn();
-            var hitSound = new Audio("assets/audio/hit.wav");
+            var hitSound = new Audio("../audio/hit.wav");
             hitSound.volume = sfxVolume;
             hitSound.play();
         }, preDefTimeout * 1.5);
         setTimeout(() => {
-            var hellbatCrySound = new Audio("assets/audio/hellbatCrySound.wav");
+            var hellbatCrySound = new Audio("../audio/hellbatCrySound.wav");
             hellbatCrySound.volume = sfxVolume;
             hellbatCrySound.play();
         }, preDefTimeout * 1.8);
@@ -291,7 +291,7 @@ function enemyAttack() {
     }, preDefTimeout);
     setTimeout(() => {
         $(".eyeball").addClass("eyeballAttack");
-        var hellbatAttackSound = new Audio("assets/audio/hellbatAttack.wav");
+        var hellbatAttackSound = new Audio("../audio/hellbatAttack.wav");
         hellbatAttackSound.volume = sfxVolume;
         hellbatAttackSound.play();
         let statusText1 = $("<p class='consoleText'>").html(randomEnemyAtKResp);
@@ -373,7 +373,7 @@ $("#defendButton").on("click", playerDefend = function () {
         }, preDefTimeout);
         setTimeout(() => {
             $(".eyeball").addClass("eyeballAttack");
-            var hellbatAttackSound = new Audio("assets/audio/hellbatAttack.wav");
+            var hellbatAttackSound = new Audio("../audio/hellbatAttack.wav");
             hellbatAttackSound.volume = sfxVolume;
             hellbatAttackSound.play();
             let statusText1 = $("<p class='consoleText'>").html(randomEnemyAtKResp);
@@ -484,7 +484,7 @@ function enemyHealthCheck() {
     currentEnemyHp = localStorage.getItem("currentEnemyHp");
     currentEnemy = localStorage.getItem("currentEnemy");
     if (currentEnemyHp <= 0) {
-        var slaySound = new Audio("assets/audio/slay.wav");
+        var slaySound = new Audio("../audio/slay.wav");
         slaySound.volume = sfxVolume;
         slaySound.play();
         rewardGold();
@@ -547,7 +547,7 @@ function tutorialEnding() {
     }, 20500);
     setTimeout(() => {
         $(".l12").fadeIn();
-        var evilSound = new Audio("assets/audio/gameOver.wav");
+        var evilSound = new Audio("../audio/gameOver.wav");
         evilSound.volume = musicVolume;
         evilSound.play();
     }, 21500);
@@ -568,7 +568,7 @@ function tutorialEnding() {
         localStorage.setItem("currentPlayerHealth", currentPlayerHealth);
         $("#currentPlayerHealth").text(currentPlayerHealth);
         $("#healthPoints").attr("style", "width: " + currentPlayerHealth + "%;");
-        var powerupSound = new Audio("assets/audio/powerup.wav");
+        var powerupSound = new Audio("../audio/powerup.wav");
         powerupSound.volume = sfxVolume;
         powerupSound.play();
         $("#enemyWrapper").animate({ opacity: 1 });
@@ -579,7 +579,7 @@ function tutorialEnding() {
     }, 41000);
     setTimeout(() => {
         $("#dungeonDoor").on("click", exitTutorial = function () {
-            window.location.href = "traverse.html";
+            window.location.href = "../html/traverse.html";
         })
     }, 42000);
     setTimeout(() => {
@@ -593,7 +593,7 @@ function tutorialEnding() {
 function whisper() {
     setTimeout(() => { $(".w1").fadeIn() }, 200);
     setTimeout(() => { $(".w2").fadeIn(); }, 400);
-    var fate1Sound = new Audio("assets/audio/fate1.wav");
+    var fate1Sound = new Audio("../audio/fate1.wav");
     fate1Sound.volume = 1;
     fate1Sound.play();
     setTimeout(() => { $(".w3").fadeIn(); $(".w1").removeClass("specialText") }, 600);
@@ -628,7 +628,7 @@ function whisper() {
 function whisper2() {
     setTimeout(() => { $(".w13").fadeIn() }, 200);
     setTimeout(() => { $(".w14").fadeIn(); }, 400);
-    var fate2Sound = new Audio("assets/audio/fate2.wav");
+    var fate2Sound = new Audio("../audio/fate2.wav");
     fate2Sound.volume = 1;
     fate2Sound.play();
     setTimeout(() => { $(".w15").fadeIn(); $(".w13").removeClass("specialText") }, 600);
@@ -650,13 +650,13 @@ function whisper2() {
 }
 function playerDeath() {
     localStorage.setItem("deathBy", "the tutorial :(");
-    var slaySound = new Audio("assets/audio/slay.wav");
+    var slaySound = new Audio("../audio/slay.wav");
     slaySound.volume = sfxVolume;
     slaySound.play();
     $("#wrapper").addClass("shake");
     $("#wrapper").fadeOut(2000);
     setTimeout(() => {
-        window.location.href = "deathScreen.html";
+        window.location.href = "../html/deathScreen.html";
     }, 3000);
 }
 

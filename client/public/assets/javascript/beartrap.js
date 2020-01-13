@@ -17,11 +17,11 @@ $(document).ready(function () {
         localStorage.setItem("sfxVolume", sfxVolume);
     }
     
-    const boneBreakSound = new Audio("assets/audio/boneBreak.wav");
+    const boneBreakSound = new Audio("../audio/boneBreak.wav");
     boneBreakSound.volume = sfxVolume /2;
-    const trapDisarmSound = new Audio("assets/audio/gore.wav");
+    const trapDisarmSound = new Audio("../audio/gore.wav");
     trapDisarmSound.volume = sfxVolume /2;
-    var beartrapSound = new Audio("assets/audio/beartrap.wav");
+    var beartrapSound = new Audio("../audio/beartrap.wav");
     beartrapSound.volume = 0;
     beartrapSound.play();
     $(beartrapSound).animate({volume: musicVolume
@@ -186,18 +186,18 @@ $(document).on("keydown", function(e) {
   $("#continueButton").on("click", winGame = function() {
 //   const srcArray = ["hellbat.html", "shop.html", "skeleton.html", "well.html", "riddle.html"];
 //   let randomSrc = srcArray[Math.floor(Math.random() * srcArray.length)];
-  window.location.href = "traverse.html";
+  window.location.href = "../html/traverse.html";
 })
 
 function playerDeath() {
     localStorage.setItem("deathBy", "a bear trap!");
-    var slaySound = new Audio("assets/audio/slay.wav");
+    var slaySound = new Audio("../audio/slay.wav");
     slaySound.volume = sfxVolume;
     slaySound.play();
     $("#bodyWrapper").addClass("shake");
     $("#bodyWrapper").fadeOut(2000);
     setTimeout(() => {
-        window.location.href = "deathScreen.html";n
+        window.location.href = "../html/deathScreen.html";n
     }, 3000);
 }
 

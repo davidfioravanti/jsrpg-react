@@ -19,7 +19,7 @@ if (sfxVolume === null) {
 
 localStorage.setItem("seenSkeleton", true);
 
-var combatSound = new Audio("assets/audio/combat.wav");
+var combatSound = new Audio("../audio/combat.wav");
 combatSound.volume = 0;
 combatSound.play();
 $(combatSound).animate({
@@ -116,12 +116,12 @@ $("#consoleDiv").on("scroll")
 =========================================== */
 
 $("button").on("mouseover", function () {
-    var selectSound = new Audio("assets/audio/select.wav");
+    var selectSound = new Audio("../audio/select.wav");
     selectSound.volume = sfxVolume;
     selectSound.play();
 })
 $("#attackButton").on("click", playerAttack = function () {
-    var selectSound = new Audio("assets/audio/click.wav");
+    var selectSound = new Audio("../audio/click.wav");
     selectSound.volume = sfxVolume;
     selectSound.play();
     console.log("=======================");
@@ -157,7 +157,7 @@ $("#attackButton").on("click", playerAttack = function () {
     $("#dungeonDoor").on("click", function () {
         // const srcArray = ["hellbat.html", "beartrap.html", "well.html", "riddle.html", "shop.html"];
         // let randomSrc = srcArray[Math.floor(Math.random() * srcArray.length)];
-        window.location.href = "traverse.html";
+        window.location.href = "../html/traverse.html";
     })
     // Create a ref to a random index of the responses array...
     var randomAtKResp = attackResponses[Math.floor(Math.random() * attackResponses.length)];
@@ -178,12 +178,12 @@ $("#attackButton").on("click", playerAttack = function () {
                 $("#damageNumber").text("WHIFF!");
             }
             $("#damageNumber").fadeIn();
-            var hitSound = new Audio("assets/audio/hit.wav");
+            var hitSound = new Audio("../audio/hit.wav");
             hitSound.volume = sfxVolume;
             hitSound.play();
         }, preDefTimeout * 1.5);
         setTimeout(() => {
-            var skeleCrySound = new Audio("assets/audio/skeleCry.wav");
+            var skeleCrySound = new Audio("../audio/skeleCry.wav");
             skeleCrySound.volume = sfxVolume;
             skeleCrySound.play();
         }, preDefTimeout * 1.8);
@@ -251,7 +251,7 @@ function enemyAttack() {
         $(".skullFrame3").addClass("skullAttack1")
         $(".skullFrame4").addClass("skullAttack2")
         $(".skull").addClass("skullAttack");
-        var swipeSound = new Audio("assets/audio/swipe.wav");
+        var swipeSound = new Audio("../audio/swipe.wav");
         swipeSound.volume = sfxVolume;
         swipeSound.play();
         let statusText1 = $("<p class='consoleText'>").html(randomEnemyAtKResp);
@@ -347,7 +347,7 @@ $("#defendButton").on("click", playerDefend = function () {
             $(".skull").addClass("skullAttack");
             $("#shield").addClass("shieldSpin");
             $(".shieldDiv").css("opacity", "1");
-            var swipeSound = new Audio("assets/audio/swipe.wav");
+            var swipeSound = new Audio("../audio/swipe.wav");
             swipeSound.volume = sfxVolume;
             swipeSound.play();
             let statusText1 = $("<p class='consoleText'>").html(randomEnemyAtKResp);
@@ -469,7 +469,7 @@ function enemyHealthCheck() {
     currentEnemyHp = localStorage.getItem("currentEnemyHp");
     currentEnemy = localStorage.getItem("currentEnemy");
     if (currentEnemyHp <= 0) {
-        var slaySound = new Audio("assets/audio/slay.wav");
+        var slaySound = new Audio("../audio/slay.wav");
         slaySound.volume = sfxVolume;
         slaySound.play();
         rewardGold();
@@ -488,7 +488,7 @@ function enemyHealthCheck() {
         localStorage.removeItem("turnNum");
         setTimeout(() => {
             if (autoplayEnabled === "true") {
-                window.location.href = "traverse.html";
+                window.location.href = "../html/traverse.html";
             }
         }, 3500);
     }
@@ -517,13 +517,13 @@ function updateStats() {
 
 function playerDeath() {
     localStorage.setItem("deathBy", "SK3L3T0N");
-    var slaySound = new Audio("assets/audio/slay.wav");
+    var slaySound = new Audio("../audio/slay.wav");
     slaySound.volume = sfxVolume;
     slaySound.play();
     $("#wrapper").addClass("shake");
     $("#wrapper").fadeOut(2000);
     setTimeout(() => {
-        window.location.href = "deathScreen.html";n
+        window.location.href = "../html/deathScreen.html";n
     }, 3000);
 }
 

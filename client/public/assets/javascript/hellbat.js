@@ -15,7 +15,7 @@ if (sfxVolume === null) {
     localStorage.setItem("sfxVolume", sfxVolume);
 }
 
-var combatSound = new Audio("assets/audio/combat2.wav");
+var combatSound = new Audio("../audio/combat2.wav");
 combatSound.volume = 0;
 combatSound.play();
 $(combatSound).animate({
@@ -125,12 +125,12 @@ $("#consoleDiv").on("scroll")
 =========================================== */
 
 $("button").on("mouseover", function () {
-    var selectSound = new Audio("assets/audio/select.wav");
+    var selectSound = new Audio("../audio/select.wav");
     selectSound.volume = sfxVolume;
     selectSound.play();
 })
 $("#attackButton").on("click", playerAttack = function () {
-    var selectSound = new Audio("assets/audio/click.wav");
+    var selectSound = new Audio("../audio/click.wav");
     selectSound.volume = sfxVolume;
     selectSound.play();
     console.log("=======================");
@@ -177,12 +177,12 @@ $("#attackButton").on("click", playerAttack = function () {
         setTimeout(() => {
             $("#damageNumber").text(damageTotal + " DMG");
             $("#damageNumber").fadeIn();
-            var hitSound = new Audio("assets/audio/hit.wav");
+            var hitSound = new Audio("../audio/hit.wav");
             hitSound.volume = sfxVolume;
             hitSound.play();
         }, preDefTimeout * 1.5);
         setTimeout(() => {
-            var hellbatCrySound = new Audio("assets/audio/hellbatCrySound.wav");
+            var hellbatCrySound = new Audio("../audio/hellbatCrySound.wav");
             hellbatCrySound.volume = sfxVolume;
             hellbatCrySound.play();
         }, preDefTimeout * 1.8);
@@ -244,7 +244,7 @@ function enemyAttack() {
     }, preDefTimeout);
     setTimeout(() => {
         $(".eyeball").addClass("eyeballAttack");
-        var hellbatAttackSound = new Audio("assets/audio/hellbatAttack.wav");
+        var hellbatAttackSound = new Audio("../audio/hellbatAttack.wav");
         hellbatAttackSound.volume = sfxVolume;
         hellbatAttackSound.play();
         let statusText1 = $("<p class='consoleText'>").html(randomEnemyAtKResp);
@@ -325,7 +325,7 @@ $("#defendButton").on("click", playerDefend = function () {
         }, preDefTimeout);
         setTimeout(() => {
             $(".eyeball").addClass("eyeballAttack");
-            var hellbatAttackSound = new Audio("assets/audio/hellbatAttack.wav");
+            var hellbatAttackSound = new Audio("../audio/hellbatAttack.wav");
             hellbatAttackSound.volume = sfxVolume;
             hellbatAttackSound.play();
             let statusText1 = $("<p class='consoleText'>").html(randomEnemyAtKResp);
@@ -384,7 +384,7 @@ $("#defendButton").on("click", playerDefend = function () {
 })
 
 $("#dungeonDoor").on("click", function () {
-    window.location.href = "traverse.html";
+    window.location.href = "../html/traverse.html";
 })
 
 function rewardGold() {
@@ -437,7 +437,7 @@ function enemyHealthCheck() {
     currentEnemyHp = localStorage.getItem("currentEnemyHp");
     currentEnemy = localStorage.getItem("currentEnemy");
     if (currentEnemyHp <= 0) {
-        var slaySound = new Audio("assets/audio/slay.wav");
+        var slaySound = new Audio("../audio/slay.wav");
         slaySound.volume = sfxVolume;
         slaySound.play();
         rewardGold();
@@ -454,7 +454,7 @@ function enemyHealthCheck() {
         $("#dungeonDoor").fadeIn(2000);
         setTimeout(() => {
             if (autoplayEnabled === "true") {
-                window.location.href = "traverse.html";
+                window.location.href = "../html/traverse.html";
             }
         }, 3500);
         localStorage.removeItem("turnNum");
@@ -463,13 +463,13 @@ function enemyHealthCheck() {
 
 function playerDeath() {
     localStorage.setItem("deathBy", "H3LLB4T");
-    var slaySound = new Audio("assets/audio/slay.wav");
+    var slaySound = new Audio("../audio/slay.wav");
     slaySound.volume = sfxVolume;
     slaySound.play();
     $("#wrapper").addClass("shake");
     $("#wrapper").fadeOut(2000);
     setTimeout(() => {
-        window.location.href = "deathScreen.html";
+        window.location.href = "../html/deathScreen.html";
     }, 3000);
 }
 

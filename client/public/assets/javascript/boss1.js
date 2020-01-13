@@ -113,7 +113,7 @@ $("#currentEnemyHealth").text(currentEnemyHp);
 // ========================================================
 
 $("button").on("mouseover", function () {
-    var selectSound = new Audio("assets/audio/select.wav");
+    var selectSound = new Audio("../audio/select.wav");
     selectSound.volume = .3;
     selectSound.play();
 })
@@ -133,7 +133,7 @@ $("#attackButton").on("click", function() {
 
 function playerAttack() {
 
-    var selectSound = new Audio("assets/audio/click.wav");
+    var selectSound = new Audio("../audio/click.wav");
     selectSound.volume = .2;
     selectSound.play();
 
@@ -170,12 +170,12 @@ function playerAttack() {
                 $("#damageNumber").text("WHIFF!");
             }
             $("#damageNumber").fadeIn();
-            var hitSound = new Audio("assets/audio/hit.wav");
+            var hitSound = new Audio("../audio/hit.wav");
             hitSound.volume = .3;
             hitSound.play();
         }, preDefTimeout * 1.5);
         setTimeout(() => {
-            var dragonCrySound = new Audio("assets/audio/dragonCry.wav");
+            var dragonCrySound = new Audio("../audio/dragonCry.wav");
             dragonCrySound.volume = .5;
             dragonCrySound.play();
         }, preDefTimeout * 1.8);
@@ -221,7 +221,7 @@ function combatIntro(turnNum, currentEnemy, currentEnemyHp) {
     $(".introText").fadeIn(800);
     setTimeout(() => {
         $(enemyWrapper).fadeIn(2000);
-        var dragonSound = new Audio("assets/audio/dragon.wav");
+        var dragonSound = new Audio("../audio/dragon.wav");
         dragonSound.volume = .5;
         dragonSound.play();
     }, preDefTimeout * .8);
@@ -300,7 +300,7 @@ function enemyAttack() {
     setTimeout(() => {
         $(".dragon").addClass("dragonAttack");
         $(".dragonRightClaw").addClass("dragonAttackArm");
-        var dragonAttackSound = new Audio("assets/audio/dragonAttack.wav");
+        var dragonAttackSound = new Audio("../audio/dragonAttack.wav");
         dragonAttackSound.volume = .2;
         dragonAttackSound.play();
         let statusText1 = $("<p class='consoleText'>").html(randomEnemyAtKResp);
@@ -355,7 +355,7 @@ function rollEnemyDamage() {
 function enemyHealthCheck(currentEnemy, currentEnemyHp) {
     currentEnemyHp = localStorage.getItem("currentEnemyHp");
     if (currentEnemyHp <= 0) {
-        var slaySound = new Audio("assets/audio/slay.wav");
+        var slaySound = new Audio("../audio/slay.wav");
         slaySound.volume = .2;
         slaySound.play();
         rewardGold();
@@ -385,14 +385,14 @@ function rewardGold() {
 }
 
 function playerDeath(currentEnemy) {
-    var slaySound = new Audio("assets/audio/slay.wav");
+    var slaySound = new Audio("../audio/slay.wav");
     slaySound.volume = .2;
     slaySound.play();
     localStorage.setItem("deathBy", currentEnemy)
     $("#wrapper").addClass("shake");
     $("#wrapper").fadeOut(2000);
     setTimeout(() => {
-        window.location.href = "deathScreen.html";
+        window.location.href = "../html/deathScreen.html";
     }, 3000);
 }
 

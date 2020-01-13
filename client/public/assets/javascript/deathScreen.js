@@ -25,7 +25,7 @@ if (sfxVolume === null) {
     localStorage.setItem("sfxVolume", sfxVolume);
 }
 
-gameOverSound = new Audio("assets/audio/gameOver.wav");
+gameOverSound = new Audio("../audio/gameOver.wav");
 gameOverSound.volume = 0;
 gameOverSound.play();
 $(gameOverSound).animate({

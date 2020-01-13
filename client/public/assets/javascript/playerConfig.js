@@ -15,7 +15,7 @@ let max = Math.floor(20);
 let reRollsRemaining = 3;
 
 const preDefTimeout = 1000;
-var textSound = new Audio("assets/audio/textAppear.wav");
+var textSound = new Audio("../audio/textAppear.wav");
 textSound.defaultPlaybackRate = .01;
 
 
@@ -32,7 +32,7 @@ if (checkNameExists) {
 $("#usernameInput").on("keydown", function (e) {
     if (e.which == 13) {
         console.log("\n==========================\n    *** GAME START ***\n==========================");
-        var loginSound = new Audio("assets/audio/login.wav");
+        var loginSound = new Audio("../audio/login.wav");
         loginSound.volume = .2;
         loginSound.play();
         e.preventDefault();
@@ -52,12 +52,12 @@ $("#usernameInput").on("keydown", function (e) {
 })
 
 $("button").on("mouseover", function () {
-    var selectSound = new Audio("assets/audio/select.wav");
+    var selectSound = new Audio("../audio/select.wav");
     selectSound.volume = .3;
     selectSound.play();
 })
 $("button").on("click", function () {
-    var clickSound = new Audio("assets/audio/click.wav");
+    var clickSound = new Audio("../audio/click.wav");
     clickSound.volume = .3;
     clickSound.play();
 })
@@ -82,8 +82,8 @@ $("#acceptStats").on("click", function () {
     }, preDefTimeout * 2.5);
 })
 
-const srcArray = ["hellbat.html", "beartrap.html", "riddle.html", "riddle.html"];
-let randomSrc = srcArray[Math.floor(Math.random() * srcArray.length)];
+// const srcArray = ["hellbat.html", "beartrap.html", "riddle.html", "riddle.html"];
+// let randomSrc = srcArray[Math.floor(Math.random() * srcArray.length)];
 $("#playButton").on("click", function () {
     initPlayer();
 })
@@ -111,7 +111,7 @@ function initPlayer(buttonClicked) {
     localStorage.setItem("monstersSlain", 0);
     localStorage.setItem("bossesSlain", 0);
     $("")
-    window.location.href = "tutorial.html";
+    window.location.href = "../html/tutorial.html";
 }
 function initStrength() {
     const playerStrength = Math.floor(Math.random() * (max - min + 1)) + min;

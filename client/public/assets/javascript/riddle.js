@@ -15,7 +15,7 @@ if (sfxVolume === null) {
     localStorage.setItem("sfxVolume", sfxVolume);
 }
 
-var riddleSound = new Audio("assets/audio/riddle.wav");
+var riddleSound = new Audio("../audio/riddle.wav");
 riddleSound.volume = 0;
 riddleSound.play();
 $(riddleSound).animate({volume: musicVolume
@@ -209,7 +209,7 @@ $(".letter").on("drag", function () {
 $("#continueButton").on("click", exitEncounter = function() {
   // const srcArray = ["hellbat.html", "well.html", "skeleton.html", "shop.html", "beartrap.html"];
   // let randomSrc = srcArray[Math.floor(Math.random() * srcArray.length)];
-  window.location.href = "traverse.html";
+  window.location.href = "../html/traverse.html";
 });
 
 

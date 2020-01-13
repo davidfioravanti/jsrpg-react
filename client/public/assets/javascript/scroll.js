@@ -24,7 +24,7 @@ if (sfxVolume === null) {
 }
 
 
-var musicBoxSound = new Audio("assets/audio/musicBox.wav");
+var musicBoxSound = new Audio("../audio/musicBox.wav");
 musicBoxSound.volume = 0;
 musicBoxSound.play();
 $(musicBoxSound).animate({volume: musicVolume
@@ -33,12 +33,12 @@ $(musicBoxSound).animate({volume: musicVolume
 
 
 $("button").on("mouseover", function () {
-    var selectSound = new Audio("assets/audio/select.wav");
+    var selectSound = new Audio("../audio/select.wav");
     selectSound.volume = .3;
     selectSound.play();
 })
 $("button").on("click", playerAttack = function () {
-    var selectSound = new Audio("assets/audio/click.wav");
+    var selectSound = new Audio("../audio/click.wav");
     selectSound.volume = .2;
     selectSound.play();
 })
@@ -115,7 +115,7 @@ function autoplay() {
 randomizeScroll();
 
 $(".continueButton").on("click", exitEncounter = function () {
-    window.location.href = "traverse.html";
+    window.location.href = "../html/traverse.html";
 });
 
 

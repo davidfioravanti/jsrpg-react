@@ -37,7 +37,7 @@ $(document).ready(function () {
     }
     $("#passiveHealingRange").val(hasPassiveHealing);
 
-    var traverseSound = new Audio("assets/audio/traverse.wav");
+    var traverseSound = new Audio("../audio/traverse.wav");
     traverseSound.volume = 0;
     traverseSound.play();
     $(traverseSound).animate({
@@ -345,7 +345,7 @@ $(document).ready(function () {
 
     function animateWalk() {
         isMoving = true;
-        // var walkSound = new Audio("assets/audio/walk.wav");
+        // var walkSound = new Audio("../audio/walk.wav");
         // walkSound.volume = .5;
         // walkSound.play();
         $(".leftHandWrapper").addClass("leftHandWalk");
@@ -422,37 +422,37 @@ $(document).ready(function () {
             let xPos = parseInt(localStorage.getItem("xPos"));
             let yPos = parseInt(localStorage.getItem("yPos"));
             if (xPos === skeletonXPos && yPos === skeletonYPos) {
-                window.location.href = "skeleton.html", "noopener";
+                window.location.href = "../html/skeleton.html", "noopener";
             }
             else if (xPos === hellbatXPos && yPos === hellbatYPos) {
-                window.location.href = "hellbat.html", "noopener";
+                window.location.href = "../html/hellbat.html", "noopener";
             }
             else if (xPos === hellbat2XPos && yPos === hellbat2YPos) {
-                window.location.href = "hellbat.html", "noopener";
+                window.location.href = "../html/hellbat.html", "noopener";
             }
             else if (xPos === parseInt(dragonXPos) && yPos === parseInt(dragonYPos)) {
-                window.location.href = "boss1.html", "noopener";
+                window.location.href = "../html/boss1.html", "noopener";
             }
             else if (xPos === riddleXPos && yPos === riddleYPos) {
-                window.location.href = "riddle.html", "noopener";
+                window.location.href = "../html/riddle.html", "noopener";
             }
             else if (xPos === wellXPos && yPos === wellYPos) {
-                window.location.href = "well.html", "noopener";
+                window.location.href = "../html/well.html", "noopener";
             }
             else if (xPos === shopXPos && yPos === shopYPos) {
-                window.location.href = "shop.html", "noopener";
+                window.location.href = "../html/shop.html", "noopener";
             }
             else if (xPos === beartrapXPos && yPos === beartrapYPos) {
-                window.location.href = "beartrap.html", "noopener";
+                window.location.href = "../html/beartrap.html", "noopener";
             }
             else if (xPos === scrollXPos && yPos === scrollYPos) {
-                window.location.href = "scroll.html", "noopener";
+                window.location.href = "../html/scroll.html", "noopener";
             }
             else if (xPos === scroll2XPos && yPos === scroll2YPos) {
-                window.location.href = "scroll.html", "noopener";
+                window.location.href = "../html/scroll.html", "noopener";
             }
             else if (xPos === pumpkingXPos && yPos === pumpkingYPos) {
-                window.location.href = "pumpking.html", "noopener";
+                window.location.href = "../html/pumpking.html", "noopener";
             }
         }
 

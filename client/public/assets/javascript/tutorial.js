@@ -18,7 +18,7 @@ if (sfxVolume === null) {
 }
 let autoplayEnabled = localStorage.getItem("autoplay");
 
-var tutorialSound = new Audio("assets/audio/tutorial.wav");
+var tutorialSound = new Audio("../audio/tutorial.wav");
 tutorialSound.volume = 0;
 tutorialSound.play();
 $(tutorialSound).animate({volume: musicVolume
@@ -75,7 +75,7 @@ setTimeout(() => {
     $("#eyeballDiv").fadeIn();
 }, 47000);
 setTimeout(() => {
-var hellbatSound = new Audio("assets/audio/hellbatCrySound.wav");
+var hellbatSound = new Audio("../audio/hellbatCrySound.wav");
 hellbatSound.volume = sfxVolume;
 hellbatSound.play();
 }, 47500);
@@ -84,7 +84,7 @@ setTimeout(() => {
     $("#eyeballDiv").fadeOut();
 }, 48500);
 setTimeout(() => {
-    window.location.href = "tutorialFight.html"
+    window.location.href = "../html/tutorialFight.html"
 }, 49000);
 
 $(document).on("keydown", skipTutorial = function() {
@@ -93,7 +93,7 @@ $(document).on("keydown", skipTutorial = function() {
     });
         $("#bodyWrapper").fadeOut(2000);
         setTimeout(() => {
-            window.location.href = "traverse.html";
+            window.location.href = "../html/traverse.html";
         }, 4000);
 })
 

@@ -16,7 +16,7 @@ if (sfxVolume === null) {
 }
 
 
-var shopSound = new Audio("assets/audio/shop.wav");
+var shopSound = new Audio("../audio/shop.wav");
 shopSound.volume = 0;
 shopSound.play();
 $(shopSound).animate({volume: musicVolume
@@ -28,7 +28,7 @@ $(shopSound).animate({volume: musicVolume
 $("#leaveButton").on("click", function() {
 //     const srcArray = ["hellbat.html", "beartrap.html", "riddle.html", "skeleton.html"];
 //   let randomSrc = srcArray[Math.floor(Math.random() * srcArray.length)];
-  window.location.href = "traverse.html";
+  window.location.href = "../html/traverse.html";
 })
 
 var currentPlayerHealth = localStorage.getItem("currentPlayerHealth");
@@ -161,7 +161,7 @@ function autoplay() {
             purchase("roastedBatWingSmallBuy", 50);
         }
         else {
-            window.location.href = "traverse.html"
+            window.location.href = "../html/traverse.html"
         }
     }, 2000);
 } 

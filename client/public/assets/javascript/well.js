@@ -15,7 +15,7 @@ if (sfxVolume === null) {
     localStorage.setItem("sfxVolume", sfxVolume);
 }
 
-var wellSound = new Audio("assets/audio/well.wav");
+var wellSound = new Audio("../audio/well.wav");
 wellSound.volume = 0;
 wellSound.play();
 $(wellSound).animate({volume: musicVolume
@@ -118,7 +118,7 @@ $(".continueButton").on("click", exitEncounter = function () {
     localStorage.setItem("wellWasUsed", "false");
     // const srcArray = ["hellbat.html", "beartrap.html", "riddle.html", "skeleton.html"];
     // let randomSrc = srcArray[Math.floor(Math.random() * srcArray.length)];
-    window.location.href = "traverse.html";
+    window.location.href = "../html/traverse.html";
 });
 
 // ======================================================================================
