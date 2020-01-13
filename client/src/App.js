@@ -2,7 +2,6 @@ import React from 'react'
 import Hellbat from "./components/Enemies/Hellbat/Hellbat"
 import Navigation from "./components/Main/Navigation/Navigation"
 import Footer from "./components/Main/Footer/Footer"
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 class App extends React.Component {
   render() {
     
@@ -33,7 +32,7 @@ class App extends React.Component {
             <br/>
             <h2><u>WATCH THE DEMO:</u></h2>
             <div className="container text-center">
-            <iframe className="embeddedVideo" title="demoVideo" width="100%" height="315" src="https://www.youtube.com/embed/wgFCjmEVceg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe className="embeddedVideo" title="demoVideo" width="100%" height="315" src="https://www.youtube.com/embed/wgFCjmEVceg" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
         </div>
         <br/><br/>
