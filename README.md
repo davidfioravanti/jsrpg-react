@@ -62,7 +62,20 @@ Do you miss that Zork-esque old school text adventure asthetic?
     <br><br>
     <b>Do I need to be connected to the internet to play JSRPG?</b>
     <br>
-    Sort of? JSRPG saves all of the necessary user data in your devices local storage so you can play the game fully offline <b>IF</b> you download it and run it locally. If you are accessing the game by link or typing in the github pages url, you need to be connected to the internet. In it's current state, the game utilizes multiple CDNs for JQuery and other frameworks that require them to either have internet or to be cached in order to work. 
+    Because JSRPG is a browser-based game, you need to be connected to the internet to access it via <a href="https://gainstrive-jsrpg.herokuapp.com/">https://gainstrive-jsrpg.herokuapp.com/</a> . HOWEVER, if you wish to play offline, you can follow these steps:
+    <br><br>
+    <b>REQUIRES <a href="https://www.google.com/chrome/?brand=CHBD&gclid=EAIaIQobChMIx7nLqp6B5wIViYjICh3B9gP0EAAYASAAEgJFH_D_BwE&gclsrc=aw.ds" target="_blank" rel="noopener noreferrer">GOOGLE CHROME</a> AND <a href="https://www.7-zip.org/" target="_blank" rel="noopener noreferrer">7-ZIP</a> (or some unzip tool)!</b>
+        <ol>
+            <b>
+            <li>Go to <a href="https://github.com/gainstrive/Javascript-RPG">The Javascript-RPG repo</a>.
+            </li>
+            <li>Click the <span style="color: green;">clone or download</span> button.</li>
+            <li>Select the <i>"Download ZIP"</i> option.</li>
+            <li>Either drag the zip file to your desktop from Chrome OR from your downloads folder.</li>
+            <li>Right click the zip file, mouse over "7-zip", and click <i>Extract to "Javascript-RPG-master\"</i></li>
+            <li>Run JSRPG by double clicking the index.html file.</li>
+            </b>
+        </ol>
 </p>
 
 <h2 align="center">THE SOUNDTRACK</h2>
