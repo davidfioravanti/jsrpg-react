@@ -5,7 +5,7 @@
 <h2 align="center">
     A fully-featured browser-based ASCII Art RPG!
 </h2>
-<h3 align="center"><a href="https://gainstrive.github.io/Javascript-RPG/">https://gainstrive.github.io/Javascript-RPG/</a></h3>
+<h3 align="center"><a href="https://gainstrive-jsrpg.herokuapp.com/">Click here to check out JSRPG!</a></h3>
 <p align="center">Do you love turn based RPGs like Final Fantasy, Darkest Dungeon, and Fallout?
 <br><br>
 Do you miss that Zork-esque old school text adventure asthetic?
