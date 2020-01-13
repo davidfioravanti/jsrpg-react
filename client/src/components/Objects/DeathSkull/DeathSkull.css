@@ -38,7 +38,7 @@
     50%{color: rgba(84, 255, 32, 0.116);}
     100%{color: rgb(84, 255, 32);}
 }
-#notFoundSkull {
+#deathSkull {
     user-select: none;
     transform: scale(.3) !important;
     margin-top: -250px;

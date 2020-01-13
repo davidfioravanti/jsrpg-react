@@ -1,14 +1,14 @@
 import React from "react";
-import "./DeathScreen.css";
+import "./DeathSkull.css";
 
-const DeathScreen = () => {
+const DeathSkull = () => {
     return (
         <div id="bodyWrapper">
         <div id="wrapper">
             <div classname="continer text-center">
     
             <div classname="skull text-center">
-                <pre id="notFoundSkull" classname="skullNotFound">{String.raw`
+                <pre id="deathSkull" classname="deathSkull">{String.raw`
                 
                                                                                                                                                                                                                                                      '''''''''+MMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNMMMMM:''''''''''                                                                                                                                                                                                      
                                                                                                                                                                                                                                               .......yNNNNNNNNNNmmmdddddhhhhhhhhhhhhhhhhddddddmmmNNNNNNNNNNNNM:......'                                                                                                                                                                                              
@@ -291,4 +291,4 @@ MMNdssssssssssssssssssssssssssssssssssssssmmyysssssyyhhssssssssssssssssssssmm:- 
     )
 }
 
-export default DeathScreen;
+export default DeathSkull;
