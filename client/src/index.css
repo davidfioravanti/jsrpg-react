@@ -275,3 +275,6 @@ audio::-webkit-media-controls-play-button {
 #blogPostsDiv {
   margin-top: 310px;
 }
+.patchNotesLink {
+  color: rgb(149, 255, 149) !important;
+}
