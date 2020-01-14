@@ -1,0 +1,249 @@
+#bodyWrapper {
+    display: none;
+}
+#w1, #w2, #w3, #w4, #w5, #w6,
+#w7, #w8, #w9, #w10, #w11, #w12,
+#w13, #w14 {
+    position: relative;
+}
+.word {
+    display: none;
+}
+.fadeIn {
+    display: inline;
+    animation: fadeIn 2s ease-in-out;
+}
+@keyframes fadeIn {
+    0% {
+        left: -20px;
+        opacity: 0;
+    }
+    50% {opacity: 0;}
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
+#l1, #l2, #l3, #l4 {
+    position: absolute;
+    top: 0px;
+}
+.instructions {
+    display: none;
+}
+#letterWrapper {
+    transition: all .8s ease-in-out;
+    display: none;
+    position: absolute;
+    bottom: -50px;
+    transform: rotate(0deg);
+    animation: rotateLetter 2s ease-in-out;
+}
+@keyframes rotateLetter {
+    0% {transform: rotate(40deg); bottom: -100px}
+    100% {transform: rotate(0deg);}
+}
+#letterHeader {
+    position: absolute;
+    bottom: 140px;
+    left: 150px;
+    font-size: 20px;
+    transform: rotate(20deg);
+}
+.letterText {
+    position: absolute;
+    bottom: 20px;
+    left: 150px;
+    transform: rotate(20deg);
+    font-size: 10px;
+    width: 200px;
+}
+.letterEnd {
+    position: absolute;
+    bottom: 0px;
+    left: 220px;
+    transform: rotate(20deg);
+    font-size: 15px;
+    width: 100px;
+}
+.letterAuthor {
+    position: absolute;
+    bottom: -10px;
+    left: 200px;
+    font-size: 15px;
+    transform: rotate(20deg);
+    width: 120px;
+}
+.background {
+    position: absolute;
+    top: -50;
+    width: 500px;
+    height: 500px;
+}
+.letter {
+    font-size: 4px; 
+    position: absolute; 
+    bottom: -300px; 
+    transform: rotate(20deg);
+    color: rgb(73, 209, 73) !important;
+}
+.door {
+    position: absolute;
+    opacity: .3;
+    font-size: 1.9px !important;
+    z-index: -10000;
+    top: 0px;
+    left: -20px;
+}
+
+.floor {
+    opacity: .3;
+    position: relative;
+    bottom: -295px;
+    left: -220px;
+    transform: matrix3d(1, 0, 1, 0, 
+    -1, 0, 0, -0.003, 
+    0, 0, 1, 0, 
+    201, 199, 0, 1);
+    transform-origin: 0px 0px 0px;
+    width: 500px;
+    height: 500px;
+}
+
+.HUD {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    margin-left: 55px;
+}
+.north {
+    transition: all .5s ease-in-out;
+    opacity: 1;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+}
+.west {
+    transition: all .5s ease-in-out;
+    opacity: .3;
+    position: absolute;
+    top: 70px;
+    right: 90px;
+}
+.south {
+    transition: all .5s ease-in-out;
+    opacity: .3;
+    position: absolute;
+    top: 110px;
+    right: 52px;
+}
+.east {
+    transition: all .5s ease-in-out;
+    opacity: .3;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+}
+.compassText {
+    display: none;
+}
+#inst1 {
+    position: absolute;
+    bottom: 150px;
+    left: 120px;
+}
+#eyeballDiv {
+    display: none;
+    position: relative;
+    transform: scale(2);
+    top: -350px;
+    opacity: 1;
+    animation: eyeballFlyIn 2s ease-in-out;
+}
+@keyframes eyeballFlyIn {
+    0% {
+        opacity: 0;
+        transform: scale(.6);
+        top: -500px;
+    }
+    70% {opacity: 1;}
+}
+.eyeball {
+    opacity: 1;
+    user-select: none;
+    position: fixed;
+    top: 100px;
+    left: 21%;
+    overflow: hidden;
+    transform: rotate(0deg);
+    transition: all .5s ease;
+    filter: drop-shadow(0px 0px 20px rgb(38, 255, 0));
+    animation: eyeball 1.5s infinite ease-in-out;
+}
+.eyeballAttack {
+    animation: eyeballAttack 3s ease-in-out;
+}
+.eyeballFrame1 {
+    position: fixed;
+    animation: eyeball1Anim 2s infinite ease-in-out;
+}
+.eyeballFrame2  {
+    position: relative;
+    animation: eyeball2Anim 2s infinite ease-in-out;
+}
+@keyframes eyeball1Anim {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes eyeball2Anim {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes eyeball {
+    0% {
+        filter: drop-shadow(0px 0px 20px rgb(38, 255, 0));
+        transform: rotate(0deg);
+    }
+    50% {
+        filter: drop-shadow(0px 0px 20px rgba(38, 255, 0, 0.719));
+        transform: rotate(5deg);
+    }
+    100% {filter: drop-shadow(0px 0px 20px rgb(38, 255, 0));
+        transform: rotate(0deg);}
+}
+@keyframes eyeballAttack {
+    0% {
+        top: 50px;
+        left: 21%;
+        transform: rotate(inherit);
+    }
+    25% {
+        top: 100px;
+        left: 21%;
+        transform: rotate(360deg);
+    }
+    40% {
+        top: 150px;
+        left: 15%;
+        transform: rotate(0deg);
+    }
+    60% {
+        top: 50px;
+        left: 21%;
+        transform: rotate(inherit);
+    }
+}

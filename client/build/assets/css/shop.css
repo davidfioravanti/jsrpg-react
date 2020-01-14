@@ -1,0 +1,221 @@
+
+#bodyWrapper {
+    display: none;
+}
+.arrowRight {
+    position: absolute;
+    top: 10px;
+    left: 95px;
+    font-size: 1.8px;
+}
+.arrowLeft {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.8px;
+    transform: rotate(180deg);
+}
+.arrowRight:hover {
+    filter: drop-shadow(0px 0px 10px rgb(38, 255, 0));
+    transition: all .2s ease-in-out;
+}
+.arrowLeft:hover {
+    filter: drop-shadow(0px 0px 10px rgb(38, 255, 0));
+    transition: all .2s ease-in-out;
+}
+.goblin {
+    opacity:1;
+    user-select: none;
+    position: fixed;
+    top: 80px;
+    left: -7.5%;
+    overflow: hidden;
+    transform: rotate(0deg);
+    transition: all .5s ease;
+    animation: eyeball 1.5s infinite ease-in-out;
+}
+#shopText {
+    position: absolute;
+    top: 295px;
+    left: 215px;
+    filter: drop-shadow(-5px 0px 5px rgb(5, 24, 2));
+    color: rgba(39, 230, 39, 0.424) !important;
+    font-weight: 900 !important;
+}
+#shopItemsDiv {
+    position: relative;
+    top: -720px;
+    right: -100px;
+    max-width: 300px !important;
+    max-height: 270px !important;
+    overflow-y: scroll;
+    filter: drop-shadow(0px 0px 5px rgb(38, 255, 0));
+    color: rgb(43, 204, 43) !important;
+}
+.itemDescr {
+    font-size: 11px;
+}
+.itemBody {
+    border: 1px dashed rgb(64, 187, 64);
+    border-radius: 10px;
+    padding: 10px 10px 0px 10px;
+}
+#playerInventory {
+    position: fixed;
+    bottom: 100px;
+    z-index: 100000;
+}
+#inventoryDiv {
+    overflow-y: scroll !important;
+    border: 1px dashed rgb(64, 187, 64);
+    border-radius: 10px;
+    width: 470px;
+    height: 200px;
+    max-height: 200px;
+}
+.shopTable {
+    position: absolute;
+    top: 275px;
+    background: linear-gradient(rgb(39, 149, 39), rgb(18, 63, 18));
+    width: 500px;
+    height: 120px;
+    box-shadow: 0px 50px 50px 10px rgba(0, 128, 0, 0.226);
+}
+.goblin1 {
+    font-size: 1px !important;
+    position: fixed;
+    /* filter: drop-shadow(0px 0px 20px rgb(38, 255, 0)); */
+    animation: goblin1Anim 1.5s infinite ease-in-out;
+}
+.goblin2  {
+    font-size: 1px !important;
+    position: relative;
+    animation: goblin2Anim 1.5s infinite ease-in-out;
+}
+.goblinBody{
+    transform: scale(.2);
+    animation: goblinBody 1.5s infinite ease-in-out;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    top:-106px;
+    left: -250px;
+    user-select: none;
+    pointer-events: none;
+    color: rgb(41, 160, 41) !important;
+}
+.goblinBodyDiv {
+    width: 700px;
+}
+#goblinText {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 55px;
+    max-width: 100px;
+    animation: goblinText 2s infinite ease-in-out;
+}
+@keyframes goblin1Anim {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes goblin2Anim {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes goblin {
+    0% {
+        filter: drop-shadow(0px 0px 20px rgb(38, 255, 0));
+        transform: rotate(0deg);
+    }
+    50% {
+        filter: drop-shadow(0px 0px 20px rgba(38, 255, 0, 0.719));
+        transform: rotate(5deg);
+    }
+    100% {filter: drop-shadow(0px 0px 20px rgb(38, 255, 0));
+        transform: rotate(0deg);}
+}
+@keyframes goblinBody {
+    0% {
+        filter: drop-shadow(0px 0px 20px rgba(30, 116, 15, 0.712));
+    }
+    50% {
+        filter: drop-shadow(0px 0px 20px rgba(21, 42, 17, 0.445));
+    }
+    100% {filter: drop-shadow(0px 0px 20px rgba(30, 116, 15, 0.712));}
+}
+@keyframes goblinAttack {
+    0% {
+        top: 50px;
+        left: 21%;
+        transform: rotate(inherit);
+    }
+    25% {
+        top: 100px;
+        left: 21%;
+        transform: rotate(360deg);
+    }
+    40% {
+        top: 150px;
+        left: 15%;
+        transform: rotate(0deg);
+    }
+    60% {
+        top: 50px;
+        left: 21%;
+        transform: rotate(inherit);
+    }
+}
+.floorTile {
+    position: absolute;
+    top: 300px;
+    transform: rotate(90deg);
+    font-size: 2px !important;
+    opacity: .3;
+}
+.floorTile2 {
+    position: absolute;
+    top: 300px;
+    left: 259px;
+    transform: rotate(90deg);
+    font-size: 2px !important;
+    opacity: .3;
+}
+#playerHUD {
+    position: fixed;
+    bottom: 0;
+}
+
+.modal-content {
+    border: 1px dashed rgb(64, 187, 64);
+    border-radius: 10px;
+    position: fixed;
+    width:  97%;
+    top: 150px;
+    background: rgba(29, 28, 28, 0.945);
+    box-shadow: 0px 0px 750px 500px rgba(29, 28, 28, 0.863);
+}
+#errorModalTitle, .modal-title {
+    text-align: center !important;
+}
+.modal-header {
+    border: none;
+}
+.modal-footer {
+    text-align: center !important;
+    border: none;
+}

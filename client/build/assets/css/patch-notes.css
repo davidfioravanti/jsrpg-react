@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'Fixedsys Excelsior';
+    src: url('FixedsysExcelsiorIIIb.woff2') format('woff2'),
+        url('FixedsysExcelsiorIIIb.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+p {
+    font-size: 15px !important;
+}
+b {
+    font-weight: normal !important;
+}
+h1 {
+    font-size: 40px !important;
+}
+h3 {
+    font-size: 30px !important;
+}
+hr {
+    border: 1px dashed green;
+}
+pre {
+    font-size:15px !important;
+    font-family: 'Fixedsys Excelsior' !important;
+    width: 100%;
+}
+
+.sectionBg {
+    background: rgba(0, 128, 0, 0.13) !important;
+    border: 1.5px dashed green;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 760px) {
+    pre {
+        font-size:10px !important;
+    }
+}

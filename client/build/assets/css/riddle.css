@@ -1,0 +1,277 @@
+body {
+    overflow-x: hidden;
+    width: 50%;
+}
+h1 {
+    font-size: 80px;
+    user-select: none;
+}
+#bodyWrapper {
+    display: none;
+}
+.box {
+    width: 80px;
+    height: 80px;
+    border: 1px dashed rgb(78, 236, 78);
+}
+.boxZone {
+    width: 80px;
+    height: 80px;
+    border-left: 1px dashed rgba(78, 236, 78, 0.15);
+}
+.floating {
+    animation: floating 5s infinite ease-in-out;
+    /* animation-play-state: running; */
+}
+.riddleGlow {
+    animation: riddleGlow 2s infinite ease-in-out !important;
+}
+@keyframes riddleGlow {
+    0% {
+        text-shadow: 0px 0px 5px rgba(172, 255, 47, 0);
+        transform: scale(1);
+    }
+    50% {
+        text-shadow: 0px 0px 20px greenyellow;
+        transform: scale(1.2);
+    }
+    100% {
+        text-shadow: 0px 0px 5px rgba(172, 255, 47, 0);
+        transform: scale(1);
+    }
+}
+.letter {
+    opacity: 0;
+}
+.a {
+    position: absolute;
+    left: -50px;
+    top: 330px;
+    animation: floating 5s infinite ease-in-out .5s;
+}
+.b {
+    position: absolute;
+    left: -50px;
+    top: 280px;
+    animation: floating 5s infinite ease-in-out 5s;
+}
+.c {
+    position: absolute;
+    left: -50px;
+    top: 370px;
+    animation: floating 6s infinite ease-in-out 6.9s;
+}
+.d {
+    position: absolute;
+    left: -50px;
+    top: 320px;
+    animation: floating 5s infinite ease-in-out 1.3s;
+}
+.e {
+    position: absolute;
+    left: -50px;
+    top: 220px;
+    animation: floating 5s infinite ease-in-out 1s;
+}
+.f {
+    position: absolute;
+    left: -50px;
+    top: 274px;
+    animation: floating 5s infinite ease-in-out 5.6s;
+}
+.g {
+    position: absolute;
+    left: -50px;
+    top: 290px;
+    animation: floating 5s infinite ease-in-out 5.2s;
+}
+.h {
+    position: absolute;
+    left: -50px;
+    top: 350px;
+    animation: floating 5.3s infinite ease-in-out 5.3s;
+}
+.i {
+    position: absolute;
+    left: -50px;
+    top: 299px;
+    animation: floating 5s infinite ease-in-out 1.2s;
+}
+.j {
+    position: absolute;
+    left: -50px;
+    top: 240px;
+    animation: floating 6s infinite ease-in-out 6s;
+}
+.k {
+    position: absolute;
+    left: -50px;
+    top: 280px;
+    animation: floating 5.8s infinite ease-in-out 5.8s;
+}
+.l {
+    position: absolute;
+    left: -50px;
+    top: 380px;
+    animation: floating 6s infinite ease-in-out 6s;
+}
+.m {
+    position: absolute;
+    left: -80px;
+    top: 340px;
+    animation: floating 8.6s infinite ease-in-out 8.6s;
+}
+.n {
+    position: absolute;
+    left: -50px;
+    top: 255px;
+    animation: floating 7s infinite ease-in-out 7s;
+}
+.o {
+    position: absolute;
+    left: -50px;
+    top: 220px;
+    animation: floating 5.7s infinite ease-in-out 5.7s;
+}
+.p {
+    position: absolute;
+    left: -50px;
+    top: 215px;
+    animation: floating 5.2s infinite ease-in-out 5.2s;
+}
+.q {
+    position: absolute;
+    left: -50px;
+    top: 200px;
+    animation: floating 6.2s infinite ease-in-out 4.2s;
+}
+.r {
+    position: absolute;
+    left: -50px;
+    top: 200px;
+    animation: floating 8s infinite ease-in-out 8s;
+}
+.s {
+    position: absolute;
+    left: -50px;
+    top: 340px;
+    animation: floating 5s infinite ease-in-out .8s;
+}
+.t {
+    position: absolute;
+    left: -50px;
+    top: 330px;
+    animation: floating 5s infinite ease-in-out .1s;
+}
+.u {
+    position: absolute;
+    left: -50px;
+    top: 340px;
+    animation: floating 10s infinite ease-in-out 10.3s;
+}
+.v {
+    position: absolute;
+    left: -50px;
+    top: 223px;
+    animation: floating 9s infinite ease-in-out 9.3s;
+}
+.w {
+    position: absolute;
+    left: -100px;
+    top: 310px;
+    animation: floating 10s infinite ease-in-out 10s;
+}
+.x {
+    position: absolute;
+    left: -50px;
+    top: 348px;
+    animation: floating 10s infinite ease-in-out 5s;
+}
+.y {
+    position: absolute;
+    left: -50px;
+    top: 258px;
+    animation: floating 9s infinite ease-in-out 9.4s;
+}
+.z {
+    position: absolute;
+    left: -50px;
+    top: 320px;
+    animation: floating 9s infinite ease-in-out 9.8s;
+}
+.letter1, .letter2, .letter3, .letter4 {
+    animation: none !important;
+}
+@keyframes floating {
+    0% {left: -50px}
+    50% {left: 700px}
+    100% {left: 700px};
+}
+#box1 {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+#box1Zone {
+    position: absolute;
+    left: 70px;
+    top: 50px;
+}
+#box2 {
+    position: absolute;
+    left: 150px;
+    top: 50px;
+}
+#box2Zone {
+    position: absolute;
+    left: 170px;
+    top: 50px;
+}
+#box3 {
+    position: absolute;
+    left: 250px;
+    top: 50px;
+}
+#box3Zone {
+    position: absolute;
+    left: 270px;
+    top: 50px;
+}
+#box4 {
+    position: absolute;
+    left: 350px;
+    top: 50px;
+}
+#box4Zone {
+    position: absolute;
+    left: 370px;
+    top: 50px;
+}
+#riddle {
+    display: none;
+    position: absolute;
+    bottom: 0;
+}
+#ui {
+    position: absolute;
+    top: 150px;
+}
+#wrapper {
+    height: 700px;
+    width: 500px;
+}
+.red {
+    background: red;
+}
+#continueScreen {
+    position: fixed;
+    top: 300px;
+}
+
+a {
+    font-size: 25px;
+}
+
+#continueButton {
+    display: none;
+}

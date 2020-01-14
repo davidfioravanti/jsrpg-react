@@ -1,0 +1,193 @@
+@font-face {
+    font-family: 'Daedra';
+    src: url('Daedra.woff2') format('woff2'),
+        url('Daedra.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+#enemyName {
+    font-family: 'Daedra' !important;
+}
+.specialText {
+    font-family: 'Daedra' !important;
+}
+.dragon {
+    display: none;
+    position: absolute;
+    left: 100px;
+    top: 10px;
+    animation: dragonShift 2s infinite ease-in-out;
+}
+@keyframes dragonShift {
+    0% {    left: 100px; transform: rotate(-1deg);}
+    50% {    left: 90px; transform: rotate(0deg);}
+    100% {    left: 100px; transform: rotate(-1deg);}
+}
+.dragonAttack {
+    animation: dragonAttack 2s ease-in-out;
+}
+@keyframes dragonAttack {
+    0% {left: -30px;top: inherit; transform: scale3d(1, 1, 1); opacity: 1}
+    25% {left: 500px; top: inherit; transform: scale3d(.5, .5, .5); opacity: 0}
+    30% {left: -30px; top: inherit; transform: scale3d(.2, .2, .2); opacity: 0}
+    50% {top: -20px; transform: scale3d(1, 1, 1); opacity: .7}
+    100% {opacity: 1}
+}
+.dragonAttackArm {
+    animation: dragonAttackArm 1.5s ease-in-out .5s;
+}
+@keyframes dragonAttackArm {
+    0% {transform: rotate(0deg); top: 0px;}
+    50% {transform: rotate(15deg); top: -20px;}
+    100% {transform: rotate(0deg); top: 0px;}
+}
+.dragonHead {
+    position: absolute;
+    top: 10px;
+    user-select: none;
+    mix-blend-mode: darken;
+    animation: dragonHeadGlow 1.8s infinite ease-in-out;
+    z-index: -1000;
+}
+@keyframes dragonHeadGlow {
+    0% {filter: drop-shadow(0px 0px 15px rgb(0, 255, 13)); 
+        transform: rotate(0deg);}
+    50% {filter: drop-shadow(0px 0px 10px rgb(0, 255, 13));
+        transform: rotate(5deg);}
+    100% {filter: drop-shadow(0px 0px 15px rgb(0, 255, 13));}
+}
+.dragonHeadFrame1 {
+    user-select: none;
+    position: absolute;
+    top:0;
+    left: -10px;
+    font-family: monospace !important;
+    font-size: .8px;
+    animation: dragonHeadFrame1 1.8s infinite ease-in-out;
+}
+@keyframes dragonHeadFrame1 {
+    0% {opacity: 1}
+    50% {opacity: 0}
+    100% {opacity: 1}
+}
+.dragonHeadFrame2 {
+    user-select: none;
+    position: absolute;
+    font-family: monospace !important;
+    left: -5px;
+    font-size: .83px;
+    animation: dragonHeadFrame2 1.8s infinite ease-in-out;
+}
+@keyframes dragonHeadFrame2 {
+    0% {opacity: 0}
+    50% {opacity: 1}
+    100% {opacity: 0}
+}
+
+.dragonBodyFrame1 {
+    user-select: none;
+    position: absolute;
+    top:160px;
+    opacity: 1;
+    font-family: monospace !important;
+    font-size:1.8px;
+    filter: drop-shadow(0px 0px 25px green);
+    transform: rotate(15deg);
+}
+.dragonArms {
+    position: absolute;
+    transform: rotate(-1deg);
+    animation: dragonArms 1s infinite ease-in-out;
+}
+@keyframes dragonArms {
+    0% {transform: rotate(-1deg); top: 0px;}
+    50% {transform: rotate(0deg); top: 5px;}
+    100% {transform: rotate(-1deg); top: 0px;}
+}
+.dragonClawLFrame1 {
+    user-select: none;
+    mix-blend-mode: darken;
+    position: absolute;
+    top:-100px;
+    left: -190px;
+    opacity: .7;
+    font-family: monospace !important;
+    transform: scale(.2);
+    z-index: -1000;
+    filter: drop-shadow(0px 0px 25px green);
+}
+.dragonClawRFrame1 {
+    user-select: none;
+    position: absolute;
+    top:-100px;
+    left: 70px;
+    opacity: .7;
+    font-family: monospace !important;
+    transform: scale(.25);
+}
+
+.dragonShoulderRFrame1 {
+    user-select: none;
+    position: absolute;
+    top:200px;
+    left: 190px;
+    opacity:1;
+    font-family: monospace !important;
+    font-size: 1.3px;
+    transform: rotate(-20deg);
+    color: rgba(52, 206, 52, 0.692) !important;
+    z-index: -10000;
+}
+.dragonShoulderLFrame1 {
+    user-select: none;
+    position: absolute;
+    top:195px;
+    left: -40px;
+    opacity:1;
+    font-family: monospace !important;
+    font-size: 1.3px;
+    transform: rotate(40deg);
+    color: rgba(68, 230, 68, 0.52) !important;
+    z-index: -10000;
+}
+
+.dragonWingRFrame1 {
+    user-select: none;
+    position: absolute;
+    top:100px;
+    left: 250px;
+    opacity:1;
+    font-family: monospace !important;
+    font-size: 2px;
+    transform: rotate(-10deg);
+    color: rgb(65, 255, 65) !important;
+    filter: drop-shadow(0px 0px 25px rgb(37, 255, 37));
+    animation: wingFlap .7s infinite ease-in-out;
+}
+@keyframes wingFlap {
+    0% {    transform: rotate(-10deg);}
+    50% {    transform: rotate(-5deg);}
+    100% {    transform: rotate(-10deg);}
+}
+.dragonWingLFrame1 {
+    user-select: none;
+    position: absolute;
+    top:150px;
+    left: -180px;
+    opacity:1;
+    font-family: monospace !important;
+    font-size: 2px;
+    transform: rotate(-10deg);
+    color: rgb(42, 255, 42) !important;
+    filter: drop-shadow(0px 0px 5px rgb(117, 255, 124));
+    animation: wingFlap2 1s infinite ease-in-out;
+}
+@keyframes wingFlap2 {
+    0% {    transform: rotate(5deg);}
+    50% {    transform: rotate(10deg);}
+    100% {    transform: rotate(5deg);}
+}
+
+#HUD {
+    z-index: 1000000;
+}

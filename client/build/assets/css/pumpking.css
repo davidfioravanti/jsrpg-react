@@ -1,0 +1,156 @@
+iframe {
+    filter: hue-rotate(200deg);
+}
+
+.pumpkinDiv {
+    transition: opacity .5s ease-in-out;
+    opacity: 0;
+    position: relative;
+    top: -100px;
+}
+.pumpkin1 {
+    color: rgb(50, 252, 0) !important;
+    position: absolute;
+    top:0;
+    animation: pumpkin1 2s infinite ease-in;
+    font-size:2px !important; overflow: hidden; line-height: 1;
+    font-family: 'Fixedsys Excelsior' !important;
+}
+@keyframes pumpkin1 {
+    0% {filter: drop-shadow(0px 0px 20px rgb(0, 226, 0)); top: 10px; transform: rotate(0deg);}
+    50% {filter: drop-shadow(0px 0px 10px green);top: 0px; transform: rotate(1deg);}
+    100% {filter: drop-shadow(0px 0px 20px rgb(0, 226, 0)); top: 10px; transform: rotate(0deg);}
+}
+.handLeft {
+    color: rgb(39, 196, 0) !important;
+    position: absolute;
+    top:300px;
+    left: -50px;
+    animation: handLeft 1.2s infinite ease-in;
+    font-size:1px !important; overflow: hidden; line-height: 1;
+    font-family: 'Fixedsys Excelsior' !important;
+}
+@keyframes handLeft {
+    0% {transform: rotate(0deg); left: -40px; top: 280px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 226, 0));}
+    50% {transform: rotate(5deg); left: -30px; top: 260px;
+        filter: drop-shadow(0px 0px 10px rgb(0, 112, 0));}
+    100% {transform: rotate(0deg); left: -40px; top:280px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 226, 0));}
+}
+.handLeftAttack {
+left: inherit;
+top: inherit;
+animation: handLeftAttack 2s ease-in-out;
+}
+@keyframes handLeftAttack {
+    0% {transform: rotate(0deg); left: -40px; top: 280px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 226, 0));}
+    50% {transform: rotate(5deg); left: 20px; top: 260px;
+        filter: drop-shadow(0px 0px 10px rgb(0, 112, 0));}
+    100% {transform: rotate(0deg); left: -40px; top:280px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 226, 0));}
+} 
+.handRight {
+    color: rgb(39, 197, 0) !important;
+    position: absolute;
+    top:280px;
+    right: 20px;
+    animation: handRight 1.5s infinite ease-in;
+    font-size:1px !important; overflow: hidden; line-height: 1;
+    filter: drop-shadow(0px 0px 20px rgb(0, 226, 0));
+    font-family: 'Fixedsys Excelsior' !important;
+}
+@keyframes handRight {
+    0% {transform: rotate(0deg); right: -10px; top: 300px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 226, 0));}
+    50% {transform: rotate(-5deg); right: 0px; top: 280px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 112, 0));}
+    100% {transform: rotate(0deg); right:-10px; top: 300px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 226, 0));}
+}
+.handRightAttack {
+    animation: handRightAttack 2s ease-in-out;
+    }
+@keyframes handRightAttack {
+    0% {transform: rotate(0deg); right: -10px; top: 240px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 226, 0));}
+    50% {transform: rotate(-5deg); right: 0px; top: 280px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 112, 0));}
+    100% {transform: rotate(0deg); right:-10px; top: 300px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 226, 0));}
+}
+.crown {
+    color: rgb(39, 196, 0) !important;
+    position: absolute;
+    top: 90px;
+    left: 120px;
+    transform: rotate(-20deg);
+    font-size:2px !important; overflow: hidden; line-height: 1;
+    animation: crown 3s infinite ease-in-out;
+}
+@keyframes crown {
+    0% {transform: rotate(-20deg); left:120px; top: 90px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 226, 0));}
+    50% {transform: rotate(-25deg); left:110px; top: 95px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 112, 0));}
+    100% {transform: rotate(-20deg); left:120px; top: 90px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 226, 0));}
+}
+.eyebrowRight {
+    /* display: none; */
+    color: rgb(19, 165, 0) !important;
+    position: absolute;
+    top: 150px;
+    left: 250px;
+    font-size:2px !important; overflow: hidden; line-height: 1;
+    font-weight: bold !important;
+    transform: rotate(-50deg);
+    filter: drop-shadow(0px 0px 20px rgb(0, 85, 0));
+    animation: eyebrowRight .7s infinite ease-in-out;
+}
+@keyframes eyebrowRight {
+    0% {transform: rotate(-50deg); left: 250px; top: 150px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 85, 0));}
+    50% {transform: rotate(-52deg); left: 248px; top: 152px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 150, 0));}
+    100% {transform: rotate(-50deg); left: 250px; top: 150px;
+        filter: drop-shadow(0px 0px 20px rgb(0, 85, 0));}
+}
+.eyebrowLeft {
+        /* display: none; */
+    color: rgb(19, 165, 0) !important;
+    position: absolute;
+    top: 150px;
+    left: 150px;
+    font-weight: bold !important;
+    font-size:2px !important; overflow: hidden; line-height: 1;
+    transform: rotate(40deg);
+    filter: drop-shadow(0px 0px 50px rgb(0, 255, 0));
+    animation: eyebrowLeft .7s infinite ease-in-out;
+}
+@keyframes eyebrowLeft {
+    0% {transform: rotate(40deg); left:150px; top: 150px;;
+        filter: drop-shadow(0px 0px 20px rgb(0, 85, 0));}
+    50% {transform: rotate(42deg); left:152px; top: 152px;;
+        filter: drop-shadow(0px 0px 20px rgb(0, 150, 0));}
+    100% {transform: rotate(40deg); left:150px; top: 150px;;
+        filter: drop-shadow(0px 0px 20px rgb(0, 85, 0));}
+}
+.hypnotize {
+    transition: all .5s ease-in-out;
+    color: rgb(99, 255, 79) !important;
+    position: absolute;
+    left: 110px;
+    top: 200px;
+    font-size:1px !important ;
+    animation: hypnotize .2s infinite ease-in-out;
+}
+@keyframes hypnotize {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(180deg);}
+    100% {transform: rotate(360deg);}
+}
+.hypnotizeDiv {
+    display: none;
+}

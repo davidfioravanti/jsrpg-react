@@ -1,0 +1,1154 @@
+hr {
+    border: 1px rgb(134, 255, 104) dashed;
+}
+#bodyWrapper {
+    display: none;
+}
+.north {
+    transition: all .5s ease-in-out;
+    opacity: 1;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+}
+.west {
+    transition: all .5s ease-in-out;
+    opacity: .3;
+    position: absolute;
+    top: 70px;
+    right: 90px;
+}
+.south {
+    transition: all .5s ease-in-out;
+    opacity: .3;
+    position: absolute;
+    top: 110px;
+    right: 52px;
+}
+.east {
+    transition: all .5s ease-in-out;
+    opacity: .3;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+}
+#roomNum {
+    opacity: .3;
+    position: absolute;
+    right: 15px;
+    top: 150px;
+}
+.floor {
+    opacity: .3;
+    position: relative;
+    bottom: -300px;
+    left: -200px;
+    transform: matrix3d(1, 0, 1, 0, 
+    -1, 0, 0, -0.003, 
+    0, 0, 1, 0, 
+    201, 199, 0, 1);
+    transform-origin: 0px 0px 0px;
+    width: 500px;
+    height: 500px;
+}
+.background {
+    position: absolute;
+    top: -50;
+    width: 500px;
+    height: 500px;
+}
+.forward {
+    animation: forward .8s ease-in-out;
+}
+@keyframes forward {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(3);
+    }
+}
+.turnLeft {
+    position: absolute;
+    animation: turnLeft .8s ease-in-out;
+}
+@keyframes turnLeft {
+    0% {
+        top: 0;
+        right: 0;
+    }
+    100% {
+        top: -300px;
+        right: -500px;
+        transform: matrix3d(0.746007, -0.014799, 0, -0.002659, 
+        -0.115303, 2.547225, 0, 0.000241, 
+        0, 0, 1, 0, 
+        244, 116, 0, 1);
+transform-origin: 0px 0px 0px;
+    }
+}
+
+.turnRight {
+    position: absolute;
+    animation: turnRight .8s ease-in-out;
+}
+@keyframes turnRight {
+    0% {
+        top: 0;
+        left: 0;
+    }
+    100% {
+        top: -300px;
+        left: -1000px;
+        transform: matrix3d(3.354556, 1.401535, 0, 0.013791, 
+        0.357564, 3.445451, 0, -0.00059, 
+        0, 0, 1, 0, 
+        0, 93, 0, 1);
+transform-origin: 0px 0px 0px;
+
+/* Need to make sure you define the width and height */
+    }
+}
+.door {
+    position: absolute;
+    opacity: .3;
+    font-size: 1.8px !important;
+    z-index: -10000;
+    top: 0px;
+}
+.hands {
+    user-select: none;
+}
+.leftHand {
+    position: absolute;
+    top: 430px;
+    left: -170px;
+    font-size: 1.5px !important;
+    transform: rotate(-20deg);
+    filter: drop-shadow(0px 0px 20px green);
+    animation: leftHandGlow 1s infinite ease-in-out .3s;
+}
+@keyframes leftHandGlow {
+    0% {filter: drop-shadow(0px 0px 20px green);}
+    50% {filter: drop-shadow(0px 0px 30px green);}
+    100% {filter: drop-shadow(0px 0px 20px green);}
+}
+.leftHandWrapper {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: all .5s ease-in-out;
+    transform: inherit;
+    animation: leftHandIdle 2s infinite ease-in-out;
+}
+@keyframes leftHandIdle {
+    0% {
+        top: 0px;
+        left: 0px;
+        transform: inherit;
+    }
+    50% {
+        top: -10px;
+        right: -30px;
+        transform: rotate(1deg);
+    }
+}
+.leftHandWalk {
+    animation: leftHandWalk .5s ease-in-out;
+}
+@keyframes leftHandWalk {
+    0% {
+    }
+    50% {
+        top: 50px;
+        left: 100px;
+        transform: rotate(10deg);
+    }
+}
+.rightHand {
+    position: absolute;
+    top: 430px;
+    right: -200px;
+    font-size: 1.5px !important;
+    transform: rotate(20deg);
+    filter: drop-shadow(0px 0px 20px green);
+    animation: rightHandGlow 1s infinite ease-in-out;
+}
+@keyframes rightHandGlow {
+    0% {filter: drop-shadow(0px 0px 20px green);}
+    50% {filter: drop-shadow(0px 0px 30px green);}
+    100% {filter: drop-shadow(0px 0px 20px green);}
+}
+.rightHandWrapper {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transition: all .5s ease-in-out;
+    transform: inherit;
+    animation: rightHandIdle 2s infinite ease-in-out;
+}
+@keyframes rightHandIdle {
+    0% {
+        top: 0px;
+        right: 0px;
+        transform: inherit;
+    }
+    50% {
+        top: -10px;
+        right: -30px;
+        transform: rotate(2deg);
+    }
+}
+
+
+.rightHandWalk {
+    animation: rightHandWalk .5s ease-in-out .1s;
+}
+@keyframes rightHandWalk {
+    0% {
+
+    }
+    50% {
+        top: 50px;
+        right: 10px;
+        transform: rotate(-5deg);
+    }
+}
+
+.HUD {
+    filter: drop-shadow(0px 0px 20px green);
+    position: relative;
+    bottom: -550px;
+}
+
+#optionsModal {
+    position: fixed;
+    top: 20px;
+}
+.modal-content {
+    background: rgba(29, 28, 28, 0.897);
+    height: 600px;
+    box-shadow: 0px 0px 200px 200px rgba(29, 28, 28, 0.897);
+    border: 1px rgb(134, 255, 104) dashed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.modal-header {
+    border-bottom: none;
+}
+#modalExitOptions{
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+}
+.modal-footer {
+    border-top: none;
+    position: relative;
+}
+.card, .card-body {
+    background: rgba(29, 28, 28, 0.952);
+    border: 1px rgb(134, 255, 104) dashed;
+}
+.card-text {
+    border: none;
+}
+.player {
+    filter: drop-shadow(0px 0px 3px green);
+    animation: playerToken 1s infinite ease-in-out;
+}
+@keyframes playerToken {
+    0% {filter: drop-shadow(0px 0px 3px rgb(0, 255, 0));}
+    50% {filter: drop-shadow(0px 0px 5px rgb(0, 56, 0));}
+    100% {filter: drop-shadow(0px 0px 3px rgb(0, 255, 0));}
+}
+#sizeDescr {
+    position: absolute;
+    top: 200px;
+    right: 35px;
+}
+#small {
+    position: relative;
+    left: -20px;
+    top: 20px;
+}
+#medium {
+    position: relative;
+    top: 20px;
+}
+#large {
+    top: 20px;
+    position: relative;
+    left: 20px;
+}
+#coordinates {
+    position: absolute;
+    left: 50px;
+}
+#mapDirection {
+    position: absolute;
+    right: 70px;
+}
+#passiveHealDescr {
+    position: absolute;
+    top: 250px;
+    right: 85px;
+}
+#passiveHealOff {
+    position: relative;
+    left: -80px;
+    top: 20px;
+}
+#passiveHealOn {
+    position: relative;
+    left: 70px;
+    top: 20px;
+}
+#autoplayDescr {
+    position: absolute;
+    top: 250px;
+    right: 85px;
+}
+#autoplayOff {
+    position: relative;
+    left: -80px;
+    top: 68px;
+}
+#autoplayOn {
+    position: relative;
+    left: 70px;
+    top: 68px;
+}
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 4.6px 0;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6.8px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #00ff00, 0px 0px 1px #1aff1a;
+    background: #8eff8a;
+    border-radius: 2.9px;
+    border: 0.8px solid #78ff6a;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 4px #000000, 0px 0px 0px #0d0d0d;
+    border: 3px solid #00ff00;
+    height: 16px;
+    width: 17px;
+    border-radius: 5px;
+    background: rgba(0, 255, 0, 0.62);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5.4px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #a7ffa3;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 6.8px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #00ff00, 0px 0px 1px #1aff1a;
+    background: #8eff8a;
+    border-radius: 2.9px;
+    border: 0.8px solid #78ff6a;
+  }
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 4px #000000, 0px 0px 0px #0d0d0d;
+    border: 3px solid #00ff00;
+    height: 16px;
+    width: 17px;
+    border-radius: 5px;
+    background: rgba(0, 255, 0, 0.62);
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 6.8px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #75ff70;
+    border: 0.8px solid #78ff6a;
+    border-radius: 5.8px;
+    box-shadow: 1px 1px 1px #00ff00, 0px 0px 1px #1aff1a;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #8eff8a;
+    border: 0.8px solid #78ff6a;
+    border-radius: 5.8px;
+    box-shadow: 1px 1px 1px #00ff00, 0px 0px 1px #1aff1a;
+  }
+  input[type=range]::-ms-thumb {
+    box-shadow: 0px 0px 4px #000000, 0px 0px 0px #0d0d0d;
+    border: 3px solid #00ff00;
+    height: 16px;
+    width: 17px;
+    border-radius: 5px;
+    background: rgba(0, 255, 0, 0.62);
+    cursor: pointer;
+    height: 6.8px;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #8eff8a;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #a7ffa3;
+  }
+  input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 4.6px 0;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6.8px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #428642, 0px 0px 1px #1aff1a;
+    background: #8eff8a00;
+    border-radius: 2.9px;
+    border: 0.8px solid #78ff6a;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 10px #00000081, 0px 0px 5px #0000009d;
+    border: 3px solid #56fc56d5;
+    height: 16px;
+    width: 17px;
+    border-radius: 5px;
+    background: rgba(16, 83, 16, 0.62);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5.4px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #a8ffa300;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 6.8px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #00ff00, 0px 0px 1px #1aff1a;
+    background: #8eff8a;
+    border-radius: 2.9px;
+    border: 0.8px solid #2e9123;
+  }
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 4px #000000, 0px 0px 0px #0d0d0d;
+    border: 3px solid #00ff0017;
+    height: 16px;
+    width: 17px;
+    border-radius: 5px;
+    background: rgba(0, 255, 0, 0.62);
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 6.8px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #75ff70;
+    border: 0.8px solid #78ff6a;
+    border-radius: 5.8px;
+    box-shadow: 1px 1px 1px #00ff00, 0px 0px 1px #1aff1a;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #8eff8a;
+    border: 0.8px solid #78ff6a;
+    border-radius: 5.8px;
+    box-shadow: 1px 1px 1px #00ff00, 0px 0px 1px #1aff1a;
+  }
+  input[type=range]::-ms-thumb {
+    box-shadow: 0px 0px 4px #000000, 0px 0px 0px #0d0d0d;
+    border: 3px solid #00ff00;
+    height: 16px;
+    width: 17px;
+    border-radius: 5px;
+    background: rgba(0, 255, 0, 0.62);
+    cursor: pointer;
+    height: 6.8px;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #8eff8a;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #a7ffa3;
+  }
+  .gridSquare {
+    background: rgba(0, 128, 0, 0.055) !important;
+    border: 1.3px rgb(134, 255, 104) dotted;
+    border-bottom: none;
+    border-right: none;
+    height: 20px;
+    width: 20px;
+    z-index: 100000 !important;
+    pointer-events: all !important;
+}
+.gridButton {
+    height: 5px;
+    width: 5px !important;
+}
+.bottomSquare {
+    border-bottom: 1.3px rgb(134, 255, 104) dotted;
+}
+.rightSquare {
+    border-right: 1.3px rgb(134, 255, 104) dotted;
+}
+#mapGrid {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+}
+#mapClickCoords {
+    user-select: none;
+    pointer-events: none;
+}
+#mapLabelsX {
+    position: absolute;
+    bottom: 136px;
+    user-select: none;
+    pointer-events: none;
+}
+#mapLegend {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    user-select: none;
+    pointer-events: none;
+}
+#modalExitMap {
+    position: absolute;
+    bottom: 42px;
+    right: 20px;
+    pointer-events: all !important;
+    z-index: 100000;
+}
+
+#y-10 {
+    position: absolute;
+    top: 450px;
+    left: 3px;
+}
+#y-9 {
+    position: absolute;
+    top: 430px;
+    left: 5px;
+}
+#y-8 {
+    position: absolute;
+    top: 410px;
+    left: 5px;
+}
+#y-7 {
+    position: absolute;
+    top: 390px;
+    left: 5px;
+}
+#y-6 {
+    position: absolute;
+    top: 370px;
+    left: 5px;
+}
+#y-5 {
+    position: absolute;
+    top: 350px;
+    left: 6px;
+}
+#y-4 {
+    position: absolute;
+    top: 330px;
+    left: 5px;
+}
+#y-3 {
+    position: absolute;
+    top: 310px;
+    left: 7px;
+}
+#y-2 {
+    position: absolute;
+    top: 290px;
+    left: 7px;
+}
+#y-1 {
+    position: absolute;
+    top: 270px;
+    left: 9px;
+}
+#y0 {
+    position: absolute;
+    top: 250px;
+    left: 13px;
+}
+#y1 {
+    position: absolute;
+    top: 230px;
+    left: 14px;
+}
+#y2 {
+    position: absolute;
+    top: 210px;
+    left: 13px;
+}
+#y3 {
+    position: absolute;
+    top: 190px;
+    left: 13px;
+}
+#y4 {
+    position: absolute;
+    top: 170px;
+    left: 12px;
+}
+#y5 {
+    position: absolute;
+    top: 150px;
+    left: 12px;
+}
+#y6 {
+    position: absolute;
+    top: 130px;
+    left: 12px;
+}
+#y7 {
+    position: absolute;
+    top: 110px;
+    left: 12px;
+}
+#y8 {
+    position: absolute;
+    top: 90px;
+    left: 12px;
+}
+#y9 {
+    position: absolute;
+    top: 70px;
+    left: 12px;
+}
+#y10 {
+    position: absolute;
+    top: 50px;
+    left: 9px;
+}
+#x-11 {
+    position: absolute;
+    left: 10px;
+}
+#x-10 {
+    position: absolute;
+    left: 6px;
+}
+#x-9 {
+    position: absolute;
+    left: 30px;
+}
+#x-8 {
+    position: absolute;
+    left: 50px;
+}
+#x-7 {
+    position: absolute;
+    left: 70px;
+}
+#x-6 {
+    position: absolute;
+    left: 90px;
+}
+#x-5 {
+    position: absolute;
+    left: 110px;
+}
+#x-4 {
+    position: absolute;
+    left: 130px;
+}
+#x-3 {
+    position: absolute;
+    left: 150px;
+}
+#x-2 {
+    position: absolute;
+    left: 170px;
+}
+#x-1 {
+    position: absolute;
+    left: 192px;
+}
+#x0 {
+    position: absolute;
+    left: 216px;
+}
+#x1 {
+    position: absolute;
+    left: 236px;
+}
+#x2 {
+    position: absolute;
+    left: 256px;
+}
+#x3 {
+    position: absolute;
+    left: 275px;
+}
+#x4 {
+    position: absolute;
+    left: 296px;
+}
+#x5 {
+    position: absolute;
+    left: 316px;
+}
+#x6 {
+    position: absolute;
+    left: 336px;
+}
+#x7 {
+    position: absolute;
+    left: 356px;
+}
+#x8 {
+    position: absolute;
+    left: 376px;
+}
+#x9 {
+    position: absolute;
+    left: 396px;
+}
+#x10 {
+    position: absolute;
+    left: 413px;
+}
+  .column1 {
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    pointer-events: none;
+}
+.column2 {
+    position: absolute;
+    left: 20px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column3 {
+    position: absolute;
+    left: 40px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column4 {
+    position: absolute;
+    left: 60px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column5 {
+    position: absolute;
+    left: 80px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column6 {
+    position: absolute;
+    left: 100px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column7 {
+    position: absolute;
+    left: 120px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column8 {
+    position: absolute;
+    left: 140px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column9 {
+    position: absolute;
+    left: 160px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column10 {
+    position: absolute;
+    left: 180px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column11 {
+    position: absolute;
+    left: 200px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column12 {
+    position: absolute;
+    left: 220px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column13 {
+    position: absolute;
+    left: 240px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column14 {
+    position: absolute;
+    left: 260px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column15 {
+    position: absolute;
+    left: 280px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column16 {
+    position: absolute;
+    left: 300px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column17 {
+    position: absolute;
+    left: 320px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column18 {
+    position: absolute;
+    left: 340px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column19 {
+    position: absolute;
+    left: 360px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column20 {
+    position: absolute;
+    left: 380px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column21 {
+    position: absolute;
+    left: 400px;
+    z-index: 100;
+    pointer-events: none;
+}
+.column22 {
+    position: absolute;
+    left: 420px;
+    z-index: 100;
+    pointer-events: none;
+}
+
+#helmSlot {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    opacity: .5;
+}
+#chestSlot {
+    position: absolute;
+    right: 10px;
+    top: 80px;
+    opacity: .5;
+}
+#legSlot {
+    position: absolute;
+    right: 10px;
+    top: 210px;
+    opacity: .5;
+}
+#bootsSlot {
+    position: absolute;
+    right: 10px;
+    top: 275px;
+    opacity: .5;
+}
+#glovesSlot {
+    position: absolute;
+    right: 10px;
+    top: 145px;
+    opacity: .5;
+}
+.gearSlot {
+    width: 50px;
+    height: 50px;
+    border: 1px dashed rgb(134, 255, 104);
+    border-radius: 8px;
+    font-size: 12px;
+    opacity: 1;
+}
+#goldLabel {
+    position: absolute;
+    bottom: 120px;
+    right: 10px; 
+}
+#goldAmountLabel {
+    position: absolute;
+    bottom: 95px;
+    right: 10px;
+}
+#equippedLabel {
+    position: absolute;
+    top: -25px;
+    right: 10px;
+}
+#helmLabel {
+    position: absolute;
+    right: 70px;
+    top: 25px;
+}
+#helmName {
+    position: absolute;
+    right: 72px;
+    top: 45px;
+}
+#chestLabel {
+    position: absolute;
+    right: 70px;
+    top: 90px;
+}
+#chestName {
+    position: absolute;
+    right: 72px;
+    top: 110px;
+}
+#glovesLabel {
+    position: absolute;
+    right: 70px;
+    top: 155px;
+}
+#glovesName {
+    position: absolute;
+    right: 72px;
+    top: 175px;
+}
+#legLabel {
+    position: absolute;
+    right: 70px;
+    top: 220px;
+}
+#legName {
+    position: absolute;
+    right: 72px;
+    top: 240px;
+}
+#bootsLabel {
+    position: absolute;
+    right: 70px;
+    top: 285px;
+}
+#bootsName {
+    position: absolute;
+    right: 72px;
+    top: 305px;
+}
+.gearLabel {
+    font-size: 15px;
+}
+.gearName {
+    font-size: 12px;
+}
+
+#playerStats, #gearSlots,
+#inventoryLabel, #equippedLabel,
+#goldLabel, #goldAmountLabel {
+    user-select: none;
+}
+
+.goldValue {
+    font-size: 20px;
+    position: absolute;
+    bottom: 100px;
+    right: 10px;
+}
+#playerName {
+    position: absolute;
+    left: 10px;
+    top: -25px;
+}
+#levelLabel {
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    font-size: 25px;
+}
+#experienceLabel {
+    position: absolute;
+    left: 10px;
+    top: 55px;
+    font-size: 25px;
+}
+#experienceBar {
+    position: absolute;
+    left: 10px;
+    top: 85px;
+    min-width: 10px;
+    max-width: 150px;
+    width: 0%;
+    height: 30px;
+    background: rgb(134, 255, 104);
+    font-size: 25px;
+    z-index: 1000;
+}
+#experienceBarBackground {
+    position: absolute;
+    left: 10px;
+    top: 85px;
+    min-width: 10px;
+    max-width: 150px;
+    width: 100%;
+    height: 30px;
+    background: rgba(51, 255, 0, 0.123);
+    font-size: 25px;
+}
+#experienceBarLabel {
+    position: absolute;
+    left: 10px;
+    top: 115px;
+    font-size: 15px;
+}
+#healthLabel {
+    position: absolute;
+    left: 10px;
+    top: 160px;
+}
+.healthBar {
+    position: absolute;
+    left: 10px;
+    top: 195px;
+    min-width: 0px;
+    max-width: 100px;
+    height: 30px;
+    width: 20px;
+    background: rgb(134, 255, 104);
+    font-size: 25px;
+    z-index: 1000;
+}
+.healthBarBackground {
+    position: absolute;
+    left: 10px;
+    top: 195px;
+    max-width: 100px;
+    width: 100%;
+    height: 30px;
+    background: rgba(51, 255, 0, 0.123);
+    font-size: 25px;
+}
+#healthBarLabel {
+    position: absolute;
+    left: 10px;
+    top: 225px;
+    font-size: 15px;
+}
+
+
+
+
+#magicPointsLabel {
+    position: absolute;
+    left: 10px;
+    top: 250px;
+}
+.magicPointsBar {
+    position: absolute;
+    left: 10px;
+    top: 285px;
+    min-width: 0px;
+    max-width: 100px;
+    height: 30px;
+    width: 0px;
+    background: rgb(134, 255, 104);
+    font-size: 25px;
+    z-index: 1000;
+}
+.magicPointsBarBackground {
+    position: absolute;
+    left: 10px;
+    top: 285px;
+    min-width: 1px;
+    max-width: 100px;
+    width: 100%;
+    height: 30px;
+    background: rgba(51, 255, 0, 0.123);
+    font-size: 25px;
+}
+#magicPointsBarLabel {
+    position: absolute;
+    left: 10px;
+    top: 315px;
+    font-size: 15px;
+}
+
+
+
+
+
+#inventoryLabel {
+    position: absolute;
+    left: 85px;
+    top: 360px;
+}
+#inventoryDiv {
+    position: absolute;
+    left: 10px;
+    top: 400px;
+    width: 350px;
+    height: 150px;
+    border: 1px dashed rgb(134, 255, 104);
+    border-radius: 8px;
+    overflow-y: scroll;
+}
+.inventoryItem {
+    width: 50px;
+    height: 50px;
+    border: 1px dashed rgb(134, 255, 104);
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.textGlow {
+    animation: textGlow 2s infinite ease-in-out;
+}
+@keyframes textGlow {
+    0% {filter: drop-shadow(0px 0px 3px rgb(0, 255, 0))}
+    50% {filter: drop-shadow(0px 0px 5px green)}
+    100% {filter: drop-shadow(0px 0px 3px rgb(0, 255, 0))}
+}
+
+.chestPiece {
+    user-select: none;
+    font-size: .7px;
+    transform: scale(1);
+    border: 1px dashed rgb(134, 255, 104);
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-top: 10px;
+}

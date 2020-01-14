@@ -1,0 +1,115 @@
+#bodyWrapper {
+    display: none;
+}
+.wellFrame1 {
+    user-select: none;
+    position: absolute;
+    top: -90px;
+    font-size: 1.8px !important;
+    transform: scale3d(1.2, 2, 2);
+    z-index: 100;
+    mix-blend-mode: difference;
+    filter: drop-shadow(0px 0px 50px green);
+}
+.rippleFrame1 {
+    user-select: none;
+    transition: all .5s ease-in-out;
+    position: relative;
+    top: -160px;
+    opacity: .5;
+    left: 30px;
+    font-size: 3.2px !important;
+    animation: ripple 10s infinite ease-in-out;
+    z-index: 10000;
+        filter: drop-shadow(0px 0px 50px green);
+}
+.floor1 {
+    user-select: none;
+    position: absolute;
+    top: 200px;
+    opacity: .5;
+    font-size: 4px !important;
+    transform: rotate(90deg);
+    z-index: -1000 !important;
+    color: rgba(34, 155, 18, 0.527) !important;
+    filter: drop-shadow(0px 0px 50px green);
+}
+.floor2 {
+    user-select: none;
+    position: absolute;
+    top: -120px;
+    left: 100px;
+    opacity: .5;
+    font-size: 4px !important;
+    transform: rotate(90deg);
+    z-index: -1000 !important;
+    color: rgba(34, 155, 18, 0.527) !important;
+}
+@keyframes ripple {
+    0% {transform: rotate(0deg); filter: drop-shadow(0px 0px 20px rgb(47, 255, 57)); opacity: .7;}
+    50% {transform: rotate(40deg); filter: drop-shadow(10px 0px 5px rgb(10, 85, 16)); opacity: .5;}
+    100% {transform: rotate(0deg); filter: drop-shadow(0px 0px 20px rgb(47, 255, 57)); opacity: .7;}
+}
+.buttonsDiv {
+    display: none;
+}
+#introText {
+    display: none;
+}
+
+.bucketFrame1 {
+    position: absolute;
+    top: 400px;
+    font-size: 3px;
+    transform: rotate3d(20, 30, 40, -30deg);
+    color: rgb(19, 179, 32) !important;
+    z-index: 1000000;
+}
+
+.bucketDrop {
+    top: 50px;
+    left: 200px;
+    transition: all .5s ease-in-out;
+    transform: rotate3d(20, 60, 40, 50deg); top: 100px;
+    animation: bucketDrop 2s ease-in-out;
+    font-size: .8px;
+}
+@keyframes bucketDrop {
+    0% {transform: rotate3d(20, 30, 40, -30deg); top: 400px; font-size: 3px; left: 0;}
+    50% {transform: rotate3d(20, 30, 40, -30deg); top: 400px; font-size: 3px; left: 0;}
+    100% {transform: rotate3d(20, 60, 40, 50deg); top: 50px; font-size: .8px; left: 200px;}
+}
+
+.bucketPull {
+    top: 400px;
+    left: 0;
+    transition: all .5s ease-in-out;
+    transform: rotate3d(20, 30, 40, -30deg);
+    animation: bucketPull 2s ease-in-out;
+    font-size: 3px;
+}
+@keyframes bucketPull {
+    0% {transform: rotate3d(20, 60, 40, 50deg); top: 50px; font-size: .8px; left: 200px;}
+    50% {transform: rotate3d(20, 60, 40, 50deg); top: 50px; font-size: .8px; left: 200px;}
+    100% {transform: rotate3d(20, 30, 40, -30deg); top: 400px; font-size: 3px; left: 0;}
+}
+
+#continueDiv {
+    display: none;
+    position: absolute;
+    bottom: 150px;
+    left: 90px;
+}
+#continueButtonDiv {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+}
+#goldLooted {
+    font-size: 50px;
+}
+#goldScreen {
+    position: absolute;
+    bottom: -40px;
+    left: 130px;
+}

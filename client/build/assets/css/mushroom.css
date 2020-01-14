@@ -1,0 +1,53 @@
+#bodyWrapper {
+    display: none;
+}
+
+#header1, #header2 {
+    display: none;
+}
+
+#pickUpButton, #crushButton, #leaveButton {
+    display: none;
+}
+
+.grass {
+    user-select: none;
+    color: rgba(56, 189, 23, 0.767) !important;
+    position: absolute;
+    bottom:-20px;
+    animation: pumpkin1 2s infinite ease-in;
+    filter: drop-shadow(0px 0px 20px rgba(0, 51, 0, 0.616));
+    font-size:2px !important; transform: scale(2); overflow: hidden; line-height: 1;
+    font-family: 'Fixedsys Excelsior' !important;
+}
+
+.mushroom {
+    user-select: none;
+    color: rgb(85, 202, 55) !important;
+    position: absolute;
+    bottom: -100px;
+    right: -200px;
+    animation: mushroom 2s infinite ease-in-out;
+}
+
+@keyframes mushroom {
+    0% {filter: drop-shadow(0px 0px 20px rgb(0, 202, 0));}
+    50% {filter: drop-shadow(0px 0px 10px rgb(0, 255, 0));}
+    100% {filter: drop-shadow(0px 0px 20px rgb(0, 202, 0));}
+}
+
+.glowText {
+    animation: glowText 2s infinite ease-in-out;
+}
+
+@keyframes glowText {
+    0% {text-shadow: 0px 0px 10px green;}
+    50% {filter: drop-shadow(0px 0px 10px rgb(0, 255, 0));}
+    100% {filter: drop-shadow(0px 0px 20px rgb(0, 202, 0));}
+}
+
+#actionsDiv {
+    position: absolute;
+    top: 200px;
+    left: -140px;
+}

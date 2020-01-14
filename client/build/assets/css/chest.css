@@ -1,0 +1,36 @@
+.chest1, .chest2 {
+    position: absolute;
+    top:0;
+    animation: chest1 2s infinite ease-in-out;
+    font-size:2px !important; overflow: hidden; line-height: 1; font-weight: bold !important;
+    font-family: 'Fixedsys Excelsior' !important;
+}
+@keyframes chest1 {
+    0% {opacity: 1; filter: drop-shadow(0px 0px 15px green);}
+    50% {opacity: 0; filter: drop-shadow(0px 0px 15px rgba(0, 128, 0, 0));}
+    100% {opacity: 1; filter: drop-shadow(0px 0px 15px green);}
+}
+.chest2 {
+    position: absolute;
+    top:0;
+    animation: chest2 2s infinite ease-in-out;
+    font-size:2px !important; overflow: hidden; line-height: 1; font-weight: bold !important;
+    font-family: 'Fixedsys Excelsior' !important;
+}
+@keyframes chest2 {
+    0% {opacity: 0; filter: drop-shadow(0px 0px 15px rgba(0, 128, 0, 0));}
+    50% {opacity: 1; filter: drop-shadow(0px 0px 15px green);}
+    100% {opacity: 0; filter: drop-shadow(0px 0px 15px rgba(0, 128, 0, 0));}
+}
+
+/* .rotate {
+    user-select: none;
+    position: relative;
+    top: 0;
+    animation: pumpkinRotate1 1s infinite ease-in-out;
+}
+@keyframes pumpkinRotate1 {
+    0% {transform: rotate(0); top: 0;}
+    50% {transform: rotate(0deg); top:10px;}
+    100% {transform: rotate(0deg); top:0;}
+} */
