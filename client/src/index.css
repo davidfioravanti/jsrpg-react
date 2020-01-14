@@ -240,3 +240,24 @@ audio::-webkit-media-controls-play-button {
   color: red !important;
 }
 
+.red {
+  color: rgb(255, 38, 0) !important;
+}
+.orange {
+  color: orange !important;
+}
+.yellow {
+  color: yellow !important;
+}
+.green {
+  color: green !important;
+}
+.blue {
+  color: rgb(0, 162, 255) !important;
+}
+.indigo {
+  color: rgb(149, 0, 255) !important;
+}
+.violet {
+  color: violet !important;
+}
