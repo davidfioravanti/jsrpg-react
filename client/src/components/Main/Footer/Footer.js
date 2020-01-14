@@ -10,7 +10,7 @@ class Footer extends React.Component {
             <ScrollButton/>
           </div>
           <div className="text-right col">
-          <span id="semVer" className="text-right">Current Release: V 1.2-alpha (01/09/20)</span>
+          <span id="semVer" className="text-right">Current Release: V 1.3-alpha (01/13/20)</span>
           </div>
 
           </div>
