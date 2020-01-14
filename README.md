@@ -92,6 +92,29 @@ GIVE IT A TRY @</h1>
 <h1 align="center">CHANGELOG:</h1>
 
 <hr>
+<h3>V1.3-alpha  (01/13/2020):</h3>
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp; <b><u>JSRPG is now full-stack MERN REACT APP!</u></b>
+    <br>
+    It took a lot of trial and error to get it working properly, but JSRPG has been React-ified. "Why does that matter?" you ask?
+    React is a super-powered front-end, that when coupled with an express back-end provides a beautiful UI and an unparalleled UX. Fear not, for JSRPG just got the fuel-injected overhaul it's been waiting for!
+    <ul>
+        <li><b>JSRPG is now deployed to Heroku @ <a href="https://gainstrive-jsrpg.herokuapp.com/">https://gainstrive-jsrpg.herokuapp.com/</a> </b></li>
+        &nbsp;&nbsp;If you follow that beautiful URL, you'll be directed to the NEW home of JSRPG. You'll see right off that bat that a LOT of new content has been added. 
+        <li><b>Landing Page Added:</b></li>
+        &nbsp;&nbsp;Currently you can see a familiar site logo along with a demo video of the game. In future updates, I will be adding more content.
+        <li><b>Game Page Added:</b></li>
+        &nbsp;&nbsp;Play JSRPG by clicking the "PLAY" button in the top navigation bar! It will load up the game for you and take you to config screen! To Exit the game, click "EXIT" at the bottom right corner of the screen. If the dimensions of your viewport are too small to render the game, JSRPG will now display messages telling you to resize the window.
+        <li><b>Patch-Notes Added:</b></li>
+        &nbsp;&nbsp;You can now view JSRPG's update history on the site, just as it appears in the README.md file. 
+        <li><b>Dev-Blog Added:</b></li>
+        &nbsp;&nbsp;This is a new page where I will post small blurbs about what I'm working on for JSRPG. Expect videos/audio/images to come soon!
+    </ul>
+    The site will be undergoing heavy maintenance over the course of the next two weeks. I'm currently working on coding out the back-end, adding user authentication and MongoDB integration (to save character data and progress) and more! JSRPG is going to be premiered at an event on January 30th, so wish me luck! 
+</p>
+<p>
+
+<hr>
 <h3>V1.2-alpha  (01/09/2020):</h3>
 <p>
     &nbsp;&nbsp;&nbsp;&nbsp; Added autoplay functionality to the following screens:
