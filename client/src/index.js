@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import App from './App'
-import PatchNotes from './PatchNotes'
-import NotFound from "./NotFound"
-import Soundtrack from "./Soundtrack"
-import DevBlog from "./DevBlog"
-import Design from "./Design"
+import PatchNotes from './components/Pages/PatchNotes/PatchNotes'
+import NotFound from "./components/Pages/NotFound/NotFound"
+import Soundtrack from "./components/Pages/Soundtrack/Soundtrack"
+import DevBlog from "./components/Pages/DevBlog/DevBlog"
+import Design from "./components/Pages/Design/Design"
 const routing = (
   <Router>
     <div>

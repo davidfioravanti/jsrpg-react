@@ -1,6 +1,6 @@
 import React from 'react'
-import Navigation from "./components/Main/Navigation/Navigation"
-import Footer from "./components/Main/Footer/Footer"
+import Navigation from "./../../Main/Navigation/Navigation"
+import Footer from "./../../Main/Footer/Footer"
 
 class Soundtrack extends React.Component {
 

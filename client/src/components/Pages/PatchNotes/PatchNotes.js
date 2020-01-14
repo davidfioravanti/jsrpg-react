@@ -1,13 +1,15 @@
 import React from "react";
-import Navigation from "./components/Main/Navigation/Navigation";
-import Footer from "./components/Main/Footer/Footer";
+import Navigation from "./../../Main/Navigation/Navigation";
+import Footer from "./../../Main/Footer/Footer";
 class PatchNotes extends React.Component {
   render() {
     return (
       <div classNameName="patchNotesWrapper">
         <Navigation />
         <div className="container text-center">
-          <hr />
+          <p>
+            <h1>PATCH-NOTES:</h1>
+            <hr />
           <h3>V1.3-alpha  (01/13/2020):</h3>
           <div className="sectionBg">
             <p>
@@ -31,8 +33,6 @@ class PatchNotes extends React.Component {
               The site will be undergoing heavy maintenance over the course of the next two weeks. I'm currently working on coding out the back-end, adding user authentication and MongoDB integration (to save character data and progress) and more! JSRPG is going to be premiered at an event on January 30th, so wish me luck!
           </p>
           </div>
-          <p>
-            <h1>PATCH-NOTES:</h1>
             <h3>V1.2-alpha (01/09/2020):</h3>
             <div className="sectionBg">
               <u>Added autoplay functionality to the following screens:</u>

@@ -1,7 +1,7 @@
 import React from 'react'
-import Navigation from "./components/Main/Navigation/Navigation"
-import Footer from "./components/Main/Footer/Footer"
-import Me from './components/Objects/Me/Me.js'
+import Navigation from "../../Main/Navigation/Navigation"
+import Footer from "./../../Main/Footer/Footer"
+import Me from './../../Objects/Me/Me.js'
 import "./DevBlog.css"
 
 class DevBlog extends React.Component {
