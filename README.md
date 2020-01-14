@@ -87,8 +87,48 @@ Do you miss that Zork-esque old school text adventure asthetic?
 <h1 align="center">THANKS FOR CHECKING OUT JSRPG!
 <br>
 GIVE IT A TRY @</h1>
-<h3 align="center"><a href="https://gainstrive.github.io/Javascript-RPG/">https://gainstrive.github.io/Javascript-RPG/</a></h3>
+<h3 align="center"><a href="https://gainstrive-jsrpg.herokuapp.com/">Click here to check out JSRPG!</a></h3>
 
+<hr>
+<h1 align="center">TESTING JSRPG LOCALLY:</h1>
+<p>&nbsp;&nbsp;If you'd like to clone <b>jsrpg-react</b> to test it locally go through the following steps:</p>
+<b>
+<p>
+REQUIREMENTS:
+<ul>
+<li><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreferrer">Node.js</a></li>
+<li><a href="https://www.mongodb.com/download-center/community?jmp=docs" target="_blank" rel="noopener noreferrer">MongoDB</a></li>
+<li><a href="https://www.npmjs.com/package/nodemon" target="_blank" rel="noopener noreferrer">Nodemon</a></li>
+<li>A terminal of your choosing</a></li>
+</ul>
+</p>
+</b>
+<p><b>INSTALLING:</b></p>
+<p>
+&nbsp;&nbsp;Run these commands in three separate terminals:
+<br><br>
+<b>TERMINAL ONE:</b>
+<pre>
+git clone https://github.com/gainstrive/jsrpg-react.git
+cd jsrpg-react
+npm install
+</pre>
+&nbsp;&nbsp;<b>TERMINAL TWO:</b>
+<pre>
+mongod
+</pre>
+&nbsp;&nbsp;<b>TERMINAL THREE:</b>
+<pre>
+mongo
+</pre>
+&nbsp;&nbsp;<b>BACK TO TERMINAL ONE:</b>
+<pre>
+npm start
+</pre>
+&nbsp;&nbsp;<b>jsrp-react will now compile and open in your default browser.</b>
+</p>
+<hr>
+<br>
 <h1 align="center">CHANGELOG:</h1>
 
 <hr>
