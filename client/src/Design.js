@@ -112,6 +112,7 @@ class Design extends React.Component {
                 and hue the shading is, the more pronounced it will end up looking on the character. Select the head layer of the pumpking.
                 </div>
                 </div>
+                <br/>
                 &nbsp;&nbsp;Using the Magic Wand tool (W on windows), click the inner orange color of the head. Copy the selection, and paste it into
                 a new layer above the base. Select the new layer you created, and in the lock options of the layer panel, click the paint brush icon
                 (Lock Image Pixels). You can now draw on the color layer without affecting your base shape! Using some custom brushes
