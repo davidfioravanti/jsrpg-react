@@ -7,6 +7,7 @@ import PatchNotes from './PatchNotes'
 import NotFound from "./NotFound"
 import Soundtrack from "./Soundtrack"
 import DevBlog from "./DevBlog"
+import Design from "./Design"
 const routing = (
   <Router>
     <div>
@@ -15,6 +16,7 @@ const routing = (
         <Route path="/patch-notes" component={PatchNotes} />
         <Route path="/soundtrack" component={Soundtrack} />
         <Route path="/devblog" component={DevBlog} />
+        <Route path="/design" component={Design} />
         <Route component={NotFound} />
       </Switch>
     </div>

@@ -24,7 +24,7 @@ class Navigation extends React.Component {
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <h5 className="text-center dropdownHeader"><u>ABOUT JSRPG:</u></h5>
-                                    <a className="dropdown-item text-center" href="/design">THE DESIGN</a>
+                                    <Link className="dropdown-item text-center" to="/design">THE DESIGN</Link>
                                     <a className="dropdown-item text-center" href="/code">THE CODE</a>
                                     <Link className="dropdown-item text-center" to="/soundtrack">THE SOUNDTRACK</Link>
                                     <div className="dropdown-divider"></div>
