@@ -1,6 +1,7 @@
 import React from 'react'
 import Navigation from "./components/Main/Navigation/Navigation"
 import Footer from "./components/Main/Footer/Footer"
+import Me from './components/Objects/Me/Me.js'
 import "./DevBlog.css"
 
 class DevBlog extends React.Component {
@@ -10,12 +11,14 @@ class DevBlog extends React.Component {
                 <Navigation />
                 <div className="container text-center">
                     <h1>DEV-BLOG:</h1>
-                    <br /><br />
+                    <br />
+                    <Me />
+                    <div id="blogPostsDiv">
                     <div className="sectionBg container text-center">
                     <h2 className="blogDate text-left">01/13/20:</h2>
                         <h3 className="blogHeader">NO TIME TO REACT!</h3>
                         <div className="blogBody container text-left">
-                            <p>&nbsp;&nbsp; Oh hey, I didn't see you there... on account of not being able to see you at all... JSRPG is a project
+                            &nbsp;&nbsp; Oh hey, I didn't see you there... on account of not being able to see you at all... JSRPG is a project
                                 I've been working on for nearly six months as my final project for UPENN's Webdev Bootcamp. It started off
                                 slowly, as I learned full stack web development from the VERY beginning.
                                 I'd always been fascinated with ASCII art, especially back when you'd
@@ -65,8 +68,8 @@ class DevBlog extends React.Component {
                                     CLICK TO SHOW/HIDE!
                                 </button>
                                 </div>
-                            </p>
                         </div>
+                    </div>
                     </div>
                 </div>
                 <Footer />

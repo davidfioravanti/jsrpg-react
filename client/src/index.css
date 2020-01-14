@@ -261,3 +261,17 @@ audio::-webkit-media-controls-play-button {
 .violet {
   color: violet !important;
 }
+
+#devPortrait {
+  user-select: none;
+  width: 400px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%) !important;
+
+}
+#blogPostsDiv {
+  margin-top: 310px;
+}
