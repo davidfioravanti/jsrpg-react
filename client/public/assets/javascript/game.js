@@ -46,10 +46,17 @@ $(document).contextmenu(function() {
   
     // When the user presses the "enter" key to submit a form...
   $("#usernameInput").on("keydown", function (e) {
-        
+        console.log("HI");
     if (e.which == 13) {
+        console.log("ASDASDSD")
         e.preventDefault();
         username = $("#usernameForm").val().trim();
+        $.post("/user",
+            {username: username},
+            function(data)
+            {
+                  console.log(data)
+            });
         var usernameLength = username.length;
         if (username !== "" && usernameLength <= 15 && usernameLength > 2) {
         console.log(username);

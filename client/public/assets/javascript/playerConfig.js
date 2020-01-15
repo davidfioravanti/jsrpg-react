@@ -12,6 +12,13 @@ $(document).contextmenu(function() {
 let min = Math.ceil(3);
 let max = Math.floor(20);
 
+$.post("/",
+    {user: username},
+    function(data)
+    {
+    console.log(data);
+    });
+
 let reRollsRemaining = 3;
 
 const preDefTimeout = 1000;
@@ -37,6 +44,13 @@ $("#usernameInput").on("keydown", function (e) {
         loginSound.play();
         e.preventDefault();
         username = $("#usernameInput").val().trim();
+        $.post("/api/user", { 
+            name: username, 
+        }, 
+          
+        function(data,status) { 
+            console.log("DATA: " + data);
+        }); 
         console.log("PLAYER: " + username);
         var usernameLength = username.length;
         if (username !== "" && usernameLength <= 15 && usernameLength > 2) {
@@ -47,6 +61,7 @@ $("#usernameInput").on("keydown", function (e) {
             setTimeout(() => {
                 $("#charCreate").fadeIn(1000);
             }, preDefTimeout);
+            username = $("#usernameInput").val().trim();
         }
     }
 })

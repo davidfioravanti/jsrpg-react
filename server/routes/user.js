@@ -3,9 +3,9 @@ const router = express.Router()
 const User = require('../database/models/user')
 const passport = require('../passport')
 
-router.post('/', (req, res) => {
+router.post('/user', (req, res) => {
     console.log('user signup');
-
+    console.log(req.body)
     const { username, password } = req.body
     // ADD VALIDATION
     User.findOne({ username: username }, (err, user) => {
@@ -46,15 +46,15 @@ router.post(
     }
 )
 
-router.get('/', (req, res, next) => {
-    console.log('===== user!!======')
-    console.log(req.user)
-    if (req.user) {
-        res.json({ user: req.user })
-    } else {
-        res.json({ user: null })
-    }
-})
+// router.get('/', (req, res, next) => {
+//     console.log('===== user!!======')
+//     console.log(req.user)
+//     if (req.user) {
+//         res.json({ user: req.user })
+//     } else {
+//         res.json({ user: null })
+//     }
+// })
 
 router.post('/logout', (req, res) => {
     if (req.user) {
