@@ -45,7 +45,8 @@ $("#usernameInput").on("keydown", function (e) {
         e.preventDefault();
         username = $("#usernameInput").val().trim();
         $.post("/api/user", { 
-            name: username, 
+            username: username,
+            password: "1234" 
         }, 
           
         function(data,status) { 
