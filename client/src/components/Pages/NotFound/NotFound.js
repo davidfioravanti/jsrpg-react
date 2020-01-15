@@ -2,7 +2,7 @@ import React from 'react'
 import Navigation from "./../../Main/Navigation/Navigation"
 import DeathSkull from "./../../Objects/DeathSkull/DeathSkull"
 import Raven from "./../../Objects/Raven/Raven"
-import Footer from "./../../Main/Navigation/Navigation"
+import Footer from "./../../Main/Footer/Footer"
 class NotFound extends React.Component {
     render() {
         return (
