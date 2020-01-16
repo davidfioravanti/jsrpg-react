@@ -3,6 +3,11 @@ const router = express.Router()
 const User = require('../database/models/user')
 const passport = require('../passport')
 
+router.post("/save-game", (req, res) => {
+    console.log(req.body);
+    res.end();
+})
+
 router.post('/user', (req, res) => {
     console.log('user signup');
     console.log(req.body)
@@ -13,7 +18,7 @@ router.post('/user', (req, res) => {
             console.log('User.js post error: ', err)
         } else if (user) {
             res.json({
-                error: `Sorry, already a user with the username: ${username}`
+                error: `USERNAME TAKEN : ${username}`
             })
         }
         else {
@@ -46,15 +51,15 @@ router.post(
     }
 )
 
-// router.get('/', (req, res, next) => {
-//     console.log('===== user!!======')
-//     console.log(req.user)
-//     if (req.user) {
-//         res.json({ user: req.user })
-//     } else {
-//         res.json({ user: null })
-//     }
-// })
+router.get('/', (req, res, next) => {
+    console.log('===== user!!======')
+    console.log(req.user)
+    if (req.user) {
+        res.json({ user: req.user })
+    } else {
+        res.json({ user: null })
+    }
+})
 
 router.post('/logout', (req, res) => {
     if (req.user) {
