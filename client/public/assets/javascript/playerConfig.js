@@ -8,16 +8,16 @@ $(document).contextmenu(function() {
     return false;
 });
 
+$("#playerConfigWrapper").fadeIn(1500);
+$("#continueButton").on("click", function() {
+
+})
+$("#newCharacter").on("click", function() {
+
+})
 // Set bounds for stat values...
 let min = Math.ceil(3);
 let max = Math.floor(20);
-
-$.post("/",
-    {user: username},
-    function(data)
-    {
-    console.log(data);
-    });
 
 let reRollsRemaining = 3;
 
@@ -36,35 +36,15 @@ if (checkNameExists) {
     $("#usernameInput").val(username);
 }
 
-$("#usernameInput").on("keydown", function (e) {
-    if (e.which == 13) {
+$("#createCharacterButton").on("click", function () {
         console.log("\n==========================\n    *** GAME START ***\n==========================");
         var loginSound = new Audio("../audio/login.wav");
         loginSound.volume = .2;
         loginSound.play();
-        e.preventDefault();
-        username = $("#usernameInput").val().trim();
-        $.post("/api/user", { 
-            username: username,
-            password: "1234" 
-        }, 
-          
-        function(data,status) { 
-            console.log("DATA: " + data);
-        }); 
-        console.log("PLAYER: " + username);
-        var usernameLength = username.length;
-        if (username !== "" && usernameLength <= 15 && usernameLength > 2) {
-            // Clear the form
-            $("#usernameInput").val("");
-            localStorage.setItem('username', username);
-            $("#login").fadeOut(1000);
+            $("#login").fadeOut(1500);
             setTimeout(() => {
-                $("#charCreate").fadeIn(1000);
-            }, preDefTimeout);
-            username = $("#usernameInput").val().trim();
-        }
-    }
+                $("#charCreate").fadeIn(1500);
+            }, 1500);
 })
 
 $("button").on("mouseover", function () {

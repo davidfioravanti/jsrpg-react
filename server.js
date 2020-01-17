@@ -5,11 +5,17 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const UserRoutes = require("./server/routes/user");
+const passport = require("passport")
+var session = require("express-session");
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(cors());
 // Define middleware here
@@ -18,7 +24,7 @@ app.use(express.json());
 
 app.use("/api", UserRoutes)
 
-mongoose.connect("mongodb://127.0.0.1:27017/jsrpg", {useNewUrlParser: true});
+mongoose.connect("mongodb://127.0.0.1:27017/jsrpg-react", {useNewUrlParser: true});
 const connection = mongoose.connection;
 
 connection.once("open", function() {

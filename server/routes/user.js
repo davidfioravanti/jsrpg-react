@@ -10,8 +10,7 @@ router.post("/save-game", (req, res) => {
 
 router.post('/user', (req, res) => {
     console.log('user signup');
-    console.log(req.body)
-    const { username, password } = req.body
+    const { username, password, displayName } = req.body
     // ADD VALIDATION
     User.findOne({ username: username }, (err, user) => {
         if (err) {
@@ -24,7 +23,12 @@ router.post('/user', (req, res) => {
         else {
             const newUser = new User({
                 username: username,
-                password: password
+                password: password,
+                displayName: displayName,
+                gold: 0,
+                playerHealth: 100,
+                enemyHealth: 100,
+                lastScreen: "playerConfig.html"
             })
             newUser.save((err, savedUser) => {
                 if (err) return res.json(err)

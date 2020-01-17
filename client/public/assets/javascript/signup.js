@@ -10,33 +10,30 @@ $(document).ready(function () {
 
     $("input").on("keydown", function (event) {
         if (event.which === 13) {
-            authUser();
+            createUser();
         }
-        $("#loginButton").addClass("loginReady");
     })
-    $("#loginButton").on("click", function () {
-        authUser();
+    $("#signupButton").on("click", function () {
+        createUser();
     })
 
-    let authUser = function () {
+    let createUser = function () {
         // $("#usernameForm").fadeOut();
-        setTimeout(() => {
-            $("#loadingIcon").fadeIn();
-        }, 2000);
+        // setTimeout(() => {
+        //     $("#loadingIcon").fadeIn();
+        // }, 2000);
         email = $("#emailInput").val().trim();
         password = $("#passwordInput").val().trim();
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) && password !== "") {
+        displayName = $("#displayNameInput").val().trim();
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) && password !== "" && displayName !== "") {
             console.log("VALID EMAIL & PASSWORD!");
-            $.post("/api/login",{username: email, password: password}).then( () => {
-                $("#loginWrapper").fadeOut(1500);
-                setTimeout(() => {
-                    window.location.href = "playerConfig.html"
-                }, 2000);
-            }).catch((err) => {
-                console.log("ERROR:")
-                $("#loginHeader").text("INCORRECT EMAIL/PASSWORD!")
-                console.log(err);
-            })
+            $.post("/api/user",
+                {username: email, password: password},
+                function(data)
+                {
+                  console.log(data);
+                window.location.href = "login.html"
+                });
         }
         else if (email === "") {
             console.log("EMAIL CAN'T BE BLANK!")

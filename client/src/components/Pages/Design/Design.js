@@ -25,7 +25,7 @@ class Design extends React.Component {
              <br/>
              <div className="row">
                  <div className="col">
-                    <img className="jackOLantern" src="../../assets/images/jack-o-lantern.png"></img>
+                    <img className="jackOLantern" src="../../assets/images/jack-o-lantern.png" alt=""></img>
                  </div>
                 <div className="col autoMargin">
                 &nbsp;&nbsp;Doing a quick google search, I found this cool vector illustration of a jack o' lantern.
@@ -52,7 +52,7 @@ class Design extends React.Component {
                 and black so that it will create contrast in later stages.
                 </div>
                  <div className="col">
-                    <img className="pumpkin1" src="../../assets/images/pumpkinStep1.png"></img>
+                    <img className="pumpkin1" src="../../assets/images/pumpkinStep1.png" alt=""></img>
                  </div>
              </div>
              <br/><br/>
@@ -77,7 +77,7 @@ class Design extends React.Component {
              <br/><br/>
              <div className="row">
              <div className="col">
-                    <img className="pumpkin1" src="../../assets/images/pumpkinStep2Part2.gif"></img>
+                    <img className="pumpkin1" src="../../assets/images/pumpkinStep2Part2.gif" alt=""></img>
                  </div>
              <div className="col autoMargin">
                 &nbsp;&nbsp;As you can see, the darker recesses of the eyes and nose are darker orange.
@@ -105,7 +105,7 @@ class Design extends React.Component {
              <br/>
              <div className="row">
                  <div className="col">
-                    <img className="pumpkinFinal" src="../../assets/images/pumpkinFinal.png"></img>
+                    <img className="pumpkinFinal" src="../../assets/images/pumpkinFinal.png" alt=""></img>
                  </div>
                 <div className="col autoMargin">
                 &nbsp;&nbsp;As you can see, the shading is very minimal and slighty hints at light and shadow. The darker in value
