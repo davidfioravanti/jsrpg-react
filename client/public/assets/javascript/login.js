@@ -1,4 +1,8 @@
 $(document).ready(function () {
+
+    $("#loginWrapper").fadeIn(1500);
+
+
     $("#passwordToggle").on("click", function () {
         var x = document.getElementById("passwordInput");
         if (x.type === "password") {
@@ -19,7 +23,6 @@ $(document).ready(function () {
     })
 
     let authUser = function () {
-        // $("#usernameForm").fadeOut();
         setTimeout(() => {
             $("#loadingIcon").fadeIn();
         }, 2000);
@@ -27,7 +30,23 @@ $(document).ready(function () {
         password = $("#passwordInput").val().trim();
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) && password !== "") {
             console.log("VALID EMAIL & PASSWORD!");
-            $.post("/api/login",{username: email, password: password}).then( () => {
+
+            $.post("/api/login",{username: email, password: password}).then( (req, res) => {
+                if (!("Notification" in window)) {
+                    alert("This browser does not support desktop notification");
+                }
+                else if (Notification.permission === "granted") {
+                    // If it's okay let's create a notification
+                    var notification = new Notification(`Welcome back!`);
+                }
+                else if (Notification.permission !== "denied") {
+                    Notification.requestPermission().then(function (permission) {
+                        // If the user accepts, let's create a notification
+                        if (permission === "granted") {
+                            var notification = new Notification(`Welcome back ${res.displayName}!`);
+                        }
+                    });
+                }
                 $("#loginWrapper").fadeOut(1500);
                 setTimeout(() => {
                     window.location.href = "playerConfig.html"
@@ -37,7 +56,9 @@ $(document).ready(function () {
                 $("#loginHeader").text("INCORRECT EMAIL/PASSWORD!")
                 console.log(err);
             })
+
         }
+
         else if (email === "") {
             console.log("EMAIL CAN'T BE BLANK!")
         }

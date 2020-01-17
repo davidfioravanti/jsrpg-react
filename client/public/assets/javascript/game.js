@@ -36,13 +36,6 @@ $(document).contextmenu(function() {
   }
 
   $("#gameScreen").fadeIn(2500);
-  $('iframe').on('load', function() {
-      let currentScreen = $(this).attr("src");
-      console.log(currentScreen);
-      if ($(this).attr("src").includes("tutorial")) {
-        alert("asdasd")
-      }
-});
   
     // When the user presses the "enter" key to submit a form...
   $("#usernameInput").on("keydown", function (e) {

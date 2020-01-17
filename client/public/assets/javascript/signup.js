@@ -1,11 +1,12 @@
 $(document).ready(function () {
-    $("#passwordToggle").on("click", function () {
-        var x = document.getElementById("passwordInput");
-        if (x.type === "password") {
-            x.type = "text";
-        } else {
-            x.type = "password";
-        }
+
+    $("#signup").fadeIn(1500);
+
+    $("#returnToLogin").on("click", function () {
+        $("#signup").fadeOut(1500);
+        setTimeout(() => {
+            window.location.href = "login.html"
+        }, 2000);
     })
 
     $("input").on("keydown", function (event) {
@@ -27,13 +28,33 @@ $(document).ready(function () {
         displayName = $("#displayNameInput").val().trim();
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) && password !== "" && displayName !== "") {
             console.log("VALID EMAIL & PASSWORD!");
-            $.post("/api/user",
-                {username: email, password: password},
-                function(data)
-                {
-                  console.log(data);
-                window.location.href = "login.html"
-                });
+            $.post("/api/user", { username: email, password: password, displayName: displayName}).then((data) => {
+                if (!("Notification" in window)) {
+                    alert("This browser does not support desktop notification");
+                }
+                else if (Notification.permission === "granted") {
+                    // If it's okay let's create a notification
+                    var notification = new Notification("Hi there!");
+                }
+                else if (Notification.permission !== "denied") {
+                    Notification.requestPermission().then(function (permission) {
+                        // If the user accepts, let's create a notification
+                        if (permission === "granted") {
+                            var notification = new Notification(`Welcome ${displayName}!`);
+                        }
+                    });
+                }
+                $("#signup").fadeOut(1500);
+                setTimeout(() => {
+                    window.location.href = "login.html"
+                }, 2000);
+            }).catch((err) => {
+                console.log(err)
+                $("#emailInput").val("");
+                $("#passwordInput").val("");
+                $("#displayNameInput").val("");
+                $("#errorMessage").text("THAT EMAIL IS ALREADY IN USE!")
+            });
         }
         else if (email === "") {
             console.log("EMAIL CAN'T BE BLANK!")
@@ -47,8 +68,8 @@ $(document).ready(function () {
     }
 
 
-    $("#signupButton").on("click", function() {
-        window.location.href = "signup.html"
+    $("#signupButton").on("click", function () {
+
     })
 });
 

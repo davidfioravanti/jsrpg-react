@@ -59,3 +59,7 @@
             background: rgba(57, 109, 57, 0);
         }
     }
+
+#loginWrapper {
+    display: none;
+}
