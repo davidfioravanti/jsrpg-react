@@ -166,6 +166,11 @@ pre {
       margin-bottom: -40px;
       animation: statusCode 2s infinite ease-in-out;
     }
+    #headerCrashed {
+      font-size: 100px !important;
+      margin-bottom: -30px;
+      animation: statusCode 2s infinite ease-in-out;
+    }
 
     .ascii {
       overflow: visible;
@@ -277,4 +282,33 @@ audio::-webkit-media-controls-play-button {
 }
 .patchNotesLink {
   color: rgb(149, 255, 149) !important;
+}
+#iconText {
+  font-family: 'Pixel Icons Compilation' !important;
+}
+
+#skeletonBox {
+  width: 300px;
+  height: 350px;
+  border: 1.5px dashed green;
+  border-radius: 10px;
+  animation: boxGlow 1.5s infinite ease-in-out;
+}
+@keyframes boxGlow {
+  0% {
+    box-shadow: 0px 0px 50px rgb(0, 66, 0);
+  }
+  50% {
+    box-shadow: 0px 20px 50px rgb(0, 66, 0);
+  }
+  100% {
+    box-shadow: 0px 0px 50px rgb(0, 66, 0);
+  }
+}
+#crashedSubtext {
+  max-width: 350px;
+  position: relative;
+  margin: auto;
+  left: 0;
+  right: 0;
 }
