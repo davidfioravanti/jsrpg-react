@@ -7,22 +7,6 @@ window.onpopstate = function () {
 $(document).contextmenu(function() {
     return false;
 });
-  
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyA6VJjsV2GXeGLtNI0Je2_m1euljhf8MQI",
-    authDomain: "javascript-rpg-27aa6.firebaseapp.com",
-    databaseURL: "https://javascript-rpg-27aa6.firebaseio.com",
-    projectId: "javascript-rpg-27aa6",
-    storageBucket: "javascript-rpg-27aa6.appspot.com",
-    messagingSenderId: "474696755234",
-    appId: "1:474696755234:web:26c7536d12c35e0c16427b"
-  };
-  
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-  const database = firebase.database();
 
   // Declare username var to hold user data...
   var username;
@@ -36,15 +20,59 @@ $(document).contextmenu(function() {
   }
 
   $("#gameScreen").fadeIn(2500);
-  $('iframe').on('load', function() {
-      let currentScreen = $(this).attr("src");
-      console.log(currentScreen);
-      if ($(this).attr("src").includes("tutorial")) {
-        alert("asdasd")
-      }
-});
   
-    // When the user presses the "enter" key to submit a form...
+  $("#exitButton").on("click", function() {
+    // $("#gameScreen").css("opacity: .5");
+    let playerGold = localStorage.getItem("playerGold");
+    let xPos = localStorage.getItem("xPos");
+    let yPos = localStorage.getItem("yPos");
+    let turnNum = localStorage.getItem("turnNum");
+    let autoplay = localStorage.getItem("autoplay");
+    let sfxVolume = localStorage.getItem("sfxVolume");
+    let musicVolume = localStorage.getItem("musicVolume");
+    let playerStrength = localStorage.getItem("playerStrength");
+    let playerDexterity = localStorage.getItem("playerDexterity");
+    let playerConstitution = localStorage.getItem("playerConstitution");
+    let playerIntelligence = localStorage.getItem("playerIntelligence");
+    let playerWisdom = localStorage.getItem("playerWisdom");
+    let playerCharisma = localStorage.getItem("playerCharisma");
+    let playerLevel = localStorage.getItem("playerLevel");
+    let playerHealth = localStorage.getItem("currentPlayerHealth");
+    let enemyHealth = localStorage.getItem("currentEnemyHp");
+    let roomsCleared = localStorage.getItem("roomsCleared");
+    let monstersSlain = localStorage.getItem("monstersSlain");
+    let bossesSlain = localStorage.getItem("bossesSlain");
+    let secretsFound = localStorage.getItem("secretsFound");
+    let seenHellbat = localStorage.getItem("seenHellbat");
+    let seenSkeleton = localStorage.getItem("seenSkeleton");
+    let deathBy = localStorage.getItem("deathBy");
+    let lastScreen = localStorage.getItem("lastScreen");
+    let newCharacter = localStorage.getItem("newCharacter");
+    let gameVersion = localStorage.getItem("gameVersion");
+     $.post("/api/save-game", { 
+         playerGold: playerGold, xPos: xPos, yPos: yPos, turnNum: turnNum,
+         autoplay: autoplay, sfxVolume: sfxVolume,
+         musicVolume: musicVolume, playerStrength: playerStrength,
+         playerDexterity: playerDexterity, playerConstitution: playerConstitution,
+         playerIntelligence: playerIntelligence, playerWisdom: playerWisdom,
+         playerCharisma: playerCharisma, playerLevel: playerLevel,
+         playerHealth: playerHealth, enemyHealth: enemyHealth, roomsCleared: roomsCleared,
+         monstersSlain: monstersSlain, bossesSlain: bossesSlain,
+         secretsFound: secretsFound, seenHellbat: seenHellbat, seenSkeleton: seenSkeleton,
+         deathBy: deathBy, lastScreen: lastScreen, newCharacter: newCharacter, gameVersion: gameVersion
+     }).then((data) => {
+         console.log(data);
+         console.log(lastScreen);
+         console.log("JQuery POST (/api/save-game):");
+         setTimeout(() => {
+             window.location.href = "/";
+         }, 1500);
+     }).catch((err) => {
+         console.log(err)
+         window.location.href = "/C245H3D"
+     });
+  })
+//     When the user presses the "enter" key to submit a form...
   $("#usernameInput").on("keydown", function (e) {
         console.log("HI");
     if (e.which == 13) {
@@ -61,9 +89,6 @@ $(document).contextmenu(function() {
         if (username !== "" && usernameLength <= 15 && usernameLength > 2) {
         console.log(username);
         localStorage.setItem('username', username);
-        database.ref("users/" + username +"/").update({
-            key: username,  
-        })
         }
         else if (username == "") {
             $("#errorModal").css("display", "block");

@@ -9,7 +9,7 @@ class PatchNotes extends React.Component {
         <div className="container text-center">
           <p>
             <h1>PATCH-NOTES:</h1>
-            <hr />
+            
           <h3>V1.3-alpha  (01/13/2020):</h3>
           <div className="sectionBg">
             <p>

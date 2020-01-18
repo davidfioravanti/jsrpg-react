@@ -3,6 +3,12 @@
     top: 30px;
 }
 #signup {
+    display: none;
     position: relative;
     top: 50px;
+}
+#returnToLogin {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }
