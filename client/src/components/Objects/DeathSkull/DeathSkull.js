@@ -5,10 +5,10 @@ const DeathSkull = () => {
     return (
         <div id="bodyWrapper">
         <div id="wrapper">
-            <div classname="continer text-center">
+            <div className="continer text-center">
     
-            <div classname="skull text-center">
-                <pre id="deathSkull" classname="deathSkull">{String.raw`
+            <div className="skull text-center">
+                <pre id="deathSkull" className="deathSkull">{String.raw`
                 
                                                                                                                                                                                                                                                      '''''''''+MMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNMMMMM:''''''''''                                                                                                                                                                                                      
                                                                                                                                                                                                                                               .......yNNNNNNNNNNmmmdddddhhhhhhhhhhhhhhhhddddddmmmNNNNNNNNNNNNM:......'                                                                                                                                                                                              
