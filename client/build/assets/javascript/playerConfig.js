@@ -8,6 +8,82 @@ $(document).contextmenu(function() {
     return false;
 });
 
+$(document).ready(function () {
+    $.get("/api/load-game").then( (data) => {
+        // Destructure response object...
+        let  {playerGold, xPos, yPos, dragonXPos, dragonYPos, turnNum,
+            wellWasUsed, autoplay, sfxVolume, musicVolume,
+            playerStrength, playerDexterity, playerConstitution,
+            playerIntelligence, playerWisdom, playerCharisma,
+            playerLevel, playerHealth, enemyHealth, roomsCleared,
+            monstersSlain, bossesSlain, secretsFound, seenHellbat,
+            seenSkeleton, deathBy, lastScreen, newCharacter, gameVersion } = data;
+            if (newCharacter === "true") {
+                console.log("NEW CHARACTER");
+                $("#playGameButton").text("CREATE NEW CHARACTER!");
+                $("#createCharacterButton").remove();
+                $("#createCharacterWarning").remove();
+                $("#playGameButton").on("click", function() {
+                    $("#login").fadeOut(1500);
+                    setTimeout(() => {
+                        $("#charCreate").fadeIn(1500);
+                    }, 1500);
+                })
+            }
+            else {
+                $("#playGameButton").on("click", function() {
+                    $("#login").fadeOut(1500);
+                    setTimeout(() => {
+                        if (!playerGold || playerGold === "" || playerGold === null) {playerGold = 0}
+                            localStorage.setItem("playerGold", playerGold);
+                        if (!xPos || xPos === "" || xPos === null) {xPos = 0}
+                            localStorage.setItem("xPos", xPos);
+                        if (!yPos || yPos === "" || yPos === null) {yPos = 0}
+                            localStorage.setItem("yPos", yPos);
+                        if (!dragonXPos || dragonXPos === "") {dragonXPos = null}
+                            localStorage.setItem("dragonXPos", dragonXPos);
+                        if (!dragonYPos || dragonYPos === "") {dragonYPos = null}
+                            localStorage.setItem("dragonYPos", dragonYPos);
+                        if (!turnNum || turnNum === "" || turnNum === null) {turnNum = 0}
+                            localStorage.setItem("turnNum", turnNum);
+                        if (!wellWasUsed || wellWasUsed === "" || wellWasUsed === null) {wellWasUsed = "false"}
+                            localStorage.setItem("wellWasUsed", wellWasUsed);
+                        localStorage.setItem("autoplay", autoplay);
+                        localStorage.setItem("sfxVolume", sfxVolume);
+                        localStorage.setItem("musicVolume", musicVolume);
+                        localStorage.setItem("playerStrength", playerStrength);
+                        localStorage.setItem("playerDexterity", playerDexterity);
+                        localStorage.setItem("playerConstitution", playerConstitution);
+                        localStorage.setItem("playerIntelligence", playerIntelligence);
+                        localStorage.setItem("playerWisdom", playerWisdom);
+                        localStorage.setItem("playerCharisma", playerCharisma);
+                        localStorage.setItem("playerLevel", playerLevel);
+                        localStorage.setItem("currentPlayerHealth", playerHealth);
+                        localStorage.setItem("currentEnemyHp", enemyHealth);
+                        localStorage.setItem("roomsCleared", roomsCleared);
+                        localStorage.setItem("monstersSlain", monstersSlain);
+                        localStorage.setItem("bossesSlain", bossesSlain);
+                        localStorage.setItem("secretsFound", secretsFound);
+                        localStorage.setItem("seenHellbat", seenHellbat);
+                        localStorage.setItem("seenSkeleton", seenSkeleton);
+                        localStorage.setItem("deathBy", deathBy);
+                        localStorage.setItem("gameVersion", gameVersion);
+                        console.log("NAV TO LAST SCREEN");
+                        window.location.href = lastScreen;
+                    }, 1500);
+                })
+            }
+    }).catch((err) => {
+        console.log("ERROR:");
+        // $("#emailInput").val();
+        // $("#passwordInput").val();
+        // $("#loginHeader").text("INCORRECT EMAIL/PASSWORD!")
+        console.log(err);
+    })
+});
+
+$("#playerConfigWrapper").fadeIn(1500);
+
 // Set bounds for stat values...
 let min = Math.ceil(3);
 let max = Math.floor(20);
@@ -29,26 +105,15 @@ if (checkNameExists) {
     $("#usernameInput").val(username);
 }
 
-$("#usernameInput").on("keydown", function (e) {
-    if (e.which == 13) {
+$("#createCharacterButton").on("click", function () {
         console.log("\n==========================\n    *** GAME START ***\n==========================");
         var loginSound = new Audio("../audio/login.wav");
         loginSound.volume = .2;
         loginSound.play();
-        e.preventDefault();
-        username = $("#usernameInput").val().trim();
-        console.log("PLAYER: " + username);
-        var usernameLength = username.length;
-        if (username !== "" && usernameLength <= 15 && usernameLength > 2) {
-            // Clear the form
-            $("#usernameInput").val("");
-            localStorage.setItem('username', username);
-            $("#login").fadeOut(1000);
+            $("#login").fadeOut(1500);
             setTimeout(() => {
-                $("#charCreate").fadeIn(1000);
-            }, preDefTimeout);
-        }
-    }
+                $("#charCreate").fadeIn(1500);
+            }, 1500);
 })
 
 $("button").on("mouseover", function () {
@@ -65,54 +130,7 @@ $("button").on("click", function () {
 $("#rollStats").on("click", function () {
     initStats();
 })
-$("#acceptStats").on("click", function () {
-    $("button").attr("disabled", "true").fadeOut(1000);
-    $("#acceptStats").fadeOut(1000);
-    $("#statsRow").fadeOut(1000);
-    $("#reRolls").fadeOut(1000);
-    setTimeout(() => {
-        $("p").remove();
-        $(".calculated").css("font-size", "15px");
-    }, preDefTimeout * 1.5);
-    setTimeout(() => {
-        $("#statsRow").fadeIn();
-    }, preDefTimeout * 2);
-    setTimeout(() => {
-        charDesc();
-    }, preDefTimeout * 2.5);
-})
 
-// const srcArray = ["hellbat.html", "beartrap.html", "riddle.html", "riddle.html"];
-// let randomSrc = srcArray[Math.floor(Math.random() * srcArray.length)];
-$("#playButton").on("click", function () {
-    initPlayer();
-})
-
-function initPlayer(buttonClicked) {
-    localStorage.setItem("currentPlayerHealth", 100);
-    localStorage.removeItem("currentEnemyHp");
-    localStorage.setItem("playerLevel", 0);
-    localStorage.setItem("playerGold", 0);
-    localStorage.setItem("learnedStoneskin", false);
-    localStorage.setItem("learnedFireball", false);
-    localStorage.setItem("learnedLesserHeal", false);
-    localStorage.setItem("learnedPoisonCloud", false);
-    localStorage.setItem("isCursed", false);
-    localStorage.setItem("isBurned", false);
-    localStorage.setItem("isPoisoned", false);
-    localStorage.setItem("seenHellbat", false);
-    localStorage.setItem("seenSkeleton", false);
-    localStorage.removeItem("dragonXpos");
-    localStorage.removeItem("dragonYpos");
-    localStorage.setItem("xPos", 0);
-    localStorage.setItem("yPos", 0);
-    localStorage.setItem("lastScreen", "traverse.html");
-    localStorage.setItem("roomsCleared", 0);
-    localStorage.setItem("monstersSlain", 0);
-    localStorage.setItem("bossesSlain", 0);
-    $("")
-    window.location.href = "../html/tutorial.html";
-}
 function initStrength() {
     const playerStrength = Math.floor(Math.random() * (max - min + 1)) + min;
     $("#playerStr").html("<h2 class='calculated'>STRENGTH: " + playerStrength + "</h2>");
@@ -180,40 +198,25 @@ function initStats() {
     else if (reRollsRemaining > 0) {
         $("#acceptStats").fadeIn(1000);
     }
-
 }
 
-function Player(exp, weapon, weaponVal, armor, armorVal, items, spells, isAlive, isBurning, isFrozen, isPoisoned) {
-    var getPlayerStrength = localStorage.getItem("playerStrength");
-    var getPlayerDexterity = localStorage.getItem("playerDexterity");
-    var getPlayerConstitution = localStorage.getItem("playerConstitution");
-    var getPlayerIntelligence = localStorage.getItem("playerIntelligence");
-    var getPlayerWisdom = localStorage.getItem("playerWisdom");
-    var getPlayerCharisma = localStorage.getItem("playerCharisma");
-    this.name = localStorage.getItem("username");
-    this.level = parseInt(localStorage.getItem("level"));
-    this.str = getPlayerStrength;
-    this.dex = getPlayerDexterity;
-    this.con = getPlayerConstitution;
-    this.int = getPlayerIntelligence;
-    this.wis = getPlayerWisdom;
-    this.cha = getPlayerCharisma;
-    this.exp = exp;
-    this.expBaseCap = 100;
-    this.expToLevel = this.expBaseCap * this.level;
-    this.weapon = weapon;
-    this.weaponVal = weaponVal;
-    this.armor = armor;
-    this.armorVal = armorVal;
-    this.gold = 120;
-    this.items = items;
-    this.spells = spells;
-    this.isAlive = isAlive;
-    this.isBurning = isBurning;
-    this.isFrozen = isFrozen;
-    this.isPoisoned = isPoisoned;
-    this.gameState = "shop.html";
-}
+$("#acceptStats").on("click", function () {
+    $("button").attr("disabled", "true").fadeOut(1000);
+    $("#acceptStats").fadeOut(1000);
+    $("#statsRow").fadeOut(1000);
+    $("#reRolls").fadeOut(1000);
+    setTimeout(() => {
+        $("p").remove();
+        $(".calculated").css("font-size", "15px");
+    }, preDefTimeout * 1.5);
+    setTimeout(() => {
+        $("#statsRow").fadeIn();
+    }, preDefTimeout * 2);
+    setTimeout(() => {
+        charDesc();
+    }, preDefTimeout * 2.5);
+})
+
 
 function strDesc() {
     var getPlayerStrength = localStorage.getItem("playerStrength");
@@ -378,9 +381,6 @@ function chaDesc() {
     }
 }
 function charDesc() {
-    var player = new Player(0, "SH0RTSW0RD", 2, "TUNIC", 2,
-    "", "F1R3B4LL", true, false, false, false);
-    console.log(player);
     strDesc();
     textSound.volume = .7;
     textSound.play();
@@ -409,6 +409,53 @@ function charDesc() {
         $("#playButton").fadeIn();
     }, [preDefTimeout * 12]);
 }
+
+$("#playButton").on("click", function() {
+   let autoplay = localStorage.getItem("autoplay");
+   let sfxVolume = localStorage.getItem("sfxVolume");
+   let musicVolume = localStorage.getItem("musicVolume");
+   let playerStrength = localStorage.getItem("playerStrength");
+   let playerDexterity = localStorage.getItem("playerDexterity");
+   let playerConstitution = localStorage.getItem("playerConstitution");
+   let playerIntelligence = localStorage.getItem("playerIntelligence");
+   let playerWisdom = localStorage.getItem("playerWisdom");
+   let playerCharisma = localStorage.getItem("playerCharisma");
+   localStorage.setItem("currentEnemyHp", 30);
+   localStorage.setItem("playerGold", 0);
+   localStorage.setItem("roomsCleared", 0);
+   localStorage.setItem("monstersSlain", 0);
+   localStorage.setItem("bossesSlain", 0);
+   localStorage.setItem("secretsFound", 0);
+   localStorage.setItem("deathBy", "");
+   localStorage.setItem("lastScreen", "tutorial.html");
+   localStorage.setItem("newCharacter", "false");
+   localStorage.setItem("gameVersion", "v1.3");
+
+    $.post("/api/save-game", { 
+        playerGold: 0, xPos: 0, yPos: 0, playerLevel: 0, turnNum: 0,
+        autoplay: autoplay, sfxVolume: sfxVolume,
+        musicVolume: musicVolume, playerStrength: playerStrength,
+        playerDexterity: playerDexterity, playerConstitution: playerConstitution,
+        playerIntelligence: playerIntelligence, playerWisdom: playerWisdom,
+        playerCharisma: playerCharisma, playerLevel: 0,
+        playerHealth: 100, enemyHealth: 30, roomsCleared: 0,
+        monstersSlain: 0, bossesSlain: 0,
+        secretsFound: 0, seenHellbat: "false", seenSkeleton: "false",
+        deathBy: "", lastScreen: "tutorial.html", newCharacter: "false", gameVersion: "v1.3"
+    }).then((data) => {
+        console.log(data)
+        console.log("JQuery POST (/api/save-game)")
+        $("#charCreate").fadeOut(1500);
+        setTimeout(() => {
+            window.location.href = "tutorial.html"
+        }, 1500);
+    }).catch((err) => {
+        console.log(err)
+        window.location.href = "/C245H3D"
+    });
+
+    
+})
 
 let musicVolume = localStorage.getItem("musicVolume");
 if (musicVolume === null) {

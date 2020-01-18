@@ -79,6 +79,8 @@ $(document).ready(function () {
         }
     })
 
+    localStorage.setItem("lastScreen", "traverse.html");
+
     // ===========================================================
     // ===========================================================
     // ===========================================================
@@ -633,6 +635,7 @@ $(document).ready(function () {
     // If autoplay is enabled on page load (after 3 seconds)...
     setTimeout(() => {
         if (autoplayEnabled === "true") {
+            $("#autoplayMessage").fadeIn();
             // Move the player at 2 second intervals.
             setInterval(() => {
                 let enabledCheck = localStorage.getItem("autoplay");

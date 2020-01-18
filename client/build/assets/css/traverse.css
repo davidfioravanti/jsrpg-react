@@ -1152,3 +1152,25 @@ input[type=range] {
     margin-left: 10px;
     margin-top: 10px;
 }
+
+#autoplayMessage {
+    display: none;
+    position: absolute;
+    opacity: 1;
+    top: 20px;
+    left: 20px;
+    font-size: 20px !important;
+    color: rgb(0, 206, 0) !important;
+    animation: autoplayMessage 2s infinite ease-in-out;
+}
+@keyframes autoplayMessage {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

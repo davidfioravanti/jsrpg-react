@@ -57,7 +57,7 @@ else {
     }, preDefTimeout);
 }
 
-localStorage.setItem("lastScreen", "skeleton.js");
+localStorage.setItem("lastScreen", "skeleton.html");
 
 var currentPlayerHealth = localStorage.getItem("currentPlayerHealth");
 if (currentPlayerHealth === null) {
@@ -71,7 +71,7 @@ $("#maxPlayerHealth").text(maxPlayerHealth);
 
 $("enemyName").text(currentEnemy);
 var currentEnemyHp = localStorage.getItem("currentEnemyHp");
-if (currentEnemyHp === null) {
+if (currentEnemyHp === null || currentEnemyHp === NaN || currentEnemyHp === "") {
     currentEnemyHp = 36;
     localStorage.setItem("currentEnemyHp", currentEnemyHp);
 }
