@@ -13,10 +13,7 @@ const userSchema = new Schema({
 	playerInventory: { type: Array, unique: false, required: false },
 	xPos: { type: Number, unique: false, required: false },
 	yPos: { type: Number, unique: false, required: false },
-	dragonXPos: { type: Number, unique: false, required: false },
-	dragonYPos: { type: Number, unique: false, required: false },
 	turnNum: { type: Number, unique: false, required: false },
-	wellWasUsed: { type: String, unique: false, required: false },
 	autoplay: { type: String, unique: false, required: false },
 	sfxVolume: { type: Number, unique: false, required: false },
 	musicVolume: { type: Number, unique: false, required: false },
@@ -26,7 +23,6 @@ const userSchema = new Schema({
 	playerIntelligence: { type: Number, unique: false, required: false },
 	playerWisdom: { type: Number, unique: false, required: false },
 	playerCharisma: { type: Number, unique: false, required: false },
-	playerLevel: { type: Number, unique: false, required: false },
 	playerHealth: { type: Number, unique: false, required: false },
 	enemyHealth: { type: Number, unique: false, required: false },
 	roomsCleared: { type: Number, unique: false, required: false },
@@ -37,6 +33,7 @@ const userSchema = new Schema({
 	seenSkeleton: { type: String, unique: false, required: false },
 	deathBy: { type: String, unique: false, required: false },
 	lastScreen: { type: String, unique: false, required: false},
+	newCharacter: { type: String, unique: false, required: false},
 	gameVersion: { type: String, unique: false, required: false},
 	
 })

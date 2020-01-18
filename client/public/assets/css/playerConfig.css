@@ -224,8 +224,9 @@ text-align: center;
     position: relative;
     top: 240px;
 }
-#continueButton {
+#playGameButton {
     font-size: 30px !important;
+    width: 90%;
 }
 #playerConfigWrapper {
     display: none;

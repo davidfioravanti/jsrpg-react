@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    let rememberEmail = localStorage.getItem("email");
+    if (rememberEmail !== "") {
+        $("#emailInput").val(rememberEmail)
+    }
 
     $("#loginWrapper").fadeIn(1500);
 
@@ -47,6 +51,7 @@ $(document).ready(function () {
                         }
                     });
                 }
+                localStorage.setItem("email", email);
                 $("#loginWrapper").fadeOut(1500);
                 setTimeout(() => {
                     window.location.href = "playerConfig.html"
@@ -59,14 +64,14 @@ $(document).ready(function () {
 
         }
 
-        else if (email === "") {
-            console.log("EMAIL CAN'T BE BLANK!")
+        else if (email === "" && password !== "") {
+            $("#loginHeader").text("EMAIL CAN'T BE BLANK!")
         }
-        else if (password === "") {
-            console.log("PASSWORD CAN'T BE BLANK!")
+        else if (password === "" && email !== "") {
+            $("#loginHeader").text("PASSWORD CAN'T BE BLANK!")
         }
         else if (email === "" && password === "") {
-            console.log("PLEASE ENTER AN EMAIL AND PASSWORD!")
+            $("#loginHeader").text("ENTER AN EMAIL AND PASSWORD!")
         }
     }
 

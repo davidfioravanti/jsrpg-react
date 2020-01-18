@@ -30,6 +30,7 @@ localStorage.setItem("lastScreen", "pumpking.js");
 var currentEnemy = localStorage.getItem("currentEnemy");
 const consoleDiv = $("#consoleDiv");
 
+localStorage.setItem("lastScreen", "pumpking.html");
 
 $("#dungeonDoor").on("click", function () {
     // const srcArray = ["hellbat.html", "beartrap.html", "well.html", "riddle.html", "shop.html"];

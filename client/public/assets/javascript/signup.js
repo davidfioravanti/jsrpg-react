@@ -19,10 +19,6 @@ $(document).ready(function () {
     })
 
     let createUser = function () {
-        // $("#usernameForm").fadeOut();
-        // setTimeout(() => {
-        //     $("#loadingIcon").fadeIn();
-        // }, 2000);
         email = $("#emailInput").val().trim();
         password = $("#passwordInput").val().trim();
         displayName = $("#displayNameInput").val().trim();
@@ -34,7 +30,7 @@ $(document).ready(function () {
                 }
                 else if (Notification.permission === "granted") {
                     // If it's okay let's create a notification
-                    var notification = new Notification("Hi there!");
+                    var notification = new Notification(`Welcome ${displayName}!`);
                 }
                 else if (Notification.permission !== "denied") {
                     Notification.requestPermission().then(function (permission) {
@@ -44,6 +40,9 @@ $(document).ready(function () {
                         }
                     });
                 }
+                $("#loginHeader").text("YOUR ACCOUNT HAS BEEN CREATED!");
+                $("#loginSubheader").text("");
+                console.log(data);
                 $("#signup").fadeOut(1500);
                 setTimeout(() => {
                     window.location.href = "login.html"

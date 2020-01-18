@@ -34,6 +34,8 @@ $(tutorialSound).animate({volume: musicVolume
 document.dispatchEvent(clickEvent);
 const preDefTimeout = 100;
 
+localStorage.setItem("lastScreen", "tutorial.html");
+
 $("#bodyWrapper").fadeIn(2000);
 line1();
 setTimeout(() => {
