@@ -6,6 +6,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const UserRoutes = require("./server/routes/user");
 const passport = require("passport")
+const dotenv = require("dotenv");
+dotenv.config();
 var session = require("express-session");
 
 // Serve up static assets (usually on heroku)
@@ -13,7 +15,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(session({ secret: process.env.PASSPORT_SECRET, resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
