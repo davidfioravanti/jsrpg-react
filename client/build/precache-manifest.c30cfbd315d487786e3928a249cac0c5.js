@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "c69fa483c1979451a62997a3066aae61",
-    "url": "/static/media/Daedra.c69fa483.woff2"
+    "revision": "a8db0f90996eb6a39cf75dbcb231b946",
+    "url": "/static/media/alagard-webfont.a8db0f90.woff"
   },
   {
     "revision": "a3d3d2fbf27b9f6d0b57",
@@ -16,8 +16,8 @@ self.__precacheManifest = [
     "url": "/static/js/2.dfd7df87.chunk.js"
   },
   {
-    "revision": "3cff27668dfc39e1a84cd4c332333dfe",
-    "url": "/static/media/Daedra.3cff2766.woff"
+    "revision": "c69fa483c1979451a62997a3066aae61",
+    "url": "/static/media/Daedra.c69fa483.woff2"
   },
   {
     "revision": "a3d3d2fbf27b9f6d0b57",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/static/media/alagard-webfont.0ee83855.woff2"
   },
   {
-    "revision": "a8db0f90996eb6a39cf75dbcb231b946",
-    "url": "/static/media/alagard-webfont.a8db0f90.woff"
+    "revision": "3cff27668dfc39e1a84cd4c332333dfe",
+    "url": "/static/media/Daedra.3cff2766.woff"
   },
   {
     "revision": "a57a5f0f086fea989345b6b974c4ac75",
