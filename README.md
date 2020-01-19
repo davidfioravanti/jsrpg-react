@@ -132,6 +132,25 @@ npm start
 <h1 align="center">CHANGELOG:</h1>
 
 <hr>
+<h3>V1.4-alpha  (01/18/2020):</h3>
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp; <b><u>Back-end API and MongoDB integration nearly complete. </u></b>
+    <br>
+    JSRPG just got a massive upgrade! Now that the login/user authentication flow is finished, players can create accounts to keep track of their hard-earned progress. Instead of relying on local storage alone, the game now communicates with the new server API to remember where you left off.
+    Here is what you need to know:
+    <ul>
+        <li><b>CREATING AN ACCOUNT:</b></li>
+        &nbsp;&nbsp;In order to play JSRPG online, simply create an account by clicking the signup button on the main game page. Once you're given
+        the go-ahead and returned to the login screen, login to JSRPG and create a new character. 
+        <li><b>SAVING THE GAME:</b></li>
+        &nbsp;&nbsp;<b><u><i>JSRPG DOES NOT CURRENTLY AUTOSAVE</i></u></b>! If you wish to save your progress, simply click the "SAVE & EXIT GAME" button on the bottom right of your screen. When the game takes you back to the homescreen, your progress has been saved and you can exit safely! Fear not... Autosaving will be fully functioning within the week!
+    </ul>
+    The game is only getting better! The sheer number of upgrades and modifications to JSRPG have tripled over the last few weeks alone, and I'm
+    working tirelessly to get more content out before it's beta release on the 30th. Stay tuned for more updates and overhauls this week!
+</p>
+<p>
+
+<hr>
 <h3>V1.3-alpha  (01/13/2020):</h3>
 <p>
     &nbsp;&nbsp;&nbsp;&nbsp; <b><u>JSRPG is now full-stack MERN REACT APP!</u></b>
