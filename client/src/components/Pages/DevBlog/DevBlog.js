@@ -16,14 +16,14 @@ class DevBlog extends React.Component {
                     <div id="blogPostsDiv">
                     <div className="sectionBg container text-center">
                     <h2 className="blogDate text-left">01/13/20:</h2>
-                        <h3 className="blogHeader">NO TIME TO REACT!</h3>
+                        <h3 className="blogHeader">TIME TO REACT!</h3>
                         <div className="blogBody container text-left">
                             &nbsp;&nbsp; Oh hey, I didn't see you there... on account of not being able to see you at all... JSRPG is a project
                                 I've been working on for nearly six months as my final project for UPENN's Webdev Bootcamp. It started off
                                 slowly, as I learned full stack web development from the VERY beginning.
                                 I'd always been fascinated with ASCII art, especially back when you'd
-                                see it in the wild (on oldschool forums and the like). That's when it hit me... Why not make a browser-based RPG like
-                                all those old flash games from the early 2000s, BUT USING ONLY JAVASCRIPT, HTML, AND CSS!
+                                see it in the wild (on oldschool forums and the like). That's when it hit me... Why not make a browser-based RPG
+                                USING ONLY JAVASCRIPT, HTML, AND CSS!
                                 <br/>
                                 <br /><br />
                                 <div className="collapse" id="blog1">
@@ -43,10 +43,10 @@ class DevBlog extends React.Component {
                                         <span className="red">C </span>
                                         <span className="orange">S </span>
                                     </span>
-                                    , imagined and brought to life by  the brilliant sadists at Facebook. It optimizes the way that we interact with
+                                    , imagined and brought to life by  the brilliant minds at Facebook. It optimizes the way that we interact with
                                     the DOM by not letting us TOUCH THE DOM AT ALL! For real though, it's awesome. Instead of sphagetti
                                     string DOM manipulation (*cough cough* JQuery *cough cough*), we can immaculately structure all of our code to
-                                be SUPER performant. The only problem was... <u>I had already spent month of work developing the game with JQuery</u>...
+                                be SUPER performant. The only problem was... <u>I had already spent months of work developing the game with JQuery</u>...
                                 <br />
                                     &nbsp;&nbsp; At this point, I had two options; either I could scrap everything and remake it (with React in mind) or modify
                                     what I already had to play nicely with React. Now I'm one usually one for taking the scorched earth approach, but I only have a few weeks to get it
