@@ -5,6 +5,8 @@ window.onpopstate = function () {
 };
 
 $(document).ready(function () {
+    localStorage.setItem("xPos", 0);
+    localStorage.setItem("yPos", 0);
     // ===========================================================
     // ======== PLAYER CONFIG SETTINGS (LSTNR + LOGIC) ===========
     // ===========================================================
@@ -101,7 +103,13 @@ $(document).ready(function () {
     let dragonYPos = localStorage.getItem("dragonYPos");
     // SET DRAGONS POSITION ON MAP!
     $(".x" + dragonXPos + "y" + dragonYPos).html("<span class='token boss'>B</span>");
-    if (dragonXPos === null || dragonYPos === null || dragonXPos == NaN || dragonYPos == NaN) {
+    if (dragonXPos === null || dragonYPos === null) {
+        let dragonXPos = getEncounterX();
+        let dragonYPos = getEncounterY();
+        localStorage.setItem("dragonXPos", dragonXPos);
+        localStorage.setItem("dragonYPos", dragonYPos);
+    }
+    else if (dragonXPos === "null" || dragonYPos === "null") {
         let dragonXPos = getEncounterX();
         let dragonYPos = getEncounterY();
         localStorage.setItem("dragonXPos", dragonXPos);
