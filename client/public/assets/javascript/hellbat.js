@@ -40,7 +40,7 @@ var currentEnemy = localStorage.getItem("currentEnemy");
 const consoleDiv = $("#consoleDiv");
 
 let turnNum = localStorage.getItem("turnNum")
-if (turnNum === null) {
+if (turnNum === null || turnNum === "null") {
     turnNum = Math.floor(Math.random() * Math.floor(20));
     console.log("RNG Turn-Decider: " + turnNum)
     if (turnNum % 2 === 0) {
@@ -69,7 +69,7 @@ else {
 localStorage.setItem("lastScreen", "hellbat.html");
 
 var currentPlayerHealth = localStorage.getItem("currentPlayerHealth");
-if (currentPlayerHealth === null) {
+if (currentPlayerHealth === null || currentPlayerHealth === "null") {
     currentPlayerHealth = 100;
     localStorage.setItem("currentPlayerHealth", currentPlayerHealth);
 }
@@ -80,7 +80,7 @@ $("#maxPlayerHealth").text(maxPlayerHealth);
 
 $("enemyName").text(currentEnemy);
 var currentEnemyHp = localStorage.getItem("currentEnemyHp");
-if (currentEnemyHp === null) {
+if (currentEnemyHp === null || currentEnemyHp === "null") {
     currentEnemyHp = 30;
     localStorage.setItem("currentEnemyHp", currentEnemyHp);
 }
