@@ -30,6 +30,7 @@ combatSound.onended = function () {
 }
 
 localStorage.setItem("seenHellbat", true);
+localStorage.setItem("lastScreen", "tutorialFight.html");
 
 var clickEvent = new MouseEvent("click", {
     "view": window,
@@ -47,7 +48,7 @@ const consoleDiv = $("#consoleDiv");
 
 let turnNum = 2;
 
-localStorage.setItem("lastScreen", "tutorialFight.js");
+localStorage.setItem("lastScreen", "tutorialFight.html");
 
 var currentPlayerHealth = localStorage.getItem("currentPlayerHealth");
 if (currentPlayerHealth === null) {

@@ -1,0 +1,232 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- CUSTOM CSS-OVERRIDE -->
+    <link rel="stylesheet" href="./../css/traverse.css">
+    <link rel="stylesheet" href="./../css/style.css">
+    <link rel="stylesheet" href="./../css/playerConfig.css">
+    <link rel="stylesheet" href="./../css/login.css">
+    <title>TEST</title>
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-database.js"></script>
+</head>
+
+<body>
+  <div id="loginWrapper">
+    <div id="login" class="container text-center">
+        <h1 id="gameTitle">JAVASCRIPT-RPG</h1>
+        <h1 id="gameTitleSub">A ROGUELITE DUNGEON CRAWLER</h1>
+        <pre class="eyeballFrame1">
+                                                                      -hMy                                                                                                                              
+                                                                     +Nhmy                                                                                                                              
+   .m-                                                              sNssN+                                                                                                                              
+   hm.                                                            `ymoosM-                                                                                                                              
+  /sh-                                                            ym++osM-                                                                                                                              
+  h/ss                                                           om+/+osM-                                                          `                                                                   
+ -y/od-                            `//                          /N+//+osM/                                                         sNm:                                                                 
+ /+/oym:                         `+hh.                         -Ns://+oomh                                                        `NNNN:                                                                
+ /+/oydNy.                      -soh.                          dh:://+ooyM-                                                       /MmmNN.                                                               
+ .y/oydNMNo                    +s/y/                          +m/:://+oosmd                                                       hNmmNMh                                                               
+ `mNmNMMMMMd:                 o+/om.                         .No-:://+oosyNs                                                     /MmmmNNM:                                                              
+ oMMMMMMMMMMMd+-             s/:+ym`                         sm--:://+oosshNo                                                   .mNmmmNNMd                                                              
+`NMMMMMMMMMMMMMNNdhhhhdmNNNNNy:+shN.                        .No--:://+oossyhNs`                                                -mNdmmmNNNM-                                                             
+/MMMMMMMMMMMMMMMMMMMMMMMMMMMMdoshmM-                        +N---:://+oossyhdNh.                                              /mmddmmmNNNMs                                                             
+yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNMM+                     `: hh---:://+oossyhhdmm/                                           .yNddddmmmNNNMm`                                                            
+NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh     -               ys`No---:://+oossyhhddmNy.     `.:/+ooyyhhhhhhhysoo+::.`         -smdhhdddmmmNNNNM.                      :.                          -s-       
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM.   :d              om-`M/---:://+oossyhhddmmNNo+shmNNNMMMMMMMMMMMMMMMMMMMNNNmhs/-``:ymhyyhhdddmmmNNNNM/                      +d+.                         ods.     
+MMMMMMMMMMMMNhMMMMMMMMMMMMMMMMMMMMMMh  `hh             :yh``M+---:://+oossyhhddmmmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNdhyssyyhhdddmmmNNNNMs                       +hy/                         sys+`   
+MMMMMMMMMMMMd+NMMMMMMMMMMMMMMMhmMMMMMs`sdo            `y+d  dy---:://+oossyhhddmmmNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmhsooossyyhhdddmmmNNNNMy                        hoos.                       .doos.  
+dMMMMMMMMMMMy+hMMMMMMMMMMMMMMy+mMMMMMMmdd:````...``   /o+d  +N:--:://+oossyhhddmmmNNNMMMMMMMMMMMMMMMMMMMMMMMMMMNmhs+//++oossyyhhdddmmmNNNNMy                        +ho+s-                       ds+/s- 
+sMMMMMMMMMMMNydMMMMMMMMMMMMMN/sNMMMMMMMmMmmmmmNNNmmdhoh/sm- `hd:-:://+oossyhhddmmmNNNMMMMMMMMMMMMMMMMMMMMMMMmho/:-:://++oossyyhhdddmmmNNMMMs                        :my+/y-                      dhs+/y.
+-MMMMMMMMMMMMMMMMMMMMMMMMMMMMdmMMMMMMMMMMMMMMMMMMMMMMMh/yN-  `sdo:://+oossyhhddmmmNNMMMMMMNNNNNNNNNNNNNNNMd/-..---:://++oossyyhhdddmmmNNNMN+                        +Nhs+/dyyso/:.            .+hMmhs+oo
+ hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNymM+    -ymhsoooossyhhddmNNMMMNNNNNNNNNNNNNNNNNNNMd.`...---:://++oossyyhhdddmmmNNNMmy/                       :NmhsomMMMMMNNmyo/-...-:+hmMMMNmhydy
+ -NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNmMMMMMMMMMMMMm`   /mMMMNNmmmmmNNNMMMMNNNNNNNNNNNNNNNNNNNNNNMd.`...---:://++oossyyhhdddmmmNNNMNyso`                     `mMNmNMMMMMMMMMMMMNNmNNNMMMMMMMMNNMN
+  /NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMydMMMMMMMMMMMMMs -hMMMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNMh:...---:://++oossyyhhdddmmmNNNMmmooo                    `hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   :mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMomMMMMMMMMMMMMMMyNMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNy:----:://++oossyyhhdddmmmNNMMMMhooo                  -dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    .sNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNdo/::://++oossyyhhdddmmmNMMMMMNhohhhhhhys+:.`     -sNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd
+      .+hmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmhso+++oossyyhhdddmNMMMMMMMMNdmNNNNNNNNNNmhysydNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMo
+         .-:++syhdmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmmdddhhhddmmNNMMMMMMMMMNNNNNNNNNNNNNNNNMMMMNdmMMMMMMMMMMMMMMMMMdNMMMMMMMMMMMMMMMMM-
+                 `.-+ymMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMMMMMNNNNNNNNNNNNNNNNNNNMNhohMMMMMMMMMMMMMMMMMmoNMMMMMMMMMMMMMMMMh 
+                      .:yNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMMNmmNNNNNNNNNNNNNNNNNMMMNNNNNNNNNNNNNNNNNNNNh++hMMMMMMMMMMMMMMMMMNyoNMMMMMMMMMMMMMMMM: 
+                         .sNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMmmmmNNNNNNNNNNNNNNMMNNNNNNNNNNNNNNNNNNNNNo/+yNMMMMMMMMMMMMMMMMMdsyMMMMMMMMMMMMMMMMy  
+                           -hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmmmmmmNNNNNNNNNNMMNNmmNNNNNNNNNNNNNNNNNN+/oymMMMMMMMMMMMMMMMMMMNmNMMMMMMMMMMMMMMMm`  
+                            `/dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMNNNmmmmmmmmmNNNNNNMMNNmmmmmNNNNNNNNNNNNNNNNNN+shmMMMdNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm-   
+                              `/ymNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNmshdmNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmhsmmmmmmmmmmmmmmNNNMNmmmmmmmmmNNNNNNNNNNNNNNNNNNmmNMMMNyNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm-    
+                                 .-//+++oooosssyyhhdMMMMMMMMMMMNNNNNNNd:..-://+syhdmNNNNNNNNNNNNNNNmddyo/-`  -mmmmmmmmmmmmmNMNmmmmmmmmmmmNNNNNNNNNNNNNNNNNNNNNNMMNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd.     
+                                                   :MMMMMMMMMMMNNNNNNN/---.......-oddhyyyyhhhsooooo/:-`       /NmmmmmmmmmmmNMNmmmmmmmmmmmNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNo`      
+                                                   sMMMMMMMMMMNNNNNNMs------....:dhyyssoooooo+///////:         hmdmmmmmmmmmmNMmmmmmmmmmmmNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmy-        
+                                                   yMMMMMMMMMMNNNNNNM/--------.:mhysso+/////++++++++-`         /NddmmmmmmmmmmNMNmmmmmmmmmNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMMNNNmmNNNNMMMNNmy/.          
+                                                   hMMMMMMMMMMNNNNNNN:---------smysso+/:---::/+oosyd`          -NddmmmmmmmmmmmNNNNNNNmmmmNNNNNNNNNNNNNNNNNNNNNNMMMMMMMNmhs+:--...---::::-.`             
+                                                   hMMMMMMMMMMNNNNNNN:::-------ydysso+/:----:/+ossym.          .NddmmmmmmmmmmmNNNNNNMMMMNNNNNNNNNNNNNNNNNNNNNNNMMMMNdo-`                                
+                                                   yMMMMMMMMMMNNNNNNN::::------+myyso+/::::://+osyhy`          :NddmmmmmmmmmmmNNNNNNNNNNNMMMMMMMMMMMMNNNNNNNNMMMNds-`                                   
+                                                   sMMMMMMMMMMNNNNNNMs:::-------ydyysoo++//++oosyhd.`          smdmmmmmmmmmmmNNNNNNNNNNNNNNMMMMMMMMMMyoyhdmmmdy+-`                                      
+                                                   :MMMMMMMMMMMNNNNNNm/:::-------odhyyssooosssyhdy.```        -NmmmmmmmmmmmmmNNNNNNNNNNNNNNMMMMMMMMMM.    ```                                           
+                                                   `mMMMMMMMMMMNNNNNNNh::::-------:ohhhhyyyyhhho:```````     .dmmmmmmmmmmmmmNNNNNNNNNNNNNNMMMMMMMMMMd                                                   
+                                                    sMMMMMMMMMMNNNNNNNMh::---------..-/++o++/-.```````````  -dmmmmmmmmmmmmmNNNNNNNNNNNNNNNMMMMMMMMMM+                                                   
+                                                    .NMMMMMMMMMMNNNNNNNNd+:---------........```````````````/mmmmmmmmmmmmmmNNNNNNNNNNNNNNNMMMMMMMMMMm`                                                   
+                                                     oMMMMMMMMMMMNNNNNNNNNy/--------.........````````````-yNmmmmmmmmmmmmmNNNNNNNNNNNNNNNMMMMMMMMMMM/                                                    
+                                                     `dMMMMMMMMMMMNNNNNNNNNNy/:-----.........`````````./ymmmmmmmmmmmmmmmNNNNNNNNNNNNNNNNMMMMMMMMMMy                                                     
+                                                      .mMMMMMMMMMMMNNNNNNNNNNNdy+:--..........````.-/sdNmmmmmmmmmmmmmmNNNNNNNNNNNNNNNNMMMMMMMMMMMd`                                                     
+                                                       :NMMMMMMMMMMMNNNNNNNNNNNNNmdyo+/::----::+oydmNmmmmmmmmmmmmmmNNNNNNNNNNNNNNNNNNMMMMMMMMMMMm.                                                      
+                                                        :NMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNmmmNNNNNmmmmmmmmmmmmmmmNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMm.                                                       
+                                                         -mMMMMMMMMMMMMNNNMNmhdmNMmddmNNNNNNNNmmmmmmmmmmmmmNNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMd.                                                        
+                                                          .hMMMMMMMMNmhhdmMs/oyhNd/+sydNMNNmmNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMy`                                                         
+                                                           `oNMMMMMm+/+oyhm-/oydN+:+shmMMNdhsodNNNmNNNNNNNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMN+                                                           
+                                                             -dMMMM+-/+oydy:/oydN/:+sdMMMmhs+/sNmdyohNNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMMMy.                                                            
+                                                               +mMN::/+syds:+shNMo/ohMMMMmyo//mNdys+oNmmmmNNNNNNNNNNNNNNNMMMMMMMMMMMMMMMd:                                                              
+                                                                `+m::/+symy:+smMMh/sMMMMMms++mMmhs+/ymdhsosNNNNNNNNNNNMMMMMMMMMMMMMMMMm/                                                                
+                                                                  s/:/osdMh:+dMMMN+dMMMMMd+oNMMdyo/+mdhyo+/yMNNNMMMMMMMMMMMMMMMMMMMMd/                                                                  
+                                                                  /o:+odMMN/oMMMMMdNMMMMMshMMMMho+/mdhyo+/:hMMMMMMMMMMMMMMMMMMMMMNy-                                                                    
+                                                                  .h/+yy+hNohMMMMMMMMMMMmNMMMMNs++mNhyo+/:oMMMMMMMMMMMMMMMMMMMNh/`                                                                      
+                                                                   s++d.  :hmNMMMMMMMMMMMMMMMMmoomMNys+/:sMMMMMMMMMMMMMMMMMmy/`                                                                         
+                                                                   .hoy    hm`-+ymNMMMMMMMMMMMysNMMms+//hMMMMMMMMMMMMMNmy+.                                                                             
+                                                                    /hy    -s     .:+ydNMMMMMmhMMMMho/omMMMMMMMMMmhs+:`                                                                                 
+                                                                     ++                 `-:oNhyyydmooyhhyyso+/-.                                                                                        
+                                                                                           -/   .hyy/                                                                                                   
+                                                                                               `my:                                                                                                     
+
+        </pre>
+        <pre class="eyeballFrame2">
+                                                                      -hMy                                                                                                                              
+                                                                     +Nhmy                                                                                                                              
+   .m-                                                              sNssN+                                                                                                                              
+   hm.                                                            `ymoosM-                                                                                                                              
+  /sh-                                                            ym++osM-                                                                                                                              
+  h/ss                                                           om+/+osM-                                                          `                                                                   
+ -y/od-                            `//                          /N+//+osM/                                                         sNm:                                                                 
+ /+/oym:                         `+hh.                         -Ns://+oomh                                                        `NNNN:                                                                
+ /+/oydNy.                      -soh.                          dh:://+ooyM-                                                       /MmmNN.                                                               
+ .y/oydNMNo                    +s/y/                          +m/:://+oosmd                                                       hNmmNMh                                                               
+ `mNmNMMMMMd:                 o+/om.                         .No-:://+oosyNs                                                     /MmmmNNM:                                                              
+ oMMMMMMMMMMMd+-             s/:+ym`                         sm--:://+oosshNo                                                   .mNmmmNNMd                                                              
+`NMMMMMMMMMMMMMNNdhhhhdmNNNNNy:+shN.                        .No--:://+oossyhNs`                                                -mNdmmmNNNM-                                                             
+/MMMMMMMMMMMMMMMMMMMMMMMMMMMMdoshmM-                        +N---:://+oossyhdNh.                                              /mmddmmmNNNMs                                                             
+yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNMM+                     `: hh---:://+oossyhhdmm/                                           .yNddddmmmNNNMm`                                                            
+NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh     -               ys`No---:://+oossyhhddmNy.     `.:/+ooyyhhhhhhhysoo+::.`         -smdhhdddmmmNNNNM.                      :.                          -s-       
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM.   :d              om-`M/---:://+oossyhhddmmNNo+shmNNNMMMMMMMMMMMMMMMMMMMNNNmhs/-``:ymhyyhhdddmmmNNNNM/                      +d+.                         ods.     
+MMMMMMMMMMMMNhMMMMMMMMMMMMMMMMMMMMMMh  `hh             :yh``M+---:://+oossyhhddmmmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNdhyssyyhhdddmmmNNNNMs                       +hy/                         sys+`   
+MMMMMMMMMMMMd+NMMMMMMMMMMMMMMMhmMMMMMs`sdo            `y+d  dy---:://+oossyhhddmmmNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmhsooossyyhhdddmmmNNNNMy                        hoos.                       .doos.  
+dMMMMMMMMMMMy+hMMMMMMMMMMMMMMy+mMMMMMMmdd:````...``   /o+d  +N:--:://+oossyhhddmmmNNNMMMMMMMMMMMMMMMMMMMMMMMMMMNmhs+//++oossyyhhdddmmmNNNNMy                        +ho+s-                       ds+/s- 
+sMMMMMMMMMMMNydMMMMMMMMMMMMMN/sNMMMMMMMmMmmmmmNNNmmdhoh/sm- `hd:-:://+oossyhhddmmmNNNMMMMMMMMMMMMMMMMMMMMMMMmho/:-:://++oossyyhhdddmmmNNMMMs                        :my+/y-                      dhs+/y.
+-MMMMMMMMMMMMMMMMMMMMMMMMMMMMdmMMMMMMMMMMMMMMMMMMMMMMMh/yN-  `sdo:://+oossyhhddmmmNNMMMMMMNNNNNNNNNNNNNNNMd/-..---:://++oossyyhhdddmmmNNNMN+                        +Nhs+/dyyso/:.            .+hMmhs+oo
+ hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNymM+    -ymhsoooossyhhddmNNMMMNNNNNNNNNNNNNNNNNNNMd.`...---:://++oossyyhhdddmmmNNNMmy/                       :NmhsomMMMMMNNmyo/-...-:+hmMMMNmhydy
+ -NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNmMMMMMMMMMMMMm`   /mMMMNNmmmmmNNNMMMMNNNNNNNNNNNNNNNNNNNNNNMd.`...---:://++oossyyhhdddmmmNNNMNyso`                     `mMNmNMMMMMMMMMMMMNNmNNNMMMMMMMMNNMN
+  /NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMydMMMMMMMMMMMMMs -hMMMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNMh:...---:://++oossyyhhdddmmmNNNMmmooo                    `hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   :mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMomMMMMMMMMMMMMMMyNMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNy:----:://++oossyyhhdddmmmNNMMMMhooo                  -dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    .sNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNdo/::://++oossyyhhdddmmmNMMMMMNhohhhhhhys+:.`     -sNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd
+      .+hmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmhso+++oossyyhhdddmNMMMMMMMMNdmNNNNNNNNNNmhysydNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMo
+         .-:++syhdmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNMNNNNNNNNNNmmdddhhhddmmNNMMMMMMMMMNNNNNNNNNNNNNNNNMMMMNdmMMMMMMMMMMMMMMMMMdNMMMMMMMMMMMMMMMMM-
+                 `.-+ymMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMNNNNNNNNNNNNNNNNNNNNNNMMMMMNNNNNNNNNNNNNNNNNNNMNhohMMMMMMMMMMMMMMMMMmoNMMMMMMMMMMMMMMMMh 
+                      .:yNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMNNNNNNNNNNNNNNNNNNNNMMMNNNNNNNNNNNNNNNNNNNNh++hMMMMMMMMMMMMMMMMMNyoNMMMMMMMMMMMMMMMM: 
+                         .sNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMMNNNNNNNNNNNNNNNNNNNNNo/+yNMMMMMMMMMMMMMMMMMdsyMMMMMMMMMMMMMMMMy  
+                           -hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmNNNNNNNNNNMMNNmmNNNNNNNNNNNNNNNNNN+/oymMMMMMMMMMMMMMMMMMMNmNMMMMMMMMMMMMMMMm`  
+                            `/dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmNNNNNNMMNNmmmmmNNNNNNNNNNNNNNNNNN+shmMMMdNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm-   
+                              `/ymNMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmNNNMNmmmmmmmmmNNNNNNNNNNNNNNNNNNmmNMMMNyNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm-    
+                                 .-//+++oooosssyyhhdMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmNMNmmmmmmmmmmmNNNNNNNNNNNNNNNNNNNNNNMMNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd.     
+                                                   :MMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmNMNmmmmmmmmmmmNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNo`      
+                                                   sMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmmNMmmmmmmmmmmmNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmy-        
+                                                   yMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmmmmNMNmmmmmmmmmNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMMNNNmmNNNNMMMNNmy/.          
+                                                   hMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmmmmmmNNNNNNNmmmmNNNNNNNNNNNNNNNNNNNNNNMMMMMMMNmhs+:--...---::::-.`             
+                                                   hMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmmmmmmmNNNNNNMMMMNNNNNNNNNNNNNNNNNNNNNNNMMMMNdo-`                                
+                                                   yMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmmmmmmmmmNNNNNNNNNNNMMMMMMMMMMMMNNNNNNNNMMMNds-`                                   
+                                                   sMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmmmmmmmmmmNNNNNNNNNNNNNNMMMMMMMMMMyoyhdmmmdy+-`                                      
+                                                   :MMMMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmmmmmmmmmmmmNNNNNNNNNNNNNNMMMMMMMMMM.    ```                                           
+                                                   `mMMMMMMMMMMNNNNNNMMNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmdNmmmmmmmmmmmmmNNNNNNNNNNNNNNMMMMMMMMMMd                                                   
+                                                    sMMMMMMMMMMNNNNNNNMmssddmNNNNNNNNNNNNNNNNNNNNNNNNNNNmds//dmmmmmmmmmmmmmNNNNNNNNNNNNNNNMMMMMMMMMM+                                                   
+                                                    .NMMMMMMMMMMNNNNNNNNd+:::+ooshdmmmmNNNNNNNNNNmmddyo/-``/mmmmmmmmmmmmmmNNNNNNNNNNNNNNNMMMMMMMMMMm`                                                   
+                                                     oMMMMMMMMMMMNNNNNNNNNy/--------://+oo+++++++:-..````-yNmmmmmmmmmmmmmNNNNNNNNNNNNNNNMMMMMMMMMMM/                                                    
+                                                     `dMMMMMMMMMMMNNNNNNNNNNy/:-----.........`````````./ymmmmmmmmmmmmmmmNNNNNNNNNNNNNNNNMMMMMMMMMMy                                                     
+                                                      .mMMMMMMMMMMMNNNNNNNNNNNdy+:--..........````.-/sdNmmmmmmmmmmmmmmNNNNNNNNNNNNNNNNMMMMMMMMMMMd`                                                     
+                                                       :NMMMMMMMMMMMNNNNNNNNNNNNNmdyo+/::----::+oydmNmmmmmmmmmmmmmmNNNNNNNNNNNNNNNNNNMMMMMMMMMMMm.                                                      
+                                                        :NMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNmmmNNNNNmmmmmmmmmmmmmmmNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMm.                                                       
+                                                         -mMMMMMMMMMMMMNNNMNmhdmNMmddmNNNNNNNNmmmmmmmmmmmmmNNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMd.                                                        
+                                                          .hMMMMMMMMNmhhdmMs/oyhNd/+sydNMNNmmNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMy`                                                         
+                                                           `oNMMMMMm+/+oyhm-/oydN+:+shmMMNdhsodNNNmNNNNNNNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMN+                                                           
+                                                             -dMMMM+-/+oydy:/oydN/:+sdMMMmhs+/sNmdyohNNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMMMy.                                                            
+                                                               +mMN::/+syds:+shNMo/ohMMMMmyo//mNdys+oNmmmmNNNNNNNNNNNNNNNMMMMMMMMMMMMMMMd:                                                              
+                                                                `+m::/+symy:+smMMh/sMMMMMms++mMmhs+/ymdhsosNNNNNNNNNNNMMMMMMMMMMMMMMMMm/                                                                
+                                                                  s/:/osdMh:+dMMMN+dMMMMMd+oNMMdyo/+mdhyo+/yMNNNMMMMMMMMMMMMMMMMMMMMd/                                                                  
+                                                                  /o:+odMMN/oMMMMMdNMMMMMshMMMMho+/mdhyo+/:hMMMMMMMMMMMMMMMMMMMMMNy-                                                                    
+                                                                  .h/+yy+hNohMMMMMMMMMMMmNMMMMNs++mNhyo+/:oMMMMMMMMMMMMMMMMMMMNh/`                                                                      
+                                                                   s++d.  :hmNMMMMMMMMMMMMMMMMmoomMNys+/:sMMMMMMMMMMMMMMMMMmy/`                                                                         
+                                                                   .hoy    hm`-+ymNMMMMMMMMMMMysNMMms+//hMMMMMMMMMMMMMNmy+.                                                                             
+                                                                    /hy    -s     .:+ydNMMMMMmhMMMMho/omMMMMMMMMMmhs+:`                                                                                 
+                                                                     ++                 `-:oNhyyydmooyhhyyso+/-.                                                                                        
+                                                                                           -/   .hyy/                                                                                                   
+                                                                                               `my:                                                                                                     
+
+        </pre>
+    <div id="usernameForm" class="col-12">
+        <h3 id="loginHeader">LOGIN TO JSRPG: <button id="loginTooltipButton" class="btn btn-success" type="button" data-toggle="modal" data-target="#loginTooltipModal">?</button></h3>
+        <input id="emailInput" autocomplete="off" placeholder="ENTER YOUR EMAIL" spellcheck="false" class="form-control" type="email" name="jsrpgEmail" autocomplete="off">
+        <input id="passwordInput" autocomplete="off" placeholder="ENTER YOUR PASSWORD" spellcheck="false" class="form-control" type="password" name="jsrpgPassword" autocomplete="off">
+        <div class="row">
+            <div class="col">
+                <button id="loginButton" class="btn btn-success" type="button">LOGIN</button>
+            </div>
+            <div id="showPasswordToggle" class="col float-right">
+                <input id="passwordToggle" type="checkbox">
+                <span id="showPasswordLabel">
+                    SHOW/HIDE PASSWORD!
+                </span>
+            </div>
+        </div>
+        <h2 id="or">OR</h2>
+        <button id="signupButton" class="btn btn-success" type="button">SIGN-UP NOW FOR FREE!</button>
+    </div>
+
+    <div class="modal fade" id="loginTooltipModal" tabindex="-1" role="dialog" aria-labelledby="loginTooltipModal" aria-hidden="true">
+        <div id="loginTooltipModalDialog" class="modal-dialog" role="document">
+          <div id="loginTooltipModalContent" class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="loginTooltipModalBody" class="modal-body">
+              <h2>WHY DO I NEED AN ACCOUNT TO PLAY?</h2>
+              <p>In order to save your progress across play sessions, JSRPG needs some way to keep track
+                  of your progress. You wouldn't want to lose all the time spent delving dungeons! In order
+                  to do this, JSRPG requires a quick and painless sign-in (none of that "confirm your email
+                  address before you can continue" crap). By creating an account with JSRPG, you'll be able
+                  to access your character from any device! BEST OF ALL IT'S 100% FREE!
+              </p>
+              <h3>JSRPG WILL NEVER SHARE OR SELL YOUR INFO. That is a promise.</h3>
+              <p>The only data we collect is your progress through the game. That's it. Things like all the gold
+                  you've collected, your health and magic points, and the last encounter you faced.
+              </p>
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- MOMENT -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <!-- JAVASCRIPT LINK -->
+    <script src="./../javascript/login.js"></script>
+    <!-- BOOTSTRAP DEPENDENCIES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

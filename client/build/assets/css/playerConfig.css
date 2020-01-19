@@ -219,3 +219,15 @@ text-align: center;
 .tinyText {
     font-size: 12px;
 }
+
+#playerConfigDiv {
+    position: relative;
+    top: 240px;
+}
+#playGameButton {
+    font-size: 30px !important;
+    width: 90%;
+}
+#playerConfigWrapper {
+    display: none;
+}

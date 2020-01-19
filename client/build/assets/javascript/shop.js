@@ -23,6 +23,8 @@ $(shopSound).animate({volume: musicVolume
   }, 1000, function() {
   });
 
+  localStorage.setItem("lastScreen", "shop.html");
+
   $("#bodyWrapper").fadeIn(1000);
 
 $("#leaveButton").on("click", function() {

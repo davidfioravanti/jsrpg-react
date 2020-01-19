@@ -1,0 +1,57 @@
+.skeletonDiv {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    transform: scale(1);
+    top: 150px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: hidden !important;
+}
+.skeletonFrame1 {
+    user-select: none;
+    display: block;
+    position: relative;
+    font-size: 1.6px;
+    top: 50px;
+    animation: skullFrame1 1.5s infinite ease-in-out;
+}
+.skeletonFrame2 {
+    user-select: none;
+    display: block;
+    position: relative;
+    font-size: 1.6px;
+    top: -340px;
+    animation: skullFrame2 1.5s infinite ease-in-out;
+}
+
+@keyframes skullFrame1 {
+    0% {
+        opacity: 1;
+        transform: rotate(2deg);
+    }
+    50% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(2deg);
+    }
+}
+@keyframes skullFrame2 {
+    0% {
+        opacity: 0;
+        transform: rotate(2deg);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(2deg);
+    }
+}

@@ -28,6 +28,7 @@ $(document).ready(function () {
       }, 1000, function() {
       });
 
+    localStorage.setItem("lastScreen", "beartrap.html");
 
     var playerDex = 2;
     var playerInt = 2;

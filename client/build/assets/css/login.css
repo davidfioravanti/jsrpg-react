@@ -1,0 +1,65 @@
+#emailInput, #passwordInput {
+    height: 50px;
+    font-size: 20px !important;
+}
+#login {
+    position: relative;
+    top: -80px;
+}
+#loginTooltipButton {
+    position: relative;
+    border-radius: 50px !important;
+    font-size: 12px !important;
+}
+#loginHeader {
+    position: relative;
+    left: 15px;
+}
+#loginTooltipModalContent {
+    overflow: hidden;
+}
+#signupButton {
+    width: 90%;
+}
+#passwordToggle {
+    display: inline-block !important;
+    position: relative;
+    left: -80px;
+    top: 10px;
+    z-index: 100000;
+}
+#showPasswordLabel {
+    position: relative;
+    left: -0px;
+    top: -23px;
+    font-size: 12px !important;
+    width: 100%;
+}
+#loginTooltipModal {
+    z-index: 100000000;
+}
+#loginButton {
+    width: 100%;
+}
+.loginReady {
+    transition: all .5s ease-in-out;
+    animation: loginReady 2s infinite ease-in-out;
+}
+    @keyframes loginReady {
+        0% {
+            box-shadow: 0px 0px 20px green;
+            background: rgba(57, 109, 57, 0);
+        }
+        50% {
+            box-shadow: 0px 0px 10px green;
+            background: rgb(39, 54, 39);
+        }
+        100% {
+            box-shadow: 0px 0px 20px green;
+            background: rgba(57, 109, 57, 0);
+        }
+    }
+
+#loginWrapper {
+    display: none;
+}

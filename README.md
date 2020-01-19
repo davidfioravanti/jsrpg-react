@@ -112,6 +112,9 @@ REQUIREMENTS:
 git clone https://github.com/gainstrive/jsrpg-react.git
 cd jsrpg-react
 npm install
+
+-- Navigate to server.js file in the root directory.
+-- Replace "process.env.PASSPORT_SECRET" on line 18: with "test"
 </pre>
 &nbsp;&nbsp;<b>TERMINAL TWO:</b>
 <pre>

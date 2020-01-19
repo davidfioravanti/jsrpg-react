@@ -97,7 +97,7 @@ $("#clickToContinue").on("click", function() {
 
 function resetPlayer() {
     localStorage.setItem("currentPlayerHealth", 100);
-    localStorage.removeItem("lastScreen");
+    localStorage.setItem("lastScreen", "deathScreen.html");
     localStorage.setItem("deathBy", "");
     localStorage.setItem("goldPlayer", 0);
     localStorage.setItem("monstersSlain", 0);

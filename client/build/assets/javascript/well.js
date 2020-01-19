@@ -22,6 +22,8 @@ $(wellSound).animate({volume: musicVolume
   }, 1000, function() {
   });
 
+
+localStorage.setItem("lastScreen", "well.html");
 var wellWasUsed = localStorage.getItem("wellWasUsed");
 
 if (wellWasUsed === "true") {

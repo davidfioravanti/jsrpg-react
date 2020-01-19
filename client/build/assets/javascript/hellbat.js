@@ -66,7 +66,7 @@ else {
     }, preDefTimeout);
 }
 
-localStorage.setItem("lastScreen", "hellbat.js");
+localStorage.setItem("lastScreen", "hellbat.html");
 
 var currentPlayerHealth = localStorage.getItem("currentPlayerHealth");
 if (currentPlayerHealth === null) {

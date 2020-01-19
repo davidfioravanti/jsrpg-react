@@ -3,32 +3,33 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- CUSTOM CSS-OVERRIDE -->
-    <link rel="stylesheet" href="./../css/traverse.css">
-    <link rel="stylesheet" href="./../css/style.css">
-    <link rel="stylesheet" href="./../css/playerConfig.css">
-    <title>TEST</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- CUSTOM CSS-OVERRIDE -->
+  <link rel="stylesheet" href="./../css/traverse.css">
+  <link rel="stylesheet" href="./../css/style.css">
+  <link rel="stylesheet" href="./../css/playerConfig.css">
+  <title>TEST</title>
 
-    <!-- FIREBASE -->
-    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-database.js"></script>
+  <!-- FIREBASE -->
+  <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-database.js"></script>
 </head>
 
 <body>
+  <div id="playerConfigWrapper">
     <div id="floatingRunes">
-        <h2 id="rune1" class="runes">a</h2>
-        <h2 id="rune2" class="runes">z</h2>
+      <h2 id="rune1" class="runes">a</h2>
+      <h2 id="rune2" class="runes">z</h2>
     </div>
     <div id="login" class="container text-center">
-        <h1 id="gameTitle">JAVASCRIPT-RPG</h1>
-        <h1 id="gameTitleSub">A ROGUELITE DUNGEON CRAWLER</h1>
-        <pre class="eyeballFrame1">
+      <h1 id="gameTitle">JAVASCRIPT-RPG</h1>
+      <h1 id="gameTitleSub">A ROGUELITE DUNGEON CRAWLER</h1>
+      <pre class="eyeballFrame1">
                                                                       -hMy                                                                                                                              
                                                                      +Nhmy                                                                                                                              
    .m-                                                              sNssN+                                                                                                                              
@@ -98,7 +99,7 @@ sMMMMMMMMMMMNydMMMMMMMMMMMMMN/sNMMMMMMMmMmmmmmNNNmmdhoh/sm- `hd:-:://+oossyhhddm
                                                                                                `my:                                                                                                     
 
         </pre>
-        <pre class="eyeballFrame2">
+      <pre class="eyeballFrame2">
                                                                       -hMy                                                                                                                              
                                                                      +Nhmy                                                                                                                              
    .m-                                                              sNssN+                                                                                                                              
@@ -168,152 +169,159 @@ sMMMMMMMMMMMNydMMMMMMMMMMMMMN/sNMMMMMMMmMmmmmmNNNmmdhoh/sm- `hd:-:://+oossyhhddm
                                                                                                `my:                                                                                                     
 
         </pre>
-    <div id="usernameForm" class="col-12">
-        <h3>ENTER YOUR CHARACTER NAME:</h3>
-        <input id="usernameInput" autocomplete="off" spellcheck="false" class="form-control" type="text" name="">
-    </div>
-
-    <!-- <div id="testButtons" style="margin-top: 250px">
-        <button id="testRandom" class="btn btn-success" type="button">RANDOM</button>
+      <div id="playerConfigDiv">
+        <button id="playGameButton" class="btn btn-success" type="button">CONTINUE GAME</button>
         <br><br>
-        <div class="row">
-        <div class="col-3 text-center">
-            <span><a href="hellbat.html">hellbat.html</a></span>
-        </div>
-        <div class="col-3 text-center">
-            <span><a href="beartrap.html">beartrap.html</a></span>
-        </div> -->
+        <button id="createCharacterButton" class="btn btn-success" type="button">START A NEW CHARACTER</button>
+        <br>
+        <p id="createCharacterWarning"><u>WARNING</u>: Your existing progress will be lost!</p>
+      </div>
     </div>
-    </div>
-    </div>
-    </div>
-    <div id="charCreate" class="container text-center">
-            <h1 id="reRolls">REROLLS REMAINING: <span id="rollsRemaining">3</span></h1>
-            <button id="rollStats" class="btn btn-success buttonGlow" type="button">CLICK TO RANDOMIZE YOUR STATS!</button>
-            <br><br>
-            <div id="statsRow" class="row">
-                <div id="playerStr" class="text-center col-12"><h2>STRENGTH: </h2></div>
-                <p class="text-center col-12">STR determines how much raw damage you deal to enemies.</p>
-                <div id="playerDex" class="text-center col-12"><h2>DEXTERITY:</h2></div>
-                <p class="text-center col-12">DEX determines your physical agility and reflexes.</p>
-                <div id="playerCon" class="text-center col-12"><h2>CONSTITUTION:</h2></div>
-                <p class="text-center col-12">CON determines how much damage you can take.</p>
-                <div id="playerInt" class="text-center col-12"><h2>INTELLIGENCE:</h2></div>
-                <p class="text-center col-12">INT determines your mental accuity.</p>
-                <div id="playerWis" class="text-center col-12"><h2>WISDOM:</h2></div>
-                <p class="text-center col-12">WIS determines your awareness and intuition.</p>
-                <div id="playerCha" class="text-center col-12"><h2>CHARISMA:</h2></div>
-                <p class="text-center col-12">CHA determines your ability to persuade/influence others.</p>
-                <br><br>
+  </div>
+  </div>
+  </div>
+  <div id="charCreate" class="container text-center">
+    <h1 id="reRolls">REROLLS REMAINING: <span id="rollsRemaining">3</span></h1>
+    <button id="rollStats" class="btn btn-success buttonGlow" type="button">CLICK TO RANDOMIZE YOUR STATS!</button>
+    <br><br>
+    <div id="statsRow" class="row">
+      <div id="playerStr" class="text-center col-12">
+        <h2>STRENGTH: </h2>
+      </div>
+      <p class="text-center col-12">STR determines how much raw damage you deal to enemies.</p>
+      <div id="playerDex" class="text-center col-12">
+        <h2>DEXTERITY:</h2>
+      </div>
+      <p class="text-center col-12">DEX determines your physical agility and reflexes.</p>
+      <div id="playerCon" class="text-center col-12">
+        <h2>CONSTITUTION:</h2>
+      </div>
+      <p class="text-center col-12">CON determines how much damage you can take.</p>
+      <div id="playerInt" class="text-center col-12">
+        <h2>INTELLIGENCE:</h2>
+      </div>
+      <p class="text-center col-12">INT determines your mental accuity.</p>
+      <div id="playerWis" class="text-center col-12">
+        <h2>WISDOM:</h2>
+      </div>
+      <p class="text-center col-12">WIS determines your awareness and intuition.</p>
+      <div id="playerCha" class="text-center col-12">
+        <h2>CHARISMA:</h2>
+      </div>
+      <p class="text-center col-12">CHA determines your ability to persuade/influence others.</p>
+      <br><br>
     </div>
     <button id="acceptStats" class="btn btn-success buttonGlow" type="button">ACCEPT YOUR FATE!</button>
     <button id="playButton" class="btn btn-success buttonGlow" type="button">DECEND INTO THE DUNGEON!</button>
-    </div>
+  </div>
 
-    <div id="optionsDiv" class="container text-right">
-      <button id="optionsButton" class="btn btn-success" type="button">OPTIONS</button>
-    </div>
-    <div class="modal" id="optionsModal" tabindex="-1" role="dialog" aria-labelledby="optionsModal" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
+  <div id="optionsDiv" class="container text-right">
+    <button id="optionsButton" class="btn btn-success" type="button">OPTIONS</button>
+  </div>
+  <div class="modal" id="optionsModal" tabindex="-1" role="dialog" aria-labelledby="optionsModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        </div>
+        <div class="modal-body text-center" style="margin-top: -40px">
+          <h1>OPTIONS:</h1>
+          <h4>SOUND/MUSIC</h4>
+          <div class="row">
+            <div class="col text-left">
+              SOUND EFFECTS VOLUME:
+            </div>
+            <div class="col">
+              <input type="range" min="0" step="0.1" max="1" class="custom-range" id="sfxVolumeRange">
+            </div>
           </div>
-          <div class="modal-body text-center" style="margin-top: -40px">
-              <h1>OPTIONS:</h1>
-              <h4>SOUND/MUSIC</h4>
-              <div class="row">
-                <div class="col text-left">
-                  SOUND EFFECTS VOLUME:
-                </div>
-                <div class="col">
-                  <input type="range" min="0" step="0.1" max="1" class="custom-range" id="sfxVolumeRange">
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col float-left text-left">
-                    MUSIC VOLUME:
-                  </div>
-                  <div class="col">
-                    <input type="range" value="1" min="0" step="0.1" max="1" class="custom-range" id="musicVolumeRange">
-                    </div>
-                </div>
-                <br>
-                <h4>GAME (DIFFICULTY):</h4>
-                <br>
-              <div class="row">
-                <div class="col text-left">
-                  DUNGEON SIZE (FLOOR) *:
-                </div>
-                <div class="col">
-                  <input type="range" value="2" min="1" step="1" max="3" class="custom-range" id="dungeonSizeRange">
-                  </div>
-              </div>
-              <p id="sizeDescr"><span id="small">SMALL</span> <span id="medium">MEDIUM</span> <span id="large">LARGE</span></p>
-              <br>
-              <div class="row">
-                  <div class="col float-left text-left">
-                    PASSIVE HEALING *:
-                  </div>
-                  <p id="passiveHealDescr"><span id="passiveHealOff">OFF</span> <span id="passiveHealOn">ON</span></p>
-                  <div class="col">
-                    <input type="range" value="0" min="0" max="1" class="custom-range" id="passiveHealingRange">
-                    </div>
-                </div>
-                <br>
-              <div class="row">
-                <div class="col float-left text-left">
-                  AUTOPLAY TOGGLE *:
-                </div>
-                <p id="autoplayDescr"><span id="autoplayOff">OFF</span> <span id="autoplayOn">ON</span></p>
-                <div class="col">
-                  <input type="range" value="0" min="0" max="1" class="custom-range" id="autoplayRange">
-                  </div>
-              </div>
-              <br>
-              <div class="row">
-                <div class="col float-left text-left">
-                  SKIP INTRO TOGGLE:
-                </div>
-                <p id="skipIntroDescr"><span id="skipIntroOff">OFF</span> <span id="skipIntroOn">ON</span></p>
-                <div class="col">
-                  <input type="range" value="0" min="0" max="1" class="custom-range" id="skipIntroRange">
-                  </div>
-              </div>
-              <span class="tinyText">The tutorial can also be skipped by pressing any key during the cutscene...</span>
-              <br>
-              <br>
-              <span>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-              <br>
-              <span><i>** Autoplay can only be enabled/disabled from <b>THIS</b> menu. In order to disable autoplay, reset.</i></span>
-              <br><br>
-              <span>Changing any of the settings marked with an asterisk are considered "cheats", and will prevent you from posting your score to leaderboards! </span>
+          <div class="row">
+            <div class="col float-left text-left">
+              MUSIC VOLUME:
+            </div>
+            <div class="col">
+              <input type="range" value="1" min="0" step="0.1" max="1" class="custom-range" id="musicVolumeRange">
+            </div>
           </div>
-          <div class="modal-footer text-center">
-            <button id="modalExitOptions" type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+          <br>
+          <h4>GAME (DIFFICULTY):</h4>
+          <br>
+          <div class="row">
+            <div class="col text-left">
+              DUNGEON SIZE (FLOOR) *:
+            </div>
+            <div class="col">
+              <input type="range" value="2" min="1" step="1" max="3" class="custom-range" id="dungeonSizeRange">
+            </div>
           </div>
+          <p id="sizeDescr"><span id="small">SMALL</span> <span id="medium">MEDIUM</span> <span id="large">LARGE</span>
+          </p>
+          <br>
+          <div class="row">
+            <div class="col float-left text-left">
+              PASSIVE HEALING *:
+            </div>
+            <p id="passiveHealDescr"><span id="passiveHealOff">OFF</span> <span id="passiveHealOn">ON</span></p>
+            <div class="col">
+              <input type="range" value="0" min="0" max="1" class="custom-range" id="passiveHealingRange">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col float-left text-left">
+              AUTOPLAY TOGGLE *:
+            </div>
+            <p id="autoplayDescr"><span id="autoplayOff">OFF</span> <span id="autoplayOn">ON</span></p>
+            <div class="col">
+              <input type="range" value="0" min="0" max="1" class="custom-range" id="autoplayRange">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col float-left text-left">
+              SKIP INTRO TOGGLE:
+            </div>
+            <p id="skipIntroDescr"><span id="skipIntroOff">OFF</span> <span id="skipIntroOn">ON</span></p>
+            <div class="col">
+              <input type="range" value="0" min="0" max="1" class="custom-range" id="skipIntroRange">
+            </div>
+          </div>
+          <span class="tinyText">The tutorial can also be skipped by pressing any key during the cutscene...</span>
+          <br>
+          <br>
+          <span>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+          <br>
+          <span><i>** Autoplay can only be enabled/disabled from <b>THIS</b> menu. In order to disable autoplay,
+              reset.</i></span>
+          <br><br>
+          <span>Changing any of the settings marked with an asterisk are considered "cheats", and will prevent you from
+            posting your score to leaderboards! </span>
+        </div>
+        <div class="modal-footer text-center">
+          <button id="modalExitOptions" type="button" class="btn btn-success" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
-  
-    </div>
-    <!-- JQUERY -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- MOMENT -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-    <!-- JAVASCRIPT LINK -->
-    <script src="./../javascript/playerConfig.js"></script>
-    <script>
-      $("#optionsButton").on("click", function() {
-        $("#optionsModal").toggle();
-      })
-    </script>
-    <!-- BOOTSTRAP DEPENDENCIES -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+  </div>
+
+  </div>
+  <!-- JQUERY -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- MOMENT -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+  <!-- JAVASCRIPT LINK -->
+  <script src="./../javascript/playerConfig.js"></script>
+  <script>
+    $("#optionsButton").on("click", function () {
+      $("#optionsModal").toggle();
+    })
+  </script>
+  <!-- BOOTSTRAP DEPENDENCIES -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

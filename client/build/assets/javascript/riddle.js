@@ -21,6 +21,9 @@ riddleSound.play();
 $(riddleSound).animate({volume: musicVolume
   }, 1000, function() {
   });
+
+  localStorage.setItem("lastScreen", "riddle.html");
+
 $("#bodyWrapper").fadeIn(1000);
 
 var words = ["fate", "hope", "zero", "lost", "mask", "half"]

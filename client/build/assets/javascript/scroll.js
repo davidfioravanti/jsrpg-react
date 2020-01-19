@@ -23,6 +23,7 @@ if (sfxVolume === null) {
     localStorage.setItem("sfxVolume", sfxVolume);
 }
 
+localStorage.setItem("lastScreen", "scroll.html");
 
 var musicBoxSound = new Audio("../audio/musicBox.wav");
 musicBoxSound.volume = 0;
