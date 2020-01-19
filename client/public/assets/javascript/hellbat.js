@@ -442,7 +442,7 @@ function enemyHealthCheck() {
         slaySound.play();
         rewardGold();
         updateStats();
-        localStorage.setItem("currentEnemyHp", 30);
+        localStorage.removeItem("currentEnemyHp");
         $("#enemyHUD").append("<div class='col-12'><h1>" + currentEnemy +
             " DEFEATED!</h1></div>")
         $("#enemyName").hide();
