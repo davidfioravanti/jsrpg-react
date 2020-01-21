@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/Daedra.c69fa483.woff2"
   },
   {
-    "revision": "9b16bfa1060bf7e37dd1",
-    "url": "/static/css/main.7adda491.chunk.css"
+    "revision": "eaf3d361e65e9e8fa8cd",
+    "url": "/static/css/main.ab3e6ee2.chunk.css"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -20,8 +20,8 @@ self.__precacheManifest = [
     "url": "/static/media/alagard-webfont.0ee83855.woff2"
   },
   {
-    "revision": "9b16bfa1060bf7e37dd1",
-    "url": "/static/js/main.42a71a32.chunk.js"
+    "revision": "eaf3d361e65e9e8fa8cd",
+    "url": "/static/js/main.61aa2976.chunk.js"
   },
   {
     "revision": "3cff27668dfc39e1a84cd4c332333dfe",
@@ -40,7 +40,7 @@ self.__precacheManifest = [
     "url": "/static/media/FixedsysExcelsiorIIIb.32d69104.woff"
   },
   {
-    "revision": "21260cc8db76cbb221fd56e807257f1d",
+    "revision": "a17a3355f4a13c1b571afadeccc08db1",
     "url": "/index.html"
   }
 ];
