@@ -380,10 +380,10 @@ $(document).ready(function () {
                     $(damageNumber).fadeOut();
                 }, 2000);
                 setTimeout(() => {
-// =======================================================
+// =========================================================
 //   Finally, we remove the class from the weapon wrapper
 // so that we can add it again when the player next attacks.
-// =======================================================
+// =========================================================
                     $(weaponDiv).removeClass("swordSwing");
                 }, 2500);
             },
@@ -391,6 +391,9 @@ $(document).ready(function () {
         fn: {
             attack: () => {
                 console.log(`player.fn.attack();\n========================`);
+// =========================================================
+//   Object destructuring to clean up code, imprv visibility.
+// =========================================================
                 const { actionsDiv, damageNumber, consoleDiv } = game.refs;
                 const { rollDamage } = player.fn;
                 const { setHealth } = enemy.fn;
@@ -398,9 +401,24 @@ $(document).ready(function () {
                 const { modifier, attackResponses } = player.config;
                 const { crySound } = enemy.playSound;
                 const { currentEnemy } = game.config;
+// =========================================================
+//   *** After the player clicks the attack button ***
+// Play the select sound, signifying the button was pressed.
+// =========================================================
                 selectSound();
+// =========================================================
+//   Hide the actions div containing UI action buttons.
+// =========================================================
                 $(actionsDiv).hide();
+// =========================================================
+//   Calculates the player's damage ("attack" is passed as
+// an attribute to specify which action button was clicked.
+// =========================================================
                 rollDamage("attack");
+// =========================================================
+//   Gets the damage from session storage, adds/subtracts
+// the modifier if one was provided in the configuration.
+// =========================================================
                 let damageInt = parseInt(sessionStorage.getItem("rollDamage"));
                 let damageTotal = damageInt + modifier;
                 let randomAtkResp = attackResponses[Math.floor(Math.random() * attackResponses.length)];
