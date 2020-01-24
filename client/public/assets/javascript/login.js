@@ -36,21 +36,6 @@ $(document).ready(function () {
             console.log("VALID EMAIL & PASSWORD!");
 
             $.post("/api/login",{username: email, password: password}).then( (req, res) => {
-                if (!("Notification" in window)) {
-                    alert("This browser does not support desktop notification");
-                }
-                else if (Notification.permission === "granted") {
-                    // If it's okay let's create a notification
-                    var notification = new Notification(`Welcome back!`);
-                }
-                else if (Notification.permission !== "denied") {
-                    Notification.requestPermission().then(function (permission) {
-                        // If the user accepts, let's create a notification
-                        if (permission === "granted") {
-                            var notification = new Notification(`Welcome back ${res.displayName}!`);
-                        }
-                    });
-                }
                 localStorage.setItem("email", email);
                 $("#loginWrapper").fadeOut(1500);
                 setTimeout(() => {
