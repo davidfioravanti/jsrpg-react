@@ -1,7 +1,43 @@
+
+/* =================================================================================
+==================================================================================*/
+
+//   This file is a template i've made for creating combat encounters in JSRPG
+// The comments will go in detail as to what each block of code does and how
+// to tweak it to create new content. Each function called will log out the
+// name of the function and what line it can be found on. This will help to
+// demonstrate flow and explicitly detail what is happening and where.
+
+// The document.ready() function will ensure the DOM loads before executing any code.
+
 $(document).ready(function () {
-    /* =================================================================================
-    ====================================================================================
-    ================================================================================= */
+    
+/* =================================================================================
+====================================================================================
+================================================================================= */
+   
+//   Game logic is broken up into THREE objects (GAME, PLAYER, and ENEMY).
+// Each object contains a number of nested objects like config that will
+// hold our data and logic. Config is where we supply values we want to
+// use by default that won't change during gameplay.
+//
+//   EXAMPLE:
+//       const game = {
+//           config: {
+//                currentEnemy: "H3LLB4T",
+//            ....
+//
+//   Here we're defining that our enemy is called H3LLBAT, which will be
+// used by game logic later on in the file. Refs is where we provide both
+// PATHS and REFERENCES to our DOM nodes. We'll use these placeholders to
+// target specific elements in our HTML through JQuery. It also holds the
+// relative pathing to our sound files located in their respective folders.
+// 
+//   State is for passing data between objects and logic in combat. "fn" is
+// where we will store functions relative to the parent object. Animation will
+// exclusively store the code for manipulating the graphical elements of the
+// parent object.
+// 
     
     const game = {
         config: {
@@ -50,6 +86,11 @@ $(document).ready(function () {
             },
         },
         fn: {
+// ===================================
+//   This will disable the user from
+// clicking the back button while in
+// the game, preventing cheating.
+// ===================================
             disableBackButton: () => {
                 // Prevents the user from using the back button in the browser.
                 console.log(`game.config.disableBackButton();`);
@@ -58,6 +99,12 @@ $(document).ready(function () {
                     history.go(1);
                 };
             },
+// =====================================
+//   This will pull musicVolume settings
+// from the users local storage. It will
+// then set that val in game.config to
+// be used when playing game music.
+// =====================================
             setMusicVolume: () => {
                 console.log(`game.config.musicVolume();`);
                 let musicVolume = localStorage.getItem("musicVolume");
@@ -69,6 +116,12 @@ $(document).ready(function () {
                 console.log(`    musicVolume: ${musicVolume}`);
                 game.config.musicVolume = musicVolume;
             },
+// =====================================
+//   This will pull sfxVolume settings
+// from the users local storage. It will
+// then set that val in game.config to
+// be used when playing sound effects.
+// =====================================
             setSfxVolume: () => {
                 console.log(`game.config.sfxVolume();`);
                 let sfxVolume = localStorage.getItem("sfxVolume");
@@ -80,6 +133,13 @@ $(document).ready(function () {
                 console.log(`    sfxVolume: ${sfxVolume}`);
                 game.config.sfxVolume = sfxVolume;
             },
+// =====================================
+//   This will new up an audio file
+// using the relative path listed in
+// game.refs. It will then play that
+// track and animate it from muted to
+// the sfx volume level in game.config.
+// =====================================
             playMusic: () => {
                 console.log(`game.config.playMusic();`);
                 let gameMusic = new Audio(game.refs.gameMusic);
@@ -89,6 +149,13 @@ $(document).ready(function () {
                     volume: game.config.musicVolume
                 }, 1000), function () { };
             },
+// =====================================
+//   This will check local storage for
+// turnNum. If it is null it will pick
+// a random number. If that number is
+// even, it's the player's turn. If it
+// is odd, it's the enemy's turn.
+// =====================================
             turnDecider: () => {
                 console.log(`game.config.turnDecider();`);
                 let turnNum = localStorage.getItem("turnNum");
@@ -113,6 +180,13 @@ $(document).ready(function () {
                 }
                 game.state.turnNum = turnNum;
             },
+// =====================================
+//   This will award gold to the player
+// for beating the encounter based on
+// the values passed in enemy.config.
+// It will then alter the win messg.
+// and fade that elem in on screen.
+// =====================================
             rewardGold: () => {
                 console.log(`game.fn.rewardGolds();`);
                 const { goldRewardMax, goldRewardMin } = enemy.config;
@@ -126,8 +200,21 @@ $(document).ready(function () {
                 $(winText).fadeIn(1000);
     
             },
+// =====================================
+//   The start function is called on
+// game load. It does a lot of setup
+// and validation of player variables,
+// before beginning the first round of
+// combat.
+// =====================================
             start: () => {
                 console.log(`game.fn.start();\n===================`);
+// =====================================================
+//   Here we do a lot of object destructuring in order
+// to better organize our code and keep it readable.
+// instead of typing out "game.fn.playMusic()" we can
+// simply call playMusic();...
+// =====================================================
                 const { disableBackButton, turnDecider,
                     playMusic, setSfxVolume, setMusicVolume } = game.fn;
                 const { initPlayerHealth } = player.fn;
@@ -135,39 +222,95 @@ $(document).ready(function () {
                 const { crySound } = enemy.playSound;
                 const { enemyIsAlive } = game.state;
                 const { screenWrapper } = game.refs;
+// =====================================================
+//   This checks to see if the user has autoplay enabled
+// in the respective local storage key/val pair.
+// if autoplay is enabled, set game.state to true.
+// =====================================================
                 const autoplay = localStorage.getItem("autoplay");
                 console.log(`    autoplayEnabled: ${autoplay}`);
                 if (autoplay === "true") {
                     game.state.autoplayEnabled = "true";
                 }
+// =======================================================
+//   Fade in the wrapper containing everything on screen.
+// =======================================================
                 $(screenWrapper).fadeIn();
+// =======================================================
+//   Saves the name of the current game screen in LS.
+// =======================================================
                 localStorage.setItem("lastScreen", "hellbat.html");
+// =======================================================
+//   Set both the player and enemy's initial health vals.
+// =======================================================
                 initPlayerHealth();
                 initEnemyHealth();
+// =======================================================
+//   Disable all buttons, making them un-clickable.
+// =======================================================
                 $("button").attr("disabled", "true");
+// =======================================================
+//   Disables the back button to prevent cheating.
+// =======================================================
                 disableBackButton();
+// =======================================================
+//   Set both the music and sfx volumes based on LS vals.
+// =======================================================
                 setSfxVolume();
                 setMusicVolume();
+// =======================================================
+//   Play the background music specified for the encoutner.
+// =======================================================
                 playMusic();
+// =======================================================
+//   Fade in the enemy's wrapper and display start message
+// =======================================================
                 enemy.animation.appear();
+// =======================================================
+//   If turnNum is falsy, RNG decides who goes first.
+// =======================================================
                 turnDecider();
+// =======================================================
+//   If the enemy is alive, play their cry sound.
+// =======================================================
                 setTimeout(() => {
                     if (enemyIsAlive == true)
                     crySound();
                 }, 1000);
             },
+// =====================================================
+//   Here we define the handler for winning the game.
+// This is typically what will be called only when the
+// enemies health points reach 0.
+// =====================================================
             win: () => {
                 const { consoleText, continueMessage, exitDiv } = game.refs;
                 const { enemyIsAlive } = game.state;
                 const { defeat } = enemy.animation;
                 const { slaySound } = game.playSound;
                 console.log(`game.fn.win();`);
+// =======================================================
+//   Remove turnNum from local storage so it is recalc'd
+// the next time the player enters a combat encounter.
+// =======================================================
                 localStorage.removeItem("turnNum");
+// =======================================================
+//   Play the enemy's defeat animation/hide wrappers/HUD.
+// =======================================================
                 defeat();
+// =======================================================
+//   Play the defeat sound defined in game.refs.
+// =======================================================
                 slaySound();
+// =======================================================
+//   Clear out the user console and fade in continue scrn.
+// =======================================================
                 $(consoleText).remove();
                 $(continueMessage).fadeIn(1300);
                 $(exitDiv).fadeIn(2000);
+// =======================================================
+//   Event listnr for clicking continue btn/exit door.
+// =======================================================
                 $(exitDiv).on("click", function () {
                     window.location.href = "traverse.html";
                 });
@@ -175,9 +318,9 @@ $(document).ready(function () {
         }
     };
     
-    /* =================================================================================
-    ====================================================================================
-    ================================================================================= */
+/* =================================================================================
+====================================================================================
+================================================================================= */
     
     const player = {
         config: {
@@ -212,18 +355,35 @@ $(document).ready(function () {
             attackDamage: "",
         },
         animation: {
+// =====================================================
+//   This is the player basic attack animation (e.g 
+// swinging a sword/hammer/axe/etc...). This is done by
+// adding classes to the corresponding elem. wrapper.
+// =====================================================
             attack: () => {
                 console.log(`player.animation.attack();`);
                 const { weaponDiv, damageNumber } = game.refs;
                 setTimeout(() => {
+// =======================================================
+//   Adds a class containing predefined css animations to
+// the wrapper of the weapon graphic, and fades it in.
+// =======================================================
                     $(weaponDiv).addClass("swordSwing");
                     $(weaponDiv).fadeIn();
                 }, 1000);
+// =======================================================
+//   After the animation has completed, fade out the
+// weapon wrapper AND the damage number div.
+// =======================================================
                 setTimeout(() => {
                     $(weaponDiv).fadeOut();
                     $(damageNumber).fadeOut();
                 }, 2000);
                 setTimeout(() => {
+// =======================================================
+//   Finally, we remove the class from the weapon wrapper
+// so that we can add it again when the player next attacks.
+// =======================================================
                     $(weaponDiv).removeClass("swordSwing");
                 }, 2500);
             },
