@@ -38,6 +38,10 @@ $(document).ready(function () {
 // exclusively store the code for manipulating the graphical elements of the
 // parent object.
 // 
+
+/* =================================================================================
+====================================================================================
+================================================================================= */
     
     const game = {
         config: {
@@ -531,16 +535,37 @@ $(document).ready(function () {
                     window.location.href = game.refs.gameOverScreen;
                 });
             },
+// =========================================================
+//   rollDamage contains the logic for calculating player
+// damage. Most if not all of these values are defined in
+// player.config. This function takes in an actionType param
+// that will decided what logic to use relative to the action
+// (if it's a regular attack/spell/etc...).
+// =========================================================
             rollDamage: (actionType) => {
                 console.log(`player.fn.rollDamage();`);
                 const { attackMin, attackMax, canCrit,
                     critThresh, critMin, critMax } = player.config;
+// =========================================================
+//   If "attack" was passed into rollDamage() ...
+// =========================================================
                 if (actionType === "attack") {
+// =========================================================
+//   min = the lowest you can roll on an attack (>= 0).
+//        * This should be a non-negative whole number.
+//   max = the highest possible number you can roll.
+//   calcDamage = a random number inclusive of max and min.
+// =========================================================
                     let min = Math.ceil(attackMin);
                     let max = Math.floor(attackMax);
                     let calcDamage = Math.floor(Math.random() * (max - min + 1) + min);
                     console.log(`    ${calcDamage} DAMAGE!`)
                     // IF the damage rolled passes the min number to crit...
+// =========================================================
+//   IF the damage roll was >= the minimum number to CRIT
+// and canCrit is true (meaning the enemy can be crit), roll
+// crit damage similarly to how normal dmg is calculated.
+// =========================================================
                     if (calcDamage > critThresh && canCrit !== false) {
                         console.log(`    CRIT! thresh:${critThresh}, rolled:${calcDamage}`);
                         let min = Math.ceil(critMin);
@@ -548,26 +573,54 @@ $(document).ready(function () {
                         let critDamage = Math.floor(Math.random() * (max - min + 1) + min);
                         console.log(`    Crit damage: ${critDamage}`);
                         const { critText } = game.refs;
+// =========================================================
+//   Change the critText element to reflect the crit value,
+// then fade in that critText element.
+// =========================================================
                         $(critText).text(`CRIT! ${critDamage} "DMG`);
                         $(critText).fadeIn();
+// =========================================================
+//   Fade out after a few seconds of being displayed. Add
+// the new critDamage value to our original damage value.
+// =========================================================
                         setTimeout(() => {
                             $(critText).fadeOut();
                         }, 2000);
                         calcDamage += critDamage;
                     }
+// =========================================================
+//   Save that total damage value to session storage.
+// =========================================================
                     sessionStorage.setItem("rollDamage", calcDamage);
                 }
             },
+// =========================================================
+//   setHealth will get the value of playerHealth from LS,
+// adjust the width of the player's health bar, and update
+// the healthText in the UI with that value.
+// =========================================================
             setHealth: (playerHealth) => {
                 console.log(`player.fn.setHealth();`);
                 const { healthBar, healthText } = player.refs
                 $(healthBar).attr("style", `width: ${playerHealth}%;`);
                 $(healthText).text(playerHealth);
             },
+// =========================================================
+//   Any event that should fire on the START of the player's
+// turn goes here. Generally this shouldn't call other
+// functions, as the event listeners attached to UI buttons
+// and key presses will handle the players actions.
+// =========================================================
             takeTurn: () => {
                 console.log(`player.fn.takeTurn();`);
             }
         },
+// =========================================================
+//   playSound contains functions whose sole purpose is to
+// create a new instance of the predefined audio track and
+// play it. These functions are called during actions and
+// gameplay events (also found in various event listeners).
+// =========================================================
         playSound: {
             selectSound: () => {
                 console.log(`player.playSound.selectSound();`);
@@ -631,16 +684,28 @@ $(document).ready(function () {
             attackDamage: "",
         },
         animation: {
+// =========================================================
+//   appear() is the opening animation for when the game
+// starts and the enemy/UI fades in. 
+// =========================================================
             appear: () => {
                 console.log("enemy.animation.appear();");
                 setTimeout(() => {
                     const { enemyWrapper } = enemy.refs;
                     const { name, level } = enemy.config;
                     const { introText } = game.refs;
+// =========================================================
+//   Fade in the enemy wrapper by updating css "opacity".
+// =========================================================
                     $(enemyWrapper).css("opacity", "1");
                     let turnNum = game.state.turnNum;
                     let enemyHealth = enemy.state.health;
                     const maxHealth = enemy.config.maxHealth;
+// ===========================================================
+//   IF turnNum is not null OR the enemy's health is less
+// than it's predefined maximum health value, change the
+// intro message to a continue message. Then fade in introText.
+// ===========================================================
                     if (!turnNum === null || enemyHealth < maxHealth) {
                         $(introText).addClass("container");
                         $(introText).html(`<h1 class='text-center flash'>CONTINUE 
@@ -648,6 +713,13 @@ $(document).ready(function () {
                     }
                     $(introText).fadeIn(800);
                 }, 800);
+// =========================================================
+//   Fade out the introText element and remove the "disabled"
+// attribute from ALL buttons. This will allow the user to
+// click action buttons (they are disabled initially to
+// prevent the user from interacting with the UI before all
+// animations and necessary functions are completed).
+// =========================================================
                 setTimeout(() => {
                     const { introText } = game.refs;
                     $(introText).fadeOut(800);
@@ -655,16 +727,28 @@ $(document).ready(function () {
                 }, 2300)
             },
             attack1: () => {
+// =========================================================
+//   Add the predefined animation class to the enemy wrapper
+// and play the enemy's attack1Sound.
+// =========================================================
                 console.log(`enemy.animation.attack1();`);
                 const { enemyWrapper, attack1AnimClass } = enemy.refs;
                 const { attack1Sound } = enemy.playSound;
                 $(enemyWrapper).addClass(attack1AnimClass);
                 attack1Sound();
             },
+// =========================================================
+//   defeat() is fired when the enemy's health reaches 0 or
+// another win condition is met in game logic.
+// =========================================================
             defeat: () => {
                 console.log("enemy.animation.defeat();");
                 const { enemyHUD, enemyName, enemyHpText,
                     enemyHpBar, enemyWrapper } = enemy.refs
+// =========================================================
+//   Append an enemy defeated message to the enemy UI. Then
+// hide and remove various enemy UI elements.
+// =========================================================
                 $(enemyHUD).append(`<div class="col-12">
                 <h1>${enemy.config.name} DEFEATED!</h1></div>`);
                 $(enemyName).hide();
@@ -673,6 +757,12 @@ $(document).ready(function () {
                 $(enemyWrapper).remove();
             }
         },
+// =========================================================
+//   playSound contains functions whose sole purpose is to
+// create a new instance of the predefined audio track and
+// play it. These functions are called during actions and
+// gameplay events (also found in various event listeners).
+// =========================================================
         playSound: {
             attack1Sound: () => {
                 console.log(`enemy.playSound.attack1Sound();`);
@@ -694,52 +784,109 @@ $(document).ready(function () {
                 cry.play();
             }
         },
+// =========================================================
+//   fn contains all functions for handling enemy logic.
+// =========================================================
         fn: {
+// ==========================================================
+//   When enemy.fn.takeTurn() is fired, your AI should decide
+// an action to take. IF the AI chooses attack1(); ....
+// ==========================================================
             attack1: () => {
                 console.log(`enemy.fn.attack1();`);
                 const { attackResponses, name} = enemy.config;
                 const { attack1 } = enemy.animation;
                 const { consoleDiv, actionsDiv } = game.refs;
                 const { setHealth } = player.fn;
+// =========================================================
+//   Selects a random predefined enemy attack response from
+// the array located in enemy.config...
+// =========================================================
                 var randomAtkResp = attackResponses[Math.floor(Math.random() * attackResponses.length)];
+// =========================================================
+//   Prepend a "preparing to attack" message to the user's
+// consoleText div for flavor...
+// =========================================================
                 setTimeout(() => {
                     let statusText1 = $("<p class='consoleText'>").html(`${name} is preparing to attack!`);
                     statusText1.prependTo(consoleDiv);
                 }, 1000);
+// =========================================================
+//   Prepend the random enemy attack response chosen to the
+// consoleText UI element... 
+// =========================================================
                 setTimeout(() => {
                     attack1();
                     let statusText1 = $("<p class='consoleText'>").html(randomAtkResp);
                     statusText1.prependTo(consoleDiv);
                 }, 1500);
+// =========================================================
+//   Here we call enemy.fn.rollDamage() and pass in the  
+// name of the action chosen by the enemy AI...
+// =========================================================
                 setTimeout(() => {
                     const { rollDamage } = enemy.fn;
                     const { modifier } = enemy.config;
                     const { enemyDamageNumber } = game.refs;
                     rollDamage("attack1");
+// =========================================================
+//   Get the damage we calculated in rollDamage out of
+// session storage and add the enemy's modifier (pos/neg int).
+// =========================================================
                     let damageInt = parseInt(sessionStorage.getItem("rollEnemyDamage"));
                     let damageTotal = damageInt + modifier;
+// =========================================================
+//   IF the total damage done is greater than 0, update the
+// enemyDamageNumber elem with the new value. ELSE, change
+// that elem's text to "WHIFF" (signifying a missed attack).
+// =========================================================
                     if (damageTotal > 0) {
                         $(enemyDamageNumber).text(`${damageTotal} DMG`);
                     }
                     else {
                         $(enemyDamageNumber).text("WHIFF!");
                     }
+// =========================================================
+//   Get the player's current health from local storage and
+// subtract the total damage done by the enemy. Set that new
+// value in the appropriate local storage record.
+// =========================================================
                     let playerHealth = parseInt(localStorage.getItem("playerHealth"));
                     playerHealth -= damageTotal;
                     setHealth(playerHealth);
                     localStorage.setItem("playerHealth", playerHealth);
+// =========================================================
+//   IF the NEW value of playerHealth is LESS THAN OR EQUAL
+// TO 0, trigger the player's onDeath() function. This is
+// a safeguard against the player's health value dropping
+// into negative numbers and failing to trigger onDeath().
+// =========================================================
                     if (playerHealth <= 0) {
                         const { onDeath } = player.fn;
                         onDeath();
                     }
+// =========================================================
+//   Prepend a message displaying the total damage done to
+// the player's consoleText UI element. Fade in the updated
+// enemyDamageNumber element to display the damage.
+// =========================================================
                     let statusText1 = $("<p class='consoleText'>").html(`${name}
                     attacked for ${damageTotal} DMG!`);
                     statusText1.prependTo(consoleDiv);
                     $(enemyDamageNumber).fadeIn();
                 }, 2000);
+// =========================================================
+//   After a short delay, fade out the enemyDamageNumber.
+// =========================================================
                 setTimeout(() => {
                     $(enemyDamageNumber).fadeOut();
                 }, 3000);
+// ==========================================================
+//   Remove the attack animation class from the enemy wrapper
+// effectually "resetting" it to be added again on the next
+// attack. Decrement the turnNum value by 1, and trigger
+// player.fn.takeTurn()...
+// ==========================================================
                 setTimeout(() => {
                     $(enemy.refs.enemyWrapper).removeClass(enemy.refs.attack1AnimClass);
                     $(actionsDiv).show();
@@ -750,24 +897,47 @@ $(document).ready(function () {
                     takeTurn();
                 }, 3500);
             },
+// =========================================================
+//   initEnemyHealth is fired on game start...
+// =========================================================
             initEnemyHealth: () => {
                 console.log(`enemy.fn.setHealth();`);
                 const { maxHealth } = enemy.config;
                 const { introText } = game.refs;
+// =========================================================
+//   Gets the enemyHealth value from localStorage. IF no
+// record exists (is null), set the enemy health to the
+// maximum health value established in enemy.config.
+// =========================================================
                 let enemyHealth = localStorage.getItem("enemyHealth");
                 if (enemyHealth === null || enemyHealth === "null") {
                     enemyHealth = maxHealth;
                     localStorage.setItem("enemyHealth", enemyHealth);
                 }
-                else if (enemyHealth < 0) {
+// ===========================================================
+//   IF enemyHealth is LESS THAN OR EQUAL TO 0, set the
+// enemyHealth value to 0. This is a safeguard to ensure that
+// negative values are set to zero. It also ensures that if
+// the player resumes the game after killing an enemy, the
+// enemy will start dead and trigger game.fn.win().
+// ===========================================================
+                else if (enemyHealth <= 0) {
                     enemyHealth = 0;
                     $(introText).remove();
                     game.fn.win();
                 }
+// =========================================================
+//   Set the width of the enemy's health bar and the enemy
+// health text elem to the value taken from local storage.
+// =========================================================
                 const { enemyHpBar, enemyHealthText } = enemy.refs
                 $(enemyHpBar).attr("style", `width: ${enemyHealth}px;`);
                 $(enemyHealthText).text(enemyHealth);
             },
+// =========================================================
+//   healthCheck will grab the value of enemyHealth from
+// local storage and check to see if it is above zero health.
+// =========================================================
             healthCheck: () => {
                 let getHealth = parseInt(localStorage.getItem("enemyHealth"));
                 if (getHealth <= 0) {
@@ -777,6 +947,9 @@ $(document).ready(function () {
                     return true;
                 }
             },
+// =========================================================
+//   SEE THE PLAYER'S ROLLDAMAGE FUNCTION FOR EXPLANATION.
+// =========================================================
             rollDamage: (actionType) => {
                 console.log(`enemy.fn.rollDamage();`);
                 const { attackMin, attackMax, canCrit,
@@ -804,6 +977,11 @@ $(document).ready(function () {
                     sessionStorage.setItem("rollEnemyDamage", calcDamage);
                 }
             },
+// =========================================================
+//   setHealth will get the value of enemyHealth from LS,
+// adjust the width of the enemy's health bar, and update
+// the enemyHealthText in the UI with that value.
+// =========================================================
             setHealth: (enemyHealth) => {
                 if (enemyHealth < 0) {
                     enemyHealth = 0;
@@ -813,9 +991,24 @@ $(document).ready(function () {
                 $(enemyHpBar).attr("style", `width: ${enemyHealth}px;`);
                 $(enemyHealthText).text(enemyHealth);
             },
+// =========================================================
+//   takeTurn is fired after the player takes their turn.
+// YOUR ENEMY AI LOGIC GOES WITHIN THIS FUNCTION! The AI 
+// should determine which action to take and call the
+// appropriate function. In this example, IF the enemy is
+// alive, the AI will always choose attack1(). But you could
+// implement custom logic like this:
+//
+//    let attackChoices = ["attack1", "attack2", ...];
+//    let randomAttack = attackChoices[Math.floor(Math.random() * attackChoices.length)];
+//    if (randomAttack === "attack1") {
+//      attack1();
+//    }
+//    else if (randomAttack === "attack2") {}
+//    ...
+// =========================================================
             takeTurn: () => {
                 console.log(`enemy.fn.takeTurn();\n========================`);
-                // enemy.fn.takeTurn() is where enemy AI will decide action.
                 const { attack1, healthCheck } = enemy.fn;
                 let isAlive = healthCheck();
                 if (isAlive === true) {
@@ -826,11 +1019,16 @@ $(document).ready(function () {
             }
         },
     };
+
+// =========================================================
+//   game.fn.start(); Initializes the game!
+// =========================================================    
     
-        game.fn.start(); 
-        /* ===================================================================
-        ======================== EVENT LISTENERS =============================
-        =================================================================== */
+    game.fn.start(); 
+
+/* ===================================================================
+======================== EVENT LISTENERS =============================
+=================================================================== */
     
         $("button").on("mouseover", () => {
             select = new Audio(game.refs.selectSound);
