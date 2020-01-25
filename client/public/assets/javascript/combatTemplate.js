@@ -421,23 +421,49 @@ $(document).ready(function () {
 // =========================================================
                 let damageInt = parseInt(sessionStorage.getItem("rollDamage"));
                 let damageTotal = damageInt + modifier;
+// =========================================================
+//   Selects a random attack response to display in the UI.
+// Then prepend generic response to the "console text" div.
+// =========================================================
                 let randomAtkResp = attackResponses[Math.floor(Math.random() * attackResponses.length)];
                 let statusText1 = $("<p class='consoleText'>").html(`Attempting to attack ${game.config.currentEnemy}...`);
                 let statusText2 = $("<p class='consoleText'>").html(`${randomAtkResp}<br>`);
                 statusText1.prependTo(consoleDiv);
+// =========================================================
+//   Perform the player.animation.attack(); anim.
+// * Adds a preDef css class with anims to weapon div *
+// =========================================================
                 const { attack } = player.animation;
                 attack();
+// =========================================================
+//   Prepend the randomly selected attack response to the
+// player's "console text" div pre-defined in game.refs.
+// =========================================================
                 setTimeout(() => {
                     statusText2.prependTo(consoleDiv);
                 }, 1000);
+// =========================================================
+//   Then, change damageNumber's text (game.ref) to the
+// damage done by the player. Fade in that element. Then,
+// play the attack sound defined in player.playSound.
+// =========================================================
                 setTimeout(() => {
                     $(damageNumber).text(damageTotal + " DMG");
                     $(damageNumber).fadeIn();
                     attackSound();
                 }, 1500);
+// =========================================================
+//   Play the cry sound defined in enemy.playSound.
+// =========================================================
                 setTimeout(() => {
                     crySound();
                 }, 1800);
+// =========================================================
+//   Prepend another status text to "console text" div.
+// Then get the enemy's health from LS and subtract it by
+// the amount of damage the player dealt. Set that new value
+// for enemy health in local storage.
+// =========================================================
                 setTimeout(() => {
                     let statusText1 = $("<p class='consoleText'>").html(`You hit ${currentEnemy}
                     for ${damageTotal} DMG!`);
@@ -446,8 +472,17 @@ $(document).ready(function () {
                     enemyHealth -= damageTotal;
                     localStorage.setItem("enemyHealth", enemyHealth);
                     console.log(`    enemyHealth: ${enemyHealth}`);
+// =========================================================
+//   Run enemy.fn.setHealth(); and pass in the updated value.
+// * This will update the screen with the new val, including:
+// the health bar, current health text, etc...
+// =========================================================
                     setHealth(enemyHealth);
                 }, 2000);
+// =========================================================
+//   Then, increment the turnNum variable by 1 and set that
+// value in LS. Call enemy.fn.takeTurn(); ending player turn.
+// =========================================================
                 setTimeout(() => {
                     const { takeTurn } = enemy.fn;
                     let turnNum = game.state.turnNum++;
@@ -455,6 +490,13 @@ $(document).ready(function () {
                     takeTurn();
                 }, 3000);
             },
+// =========================================================
+//   InitPlayerHealth gets the value from local storage.
+// If it's null sets the players health to the maximum val
+// defined in player.config and sets it in LS. Else, update
+// the width of the players health bar to match the value and
+// change the current player health text to the val as well.
+// =========================================================
             initPlayerHealth: () => {
                 console.log(`player.fn.setHealth();`);
                 const { maxHealth } = player.config
@@ -468,6 +510,15 @@ $(document).ready(function () {
                 $(healthBar).attr("style", `width: ${playerHealth}%;`);
                 $(healthText).text(playerHealth);
             },
+// =========================================================
+//   onDeath is the handler for when the player's health
+// reaches zero. Set the deathBy value in local storage to
+// the name of the current enemy that you've configured.
+// play the slaySound signifying the death of the player.
+// Then add the animation class "shake" to the screen and
+// fade out the UI. Finally redirect the player to the
+// gameOverScreen you configured in game.refs
+// =========================================================
             onDeath: () => {
                 console.log(`player.fn.onDeath();`);
                 localStorage.setItem("deathBy", enemy.config.name);
