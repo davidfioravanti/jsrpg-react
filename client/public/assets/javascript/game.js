@@ -190,6 +190,26 @@ $("#consoleTitle").on("keydown", function(e) {
             $(".footerContrast").css("-webkit-filter", "contrast(" + contrastVal + "%)");
             $(".consoleContrast").css("-webkit-filter", "contrast(" + contrastVal + "%)");
         }
+        else if (consoleCommand.includes("g.set")) {
+            let inputArr = consoleCommand.split(" ");
+            let valToUpdate = inputArr[1];
+            let updatedVal = inputArr[2];
+            let initialVal = localStorage.getItem(valToUpdate);
+            if (initialVal === null) {
+                statusText2 = $("<p class='consoleText'>").html(`*${valToUpdate} DOES NOT EXIST*`);
+                statusText1 = $("<p class='consoleText'>").html(`*CHECK LOCALSTORAGE OR USE g.create*`);
+            }
+            else {
+                localStorage.setItem(valToUpdate, updatedVal);
+                statusText2 = $("<p class='consoleText'>").html(`(ORIGINAL) ${valToUpdate}: ${initialVal}`);
+                statusText1 = $("<p class='consoleText'>").html(`(UPDATED) ${valToUpdate}: ${updatedVal}`);
+            }
+            statusText2.prependTo(consoleDiv);
+            setTimeout(() => {
+                statusText1.prependTo(consoleDiv);
+            }, 1000);
+            
+        }
         else {
             let statusText1 = $("<p class='consoleText'>").html("*INVALID COMMAND*");
             let statusText2 = $("<p class='consoleText'>").html("<i>SEE README.md FOR COMMANDS</i>");
