@@ -90,6 +90,18 @@ $(document).ready(function () {
             },
         },
         fn: {
+// =====================================
+//   For testing purposes, this will
+// reset the game, removing turnNum from
+// local storage and resetting both the
+// player and enemy health values to max.
+// =====================================
+            reset: ()=> {
+                localStorage.removeItem("turnNum");
+                localStorage.setItem("playerHealth", 100);
+                localStorage.setItem("enemyHealth", 30);
+                window.location.reload();
+            },
 // ===================================
 //   This will disable the user from
 // clicking the back button while in
@@ -516,6 +528,12 @@ $(document).ready(function () {
                 $(healthBar).attr("style", `width: ${playerHealth}%;`);
                 $(healthText).text(playerHealth);
             },
+// =====================================
+//   This will pull sfxVolume settings
+// from the users local storage. It will
+// then set that val in game.config to
+// be used when playing sound effects.
+// =====================================
             defend: () => {
                 console.log(`player.fn.defend();\n========================`);
                 const { actionsDiv, consoleDiv } = game.refs;
