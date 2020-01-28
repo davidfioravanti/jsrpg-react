@@ -335,6 +335,8 @@ $(document).ready(function () {
             // ATTACK STATS =========
             attackMin: 0,
             attackMax: 12,
+            defenseMin: 0,
+            defenseMax: 6,
             canCrit: false,
             critThresh: 9,
             critMin: 2,
@@ -513,6 +515,35 @@ $(document).ready(function () {
                 const { healthBar, healthText } = player.refs
                 $(healthBar).attr("style", `width: ${playerHealth}%;`);
                 $(healthText).text(playerHealth);
+            },
+            defend: () => {
+                console.log(`player.fn.defend();\n========================`);
+                const { actionsDiv, consoleDiv } = game.refs;
+                const { rollDefense } = player.fn;
+                const { selectSound } = player.playSound;
+                const { modifier } = player.config;
+                const { currentEnemy } = game.config;
+                selectSound();
+                $(actionsDiv).hide();
+                let statusText = $("<p class='consoleText'>").html(`Preparing to block ${currentEnemy}'s attack!`);
+                statusText.prependTo(consoleDiv);
+                rollDefense();
+                var defenseInt = parseInt(sessionStorage.getItem("rollDefense"));
+                defenseInt += modifier;
+                setTimeout(() => {
+                    statusText = $("<p class='consoleText'>").html(`Blocking up to ${defenseInt} DMG!`);
+                    statusText.prependTo(consoleDiv);
+                }, preDefTimeout);
+                setTimeout(() => {
+                    attackDefended();
+                }, preDefTimeout * 1.5);
+            },
+            rollDefense: () => {
+                const { defenseMin, defenseMax } = player.config;
+                var min = Math.ceil(defenseMin);
+                var max = Math.floor(defenseMax);
+                const calcDefense = Math.floor(Math.random() * (max - min + 1)) + min;
+                sessionStorage.setItem("rollDefense", calcDefense);
             },
 // =========================================================
 //   onDeath is the handler for when the player's health
@@ -947,6 +978,71 @@ $(document).ready(function () {
                     return true;
                 }
             },
+            attackDefended: () => {
+                console.log(`enemy.fn.attackDefended();`);
+                const { enemyAttackResponses, name } = enemy.config;
+                const { attack1AnimClass } = enemy.refs;
+                const { attack1 } = enemy.animation;
+                const { consoleDiv, actionsDiv } = game.refs;
+                const { shieldWrapper, shieldDiv, defendAnimClass } = player.refs;
+                const { setHealth } = player.fn;
+                const { rollDamage } = enemy.fn;
+                const { modifier } = enemy.config;
+                const { enemyDamageNumber } = game.refs;
+                var randomEnemyAtKResp = enemyAttackResponses[Math.floor(Math.random() * enemyAttackResponses.length)];
+                setTimeout(() => {
+                    let statusText1 = $("<p class='consoleText'>").html(`${name} is preparing to attack!`);
+                    statusText1.prependTo(consoleDiv);
+                }, 1000);
+                setTimeout(() => {
+                    attack1();
+                    let statusText1 = $("<p class='consoleText'>").html(randomEnemyAtKResp);
+                    statusText1.prependTo(consoleDiv);
+                }, 1500);
+                setTimeout(() => {
+                    $(shieldWrapper).addClass(defendAnimClass);
+                    $(shieldDiv).css("opacity", "1");
+                }, 1600);
+                setTimeout(() => {
+                    rollDamage();
+                    let enemyDamageInt = parseInt(sessionStorage.getItem("rollEnemyDamage"));
+                    let defenseInt = parseInt(sessionStorage.getItem("rollDefense"));
+                    var enemyDamageTotal = enemyDamageInt - defenseInt + modifier;
+                    if (enemyDamageTotal > 0) {
+                        $(enemyDamageNumber).text(`${enemyDamageTotal} DMG!`);
+                    }
+                    else {
+                        $(enemyDamageNumber).text("BLOCKED!");
+                    }
+                    if (enemyDamageTotal < 0) {
+                        enemyDamageTotal = 0;
+                    }
+                    let statusText1 = $("<p class='consoleText'>").html(
+                    `${name} attempts to attack for ${enemyDamageTotal} DMG!`);
+                    let statusText2 = $("<p class='consoleText'>").html(
+                    `${name} attacked for ${enemyDamageTotal} DMG!`);
+                    statusText1.prependTo(consoleDiv);
+                    statusText2.prependTo(consoleDiv);
+                    $(enemyDamageNumber).fadeIn();
+                }, 2000);
+                setTimeout(() => {
+                    setHealth(enemyDamageTotal);
+                }, 2500);
+                setTimeout(() => {
+                    $(enemyDamageNumber).fadeOut(1000);
+                }, 3000);
+                setTimeout(() => {
+                    $(shieldWrapper).removeClass(defendAnimClass);
+                    $(shieldDiv).css("opacity", "0");
+                    $(enemyWrapper).removeClass(attack1AnimClass);
+                    $(actionsDiv).show();
+                    let turnNum = game.state.turnNum--;
+                    console.log(`    turnNum: ${turnNum}`);
+                    localStorage.setItem("turnNum", turnNum);
+                    const { takeTurn } = player.fn;
+                    takeTurn();
+                }, 3500);
+            },
 // =========================================================
 //   SEE THE PLAYER'S ROLLDAMAGE FUNCTION FOR EXPLANATION.
 // =========================================================
@@ -1038,6 +1134,10 @@ $(document).ready(function () {
     
         $("#attackButton").on("click", () => {
             player.fn.attack();
+        });
+
+        $("#defendButton").on("click", () => {
+            player.fn.defend();
         });
     
     });
