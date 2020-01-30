@@ -8,6 +8,7 @@ import NotFound from "./components/Pages/NotFound/NotFound"
 import Soundtrack from "./components/Pages/Soundtrack/Soundtrack"
 import DevBlog from "./components/Pages/DevBlog/DevBlog"
 import Design from "./components/Pages/Design/Design"
+import Code from "./components/Pages/Code/Code"
 import Crashed from "./components/Pages/Crashed/Crashed"
 const routing = (
   <Router>
@@ -18,6 +19,7 @@ const routing = (
         <Route path="/soundtrack" component={Soundtrack} />
         <Route path="/devblog" component={DevBlog} />
         <Route path="/design" component={Design} />
+        <Route path="/code" component={Code} />
         <Route path="/C245H3D" component={Crashed} />
         <Route component={NotFound} />
       </Switch>

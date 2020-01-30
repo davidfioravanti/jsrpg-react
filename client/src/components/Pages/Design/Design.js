@@ -13,10 +13,12 @@ class Design extends React.Component {
           <p> At it's core, JSRPG's charm comes down to it's clever design. The game in it's entirety DOES NOT feature a single
               image. "How is that possible? There are definitely images in the game..." you might ask. Nope, the "images"
               are all text in the form of ASCII Art! In the video below, you'll get a glimpse at the process behind creating
-              this art and how it factors into the gameplay! For those who like to read, you can follow along with the written
-              article below!
+              this art and how it factors into the gameplay! For those who like to read, you can follow a written
+              article below detailing how I created the PUMPKING!
             </p>
           <br/><br/>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/fRKhC8u1OSo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <br></br><br></br>
           <button className="btn btn-success" type="button" data-toggle="collapse" data-target="#designArticle" aria-expanded="false" aria-controls="blog1">
             CLICK TO READ THE FULL ARTICLE!
           </button>
