@@ -33,21 +33,22 @@
 
 <body>
     <div id="gamePageWrapper">
-    <div class="container text-center screenEffects">
-        <iframe id="gameScreen" src="login.html" type="text/html" style="width: 500px; height: 750px;"></iframe>
-    </div>
-    <div id="console" class="container">
-        <input id="consoleTitle" autocomplete="off" spellcheck="false"
-            placeholder="USER CONSOLE: ENTER CONSOLE COMMANDS HERE!" class="text-left"></input>
-        <div id="consoleDiv">
+        <div class="container text-center screenEffects">
+            <iframe id="gameScreen" src="login.html" type="text/html" style="width: 500px; height: 750px;"></iframe>
         </div>
-    </div>
+        <div id="console" class="container consoleSepia consoleContrast consoleInvert consoleSaturate consoleGray">
+            <input id="consoleTitle" autocomplete="off" spellcheck="false"
+                placeholder="USER CONSOLE: ENTER CONSOLE COMMANDS HERE!" class="text-left"></input>
+            <div id="consoleDiv">
+            </div>
+        </div>
     </div>
     <div id="gameMessageDiv" class="container-fluid text-center">
         <h1 id="gameMessage"></h1>
     </div>
-    <div id="gameFooter" class="text-right">
-            <button id="devButton" class="btn btn-success float-left" type="button">!</button>
+    <div id="gameFooter" class="container-fluid text-right footerSepia footerContrast
+    footerInvert footerSaturate footerGray">
+        <button id="devButton" class="btn btn-success float-left" type="button">!</button>
         <button id="exitButton" class="btn btn-success" type="button">SAVE & EXIT GAME</button>
     </div>
 
@@ -61,11 +62,11 @@
             let rangeVal = $(this).val();
             console.log("rangeVal: " + rangeVal)
             $("iframe").css("-webkit-filter", "hue-rotate(" + rangeVal + "deg)");
-            $("#devButton").css("-webkit-filter", "hue-rotate(" + rangeVal + "deg)");
             $("#console").css("-webkit-filter", "hue-rotate(" + rangeVal + "deg)");
-            $("body").css("-webkit-filter", "hue-rotate(" + rangeVal + "deg)");
+            $("#gameFooter").css("-webkit-filter", "hue-rotate(" + rangeVal + "deg)");
+            // $("body").css("-webkit-filter", "hue-rotate(" + rangeVal + "deg)");
         })
-        $(window).on('resize', checkDimensions = function(){
+        $(window).on('resize', checkDimensions = function () {
             var win = $(this); //this = window
             if (win.height() < 820 || win.width() < 535) {
                 $("#gamePageWrapper").fadeOut();

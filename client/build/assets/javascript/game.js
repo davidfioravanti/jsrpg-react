@@ -158,29 +158,37 @@ $("#consoleTitle").on("keydown", function(e) {
             let grayVal = parseFloat(inputArr[1]);
             $("iframe").css("-webkit-filter", "grayscale(" + grayVal + ")");
             $("#devButton").css("-webkit-filter", "grayscale(" + grayVal + ")");
-            $("#console").css("-webkit-filter", "grayscale(" + grayVal + ")");
-            $("body").css("-webkit-filter", "grayscale(" + grayVal + ")");
+            $(".footerGray").css("-webkit-filter", "contrast(" + grayVal + "%)");
+            $(".consoleGray").css("-webkit-filter", "contrast(" + grayVal + "%)");
 
         }
         else if (consoleCommand.includes("invert")) {
             let inputArr = consoleCommand.split(" ");
             let invVal = parseFloat(inputArr[1]);
             $(".screenEffects").css("-webkit-filter", "invert(" + invVal + "%)");
+            $(".footerInvert").css("-webkit-filter", "inverse(" + invVal + "%)");
+            $(".consoleInvert").css("-webkit-filter", "inverse(" + invVal + "%)");
         }
         else if (consoleCommand.includes("saturate")) {
             let inputArr = consoleCommand.split(" ");
             let satVal = parseFloat(inputArr[1]);
             $(".screenEffects").css("-webkit-filter", "saturate(" + satVal + "%)");
+            $(".footerSaturate").css("-webkit-filter", "saturate(" + satVal + "%)");
+            $(".consoleSaturate").css("-webkit-filter", "saturate(" + satVal + "%)");
         }
         else if (consoleCommand.includes("sepia")) {
             let inputArr = consoleCommand.split(" ");
             let sepVal = parseFloat(inputArr[1]);
             $(".screenEffects").css("-webkit-filter", "sepia(" + sepVal + "%)");
+            $(".footerSepia").css("-webkit-filter", "sepia(" + sepVal + "%)");
+            $(".consoleSepia").css("-webkit-filter", "sepia(" + sepVal + "%)");
         }
         else if (consoleCommand.includes("contrast")) {
             let inputArr = consoleCommand.split(" ");
             let contrastVal = parseFloat(inputArr[1]);
             $(".screenEffects").css("-webkit-filter", "contrast(" + contrastVal + "%)");
+            $(".footerContrast").css("-webkit-filter", "contrast(" + contrastVal + "%)");
+            $(".consoleContrast").css("-webkit-filter", "contrast(" + contrastVal + "%)");
         }
         else if (consoleCommand.includes("g.set")) {
             let inputArr = consoleCommand.split(" ");

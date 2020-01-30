@@ -12,6 +12,8 @@ var clickEvent = new MouseEvent("click", {
 
 document.dispatchEvent(clickEvent);
 
+localStorage.setItem("lastScreen", "deathScreen.html");
+
 $("#bodyWrapper").fadeIn(1000);
 
 let musicVolume = localStorage.getItem("musicVolume");

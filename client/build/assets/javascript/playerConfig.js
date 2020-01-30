@@ -9,77 +9,85 @@ $(document).contextmenu(function() {
 });
 
 $(document).ready(function () {
-    $.get("/api/load-game").then( (data) => {
-        // Destructure response object...
-        let  {playerGold, xPos, yPos, dragonXPos, dragonYPos, turnNum,
-            wellWasUsed, autoplay, sfxVolume, musicVolume,
-            playerStrength, playerDexterity, playerConstitution,
-            playerIntelligence, playerWisdom, playerCharisma,
-            playerLevel, playerHealth, enemyHealth, roomsCleared,
-            monstersSlain, bossesSlain, secretsFound, seenHellbat,
-            seenSkeleton, deathBy, lastScreen, newCharacter, gameVersion } = data;
-            if (newCharacter === "true") {
-                console.log("NEW CHARACTER");
-                $("#playGameButton").text("CREATE NEW CHARACTER!");
-                $("#createCharacterButton").remove();
-                $("#createCharacterWarning").remove();
-                $("#playGameButton").on("click", function() {
-                    $("#login").fadeOut(1500);
-                    setTimeout(() => {
-                        $("#charCreate").fadeIn(1500);
-                    }, 1500);
-                })
-            }
-            else {
-                $("#playGameButton").on("click", function() {
-                    $("#login").fadeOut(1500);
-                    setTimeout(() => {
-                        if (!playerGold || playerGold === "" || playerGold === null) {playerGold = 0}
-                            localStorage.setItem("playerGold", playerGold);
-                        if (!xPos || xPos === "" || xPos === null) {xPos = 0}
-                            localStorage.setItem("xPos", xPos);
-                        if (!yPos || yPos === "" || yPos === null) {yPos = 0}
-                            localStorage.setItem("yPos", yPos);
-                        if (!dragonXPos || dragonXPos === "") {dragonXPos = null}
-                            localStorage.setItem("dragonXPos", dragonXPos);
-                        if (!dragonYPos || dragonYPos === "") {dragonYPos = null}
-                            localStorage.setItem("dragonYPos", dragonYPos);
-                        if (!turnNum || turnNum === "" || turnNum === null) {turnNum = 0}
-                            localStorage.setItem("turnNum", turnNum);
-                        if (!wellWasUsed || wellWasUsed === "" || wellWasUsed === null) {wellWasUsed = "false"}
-                            localStorage.setItem("wellWasUsed", wellWasUsed);
-                        localStorage.setItem("autoplay", autoplay);
-                        localStorage.setItem("sfxVolume", sfxVolume);
-                        localStorage.setItem("musicVolume", musicVolume);
-                        localStorage.setItem("playerStrength", playerStrength);
-                        localStorage.setItem("playerDexterity", playerDexterity);
-                        localStorage.setItem("playerConstitution", playerConstitution);
-                        localStorage.setItem("playerIntelligence", playerIntelligence);
-                        localStorage.setItem("playerWisdom", playerWisdom);
-                        localStorage.setItem("playerCharisma", playerCharisma);
-                        localStorage.setItem("playerLevel", playerLevel);
-                        localStorage.setItem("currentPlayerHealth", playerHealth);
-                        localStorage.setItem("currentEnemyHp", enemyHealth);
-                        localStorage.setItem("roomsCleared", roomsCleared);
-                        localStorage.setItem("monstersSlain", monstersSlain);
-                        localStorage.setItem("bossesSlain", bossesSlain);
-                        localStorage.setItem("secretsFound", secretsFound);
-                        localStorage.setItem("seenHellbat", seenHellbat);
-                        localStorage.setItem("seenSkeleton", seenSkeleton);
-                        localStorage.setItem("deathBy", deathBy);
-                        localStorage.setItem("gameVersion", gameVersion);
-                        console.log("NAV TO LAST SCREEN");
-                        window.location.href = lastScreen;
-                    }, 1500);
-                })
-            }
-    }).catch((err) => {
-        console.log("ERROR:");
-        // $("#emailInput").val();
-        // $("#passwordInput").val();
-        // $("#loginHeader").text("INCORRECT EMAIL/PASSWORD!")
-        console.log(err);
-    })
+    let gameOverCheck = localStorage.getItem("lastScreen");
+    if (gameOverCheck === "deathScreen.html") {
+        $("#playGameButton").text("CREATE NEW CHARACTER!");
+        $("#createCharacterButton").remove();
+        $("#createCharacterWarning").remove();
+        $("#playGameButton").on("click", function() {
+            $("#login").fadeOut(1500);
+            setTimeout(() => {
+                $("#charCreate").fadeIn(1500);
+            }, 1500);
+        });
+    }
+    else {
+        $.get("/api/load-game").then( (data) => {
+            // Destructure response object...
+            let  {playerGold, xPos, yPos, dragonXPos, dragonYPos, turnNum,
+                wellWasUsed, autoplay, sfxVolume, musicVolume,
+                playerStrength, playerDexterity, playerConstitution,
+                playerIntelligence, playerWisdom, playerCharisma,
+                playerLevel, playerHealth, enemyHealth, roomsCleared,
+                monstersSlain, bossesSlain, secretsFound, seenHellbat,
+                seenSkeleton, deathBy, lastScreen, newCharacter, gameVersion } = data;
+                if (newCharacter === "true") {
+                    console.log("NEW CHARACTER");
+                    $("#playGameButton").text("CREATE NEW CHARACTER!");
+                    $("#createCharacterButton").remove();
+                    $("#createCharacterWarning").remove();
+                }
+                else {
+                    $("#playGameButton").on("click", function() {
+                        $("#login").fadeOut(1500);
+                        setTimeout(() => {
+                            if (!playerGold || playerGold === "" || playerGold === null) {playerGold = 0}
+                                localStorage.setItem("playerGold", playerGold);
+                            if (!xPos || xPos === "" || xPos === null) {xPos = 0}
+                                localStorage.setItem("xPos", xPos);
+                            if (!yPos || yPos === "" || yPos === null) {yPos = 0}
+                                localStorage.setItem("yPos", yPos);
+                            if (!dragonXPos || dragonXPos === "") {dragonXPos = null}
+                                localStorage.setItem("dragonXPos", dragonXPos);
+                            if (!dragonYPos || dragonYPos === "") {dragonYPos = null}
+                                localStorage.setItem("dragonYPos", dragonYPos);
+                            if (!turnNum || turnNum === "" || turnNum === null) {turnNum = 0}
+                                localStorage.setItem("turnNum", turnNum);
+                            if (!wellWasUsed || wellWasUsed === "" || wellWasUsed === null) {wellWasUsed = "false"}
+                                localStorage.setItem("wellWasUsed", wellWasUsed);
+                            localStorage.setItem("autoplay", autoplay);
+                            localStorage.setItem("sfxVolume", sfxVolume);
+                            localStorage.setItem("musicVolume", musicVolume);
+                            localStorage.setItem("playerStrength", playerStrength);
+                            localStorage.setItem("playerDexterity", playerDexterity);
+                            localStorage.setItem("playerConstitution", playerConstitution);
+                            localStorage.setItem("playerIntelligence", playerIntelligence);
+                            localStorage.setItem("playerWisdom", playerWisdom);
+                            localStorage.setItem("playerCharisma", playerCharisma);
+                            localStorage.setItem("playerLevel", playerLevel);
+                            localStorage.setItem("currentPlayerHealth", playerHealth);
+                            localStorage.setItem("currentEnemyHp", enemyHealth);
+                            localStorage.setItem("roomsCleared", roomsCleared);
+                            localStorage.setItem("monstersSlain", monstersSlain);
+                            localStorage.setItem("bossesSlain", bossesSlain);
+                            localStorage.setItem("secretsFound", secretsFound);
+                            localStorage.setItem("seenHellbat", seenHellbat);
+                            localStorage.setItem("seenSkeleton", seenSkeleton);
+                            localStorage.setItem("deathBy", deathBy);
+                            localStorage.setItem("gameVersion", gameVersion);
+                            console.log("NAV TO LAST SCREEN");
+                            window.location.href = lastScreen;
+                        }, 1500);
+                    })
+                }
+        }).catch((err) => {
+            console.log("ERROR:");
+            // $("#emailInput").val();
+            // $("#passwordInput").val();
+            // $("#loginHeader").text("INCORRECT EMAIL/PASSWORD!")
+            console.log(err);
+        })   
+    }
 });
 
 $("#playerConfigWrapper").fadeIn(1500);

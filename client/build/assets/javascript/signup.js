@@ -25,21 +25,6 @@ $(document).ready(function () {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) && password !== "" && displayName !== "") {
             console.log("VALID EMAIL & PASSWORD!");
             $.post("/api/user", { username: email, password: password, displayName: displayName}).then((data) => {
-                if (!("Notification" in window)) {
-                    alert("This browser does not support desktop notification");
-                }
-                else if (Notification.permission === "granted") {
-                    // If it's okay let's create a notification
-                    var notification = new Notification(`Welcome ${displayName}!`);
-                }
-                else if (Notification.permission !== "denied") {
-                    Notification.requestPermission().then(function (permission) {
-                        // If the user accepts, let's create a notification
-                        if (permission === "granted") {
-                            var notification = new Notification(`Welcome ${displayName}!`);
-                        }
-                    });
-                }
                 $("#loginHeader").text("YOUR ACCOUNT HAS BEEN CREATED!");
                 $("#loginSubheader").text("");
                 console.log(data);
