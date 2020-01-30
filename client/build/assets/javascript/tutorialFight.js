@@ -50,11 +50,7 @@ let turnNum = 2;
 
 localStorage.setItem("lastScreen", "tutorialFight.html");
 
-var currentPlayerHealth = localStorage.getItem("currentPlayerHealth");
-if (currentPlayerHealth === null) {
-    currentPlayerHealth = 100;
-    localStorage.setItem("currentPlayerHealth", currentPlayerHealth);
-}
+var currentPlayerHealth = 100;
 $("#currentPlayerHealth").text(currentPlayerHealth);
 $("#healthPoints").attr("style", "width: " + currentPlayerHealth + "%;");
 var maxPlayerHealth = 100;
