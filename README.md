@@ -135,6 +135,41 @@ npm start
 <h1 align="center">CHANGELOG:</h1>
 
 <hr>
+<h3>V1.5-alpha  (01/31/2020):</h3>
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp; <b><u>The Presentation was a BIG SUCCESS!</u></b>
+    <br>
+    Yesterday was demo day where all of the Penn LPS students got to show off their final projects. We had a great turnout of industry professionals
+    and past program grads alike. There was quite literally never a dull moment as the JSRPG table was constantly packed with curious visitors! Everybody
+    seemed to LOVE the game which was honestly surreal. Five months ago, I set out on a journey to make something interactive...
+    something that people could actually get their hands on and experience for themselves... Something quirky and artsy and fun...
+    It all came full circle. I'd like to thank everyone who stopped by to enjoy JSRPG; All of your kind words and great questions made me feel so humble
+    and overjoyed. Without a doubt I will continue to develop this game with the same energy and dedication as I started all those months ago.
+    <ul>
+        <li><b>ADDED MAKING OF VIDEOS:</b></li>
+        &nbsp;&nbsp;If you want to get a look at how the game was created, I've put together a few "tutorial" style walkthroughs that you can find on the
+        website. The first one goes into the process of creating the art and turing it into text! The second is a deep dive into the code that makes the
+        art come to life. You can find them by clicking MORE in the navigation menu and choosing either DESIGN or CODE.
+        <li><b>SAVING THE GAME:</b></li>
+    </ul>
+    Again, I'd just like to thank everyone, especially my family for encouraging me to do this program. It has literally been a life changing experience
+    and I have so many great ideas for new things to create. I hope you stick with me and follow the development of JSRPG.
+</p>
+    <pre>
+      ____   
+     /___/\_
+    _\   \/_/\__
+  __\       \/_/\            <b><u>BUG FIXES (V1.5-alpha):</u></b>
+  \   __    __ \ \              
+ __\  \_\   \_\ \ \   __        <i>  Fixed a bug where new users couldn't click</i> 
+/_/\\   __   __  \ \_/_/\       <i>the create new character button after they</i>
+\_\/_\__\/\__\/\__\/_\_\/       <i>created a new account.</i>
+   \_\/_/\       /_\_\/         
+      \_\/       \_\/
+</pre>
+<p>
+
+<hr>
 <h3>V1.4-alpha  (01/18/2020):</h3>
 <p>
     &nbsp;&nbsp;&nbsp;&nbsp; <b><u>Back-end API and MongoDB integration nearly complete. </u></b>
