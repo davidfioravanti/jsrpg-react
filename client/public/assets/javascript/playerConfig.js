@@ -36,6 +36,12 @@ $(document).ready(function () {
                     $("#playGameButton").text("CREATE NEW CHARACTER!");
                     $("#createCharacterButton").remove();
                     $("#createCharacterWarning").remove();
+                    $("#playGameButton").on("click", function() {
+                        $("#login").fadeOut(1500);
+                        setTimeout(() => {
+                            $("#charCreate").fadeIn(1500);
+                        }, 1500);
+                    });
                 }
                 else {
                     $("#playGameButton").on("click", function() {
