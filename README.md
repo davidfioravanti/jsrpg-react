@@ -29,7 +29,7 @@ Do you miss that Zork-esque old school text adventure asthetic?
     are definitely images, you said this was a
     text-only game". Nope, no images. All of the game graphics are done using ASCII characters,with nothing more than good ol' html, css, and some clever javascript! All of these animations are hand drawn and converted into ASCII art by an image-to-text algorithm (<a href="https://www.text-image.com/convert/ascii.html">thanks to text-image.com</a>). Not only does it give a modern game an older sheen, but it also makes the total file size MUCH lighter.
 </p>
-<img align="center" src="./resources/images/demo.png">
+<img align="center" src="./resources/images/preview.png">
 <br><br>
 <h2 align="center">FEATURES:</h2>
     <dl align="center"> 
