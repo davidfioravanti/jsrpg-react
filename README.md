@@ -5,6 +5,8 @@
 <h2 align="center">
     A fully-featured browser-based ASCII Art RPG!
 </h2>
+<img align="center" src="./resources/images/cover.png">
+<br><br>
 <h3 align="center"><a href="https://gainstrive-jsrpg.herokuapp.com/">Click here to check out JSRPG!</a></h3>
 <p align="center">Do you love turn based RPGs like Final Fantasy, Darkest Dungeon, and Fallout?
 <br><br>
@@ -12,7 +14,6 @@ Do you miss that Zork-esque old school text adventure asthetic?
 </p>
 
 <h3 align="center">LOOK NO FURTHER!</h3>
-
 <p>
     &nbsp;&nbsp;&nbsp;&nbsp;
     JavaScript-RPG is a throwback to classics like those mentioned above. It draws inspiration from text-adventures and modern role playing games alike. Fallout fans
@@ -28,7 +29,8 @@ Do you miss that Zork-esque old school text adventure asthetic?
     are definitely images, you said this was a
     text-only game". Nope, no images. All of the game graphics are done using ASCII characters,with nothing more than good ol' html, css, and some clever javascript! All of these animations are hand drawn and converted into ASCII art by an image-to-text algorithm (<a href="https://www.text-image.com/convert/ascii.html">thanks to text-image.com</a>). Not only does it give a modern game an older sheen, but it also makes the total file size MUCH lighter.
 </p>
-
+<img align="center" src="./resources/images/demo.png">
+<br><br>
 <h2 align="center">FEATURES:</h2>
     <dl align="center"> 
     <dt>Swing sharp swords and cast magnificent magic at enemies both large and small!</dt>
